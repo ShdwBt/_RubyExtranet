@@ -23,3 +23,11 @@ http://forum.webrankinfo.com/mysql-dupliquer-une-enregistrement-t137846.html
 http://www.concretepage.com/spring-4/spring-4-mvc-thymeleaf-annotation-integration-tutorial-with-internationalization-example-using-springtemplateengine-and-thymeleafviewresolver
 
 http://kielczewski.eu/2014/12/spring-boot-security-application/
+
+http://websystique.com/spring-security/spring-security-4-hibernate-annotation-example/
+
+https://github.com/bkielczewski/example-spring-boot-security
+
+http://frameworkonly.com/spring-boot-crud-tutorial-thymeleaf-spring-data-jpa-hikaricp/
+
+https://github.com/netgloo/spring-boot-samples/tree/master/spring-boot-mysql-springdatajpa-hibernate/src/main
