@@ -2,6 +2,8 @@ package com.rubyExtranet.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -27,6 +29,13 @@ public class User {
  
     @Column(name="EMAIL", nullable=false)
     private String email;
+    
+    @Column(name="STATE", nullable=false)
+    private String state=State.ACTIVE.getState();
+    
+    @Column(name="ROLE", nullable=false) 
+    @Enumerated(EnumType.STRING)
+    private Role role;
 
 	public int getId() {
 		return id;
