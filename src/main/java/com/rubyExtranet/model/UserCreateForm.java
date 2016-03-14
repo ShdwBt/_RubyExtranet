@@ -45,8 +45,7 @@ public class UserCreateForm {
 		this.passwordRepeated = passwordRepeated;
 	}
 
-	public Role getRole(Role role) {
-		Role.values();
+	public Role getRole() {
 		return role;
 	}
 
@@ -54,8 +53,7 @@ public class UserCreateForm {
 		this.role = role;
 	}
 
-	public State getState(State state) {
-		State.values();
+	public State getState() {
 		return state;
 	}
 
