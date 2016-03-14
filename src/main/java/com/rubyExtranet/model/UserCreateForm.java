@@ -16,6 +16,7 @@ public class UserCreateForm {
 
     @NotNull
     private Role role = Role.USER;
+    //private Role role;
     
     @NotNull
     private State state = State.ACTIVE;
@@ -44,7 +45,8 @@ public class UserCreateForm {
 		this.passwordRepeated = passwordRepeated;
 	}
 
-	public Role getRole() {
+	public Role getRole(Role role) {
+		Role.values();
 		return role;
 	}
 
@@ -52,7 +54,8 @@ public class UserCreateForm {
 		this.role = role;
 	}
 
-	public State getState() {
+	public State getState(State state) {
+		State.values();
 		return state;
 	}
 
