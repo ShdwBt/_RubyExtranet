@@ -5,11 +5,13 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
+import org.springframework.stereotype.Service;
 
 import com.rubyExtranet.model.User;
 import com.rubyExtranet.model.UserCreateForm;
 import com.rubyExtranet.repository.UserRepository;
 
+@Service
 public class UserServiceImpl implements UserService {
 
 	 private final UserRepository userRepository;

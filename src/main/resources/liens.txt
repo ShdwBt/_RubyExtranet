@@ -31,3 +31,6 @@ https://github.com/bkielczewski/example-spring-boot-security
 http://frameworkonly.com/spring-boot-crud-tutorial-thymeleaf-spring-data-jpa-hikaricp/
 
 https://github.com/netgloo/spring-boot-samples/tree/master/spring-boot-mysql-springdatajpa-hibernate/src/main
+
+jsp et thyme :
+	http://spring.io/blog/2012/10/30/spring-mvc-from-jsp-and-tiles-to-thymeleaf/

@@ -9,4 +9,10 @@ public class UserController {
 	public String User(){
 		return "user";
 	}
+	
+	@RequestMapping("/user/create")
+	public String getUserCreatePage(){
+		return "userCreate";
+	}
+	
 }
