@@ -23,14 +23,12 @@ public class UserServiceImpl implements UserService {
 	
 	@Override
 	public Optional<User> getUserById(long id) {
-		// TODO Auto-generated method stub
-		return null;
+		return Optional.ofNullable(userRepository.findOne(id));
 	}
 
 	@Override
 	public Optional<User> getUserByEmail(String email) {
-		// TODO Auto-generated method stub
-		return null;
+		return userRepository.findOneByEmail(email);
 	}
 
 	@Override
@@ -41,10 +39,17 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public User create(UserCreateForm form) {
 		User user = new User();
+		// add of id for dupplicate id prob
+		
+		//user.setId(1); erase the record 
+		
+		user.setFirstName(form.getFirstName());
+		user.setLastName(form.getLastName());
         user.setEmail(form.getEmail());
         //user.setPasswordHash(new BCryptPasswordEncoder().encode(form.getPassword()));
         user.setPassword(form.getPassword());
         user.setRole(form.getRole());
+        // ssoId become an int, auto incremented user.setSsoId("1");
         return userRepository.save(user);
 	}
 

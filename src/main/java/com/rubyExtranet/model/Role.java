@@ -7,7 +7,7 @@ public enum Role {
 	
 	/* USER, DBA, ADMIN  without nothing after*/
 	 
-	String role;
+	private String role;
     
 	private Role(String role){
 	    this.role = role;

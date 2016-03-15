@@ -9,13 +9,15 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+
 @Entity
 @Table (name = "User")
 public class User {
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column (name = "id", updatable = false)
     private int id;
- 
-    @Column(name="SSO_ID", unique=true, nullable=false)
+	
+    @Column(name="SSO_ID", unique=true, nullable=true)
     private String ssoId;
      
     @Column(name="PASSWORD", nullable=false)
@@ -98,4 +100,12 @@ public class User {
 	public void setRole(Role role) {
 		this.role = role;
 	}
+
+//	public String getState() {
+//		return state;
+//	}
+//
+//	public void setState(String state) {
+//		this.state = state;
+//	}
 }
