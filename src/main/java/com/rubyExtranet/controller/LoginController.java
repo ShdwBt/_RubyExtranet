@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -38,7 +39,12 @@ public class LoginController {
     }
 	
 	@RequestMapping(value = "/loginDesign", method = RequestMethod.POST)
-    public String handleLoginDesignPage() {
-		return "greeting";
+    public ModelAndView handleLoginDesignPage(ModelAndView model) {
+		model.setViewName("redirect:/connect");
+		return model;
+    }
+	@RequestMapping(value = "/connect", method = RequestMethod.GET)
+    public String handleConnect() {
+		return "connect";
     }
 }
