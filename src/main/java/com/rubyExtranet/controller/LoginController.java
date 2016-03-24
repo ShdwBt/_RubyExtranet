@@ -16,4 +16,29 @@ public class LoginController {
         model.setViewName("login");
 		return model;
     }
+	
+	
+//	@RequestMapping(value = "/login", method = RequestMethod.POST)
+//    public String handleLoginPage(@RequestParam String email, ModelAndView model) {
+//        model.addObject("name", email);
+//        model.setViewName("greeting");
+//		return "redirect:/greeting";
+//    }
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
+    public String handleLoginPage() {
+		return "greeting";
+    }
+	
+	@RequestMapping(value = "/loginDesign", method = RequestMethod.GET)
+    public ModelAndView getLoginDesignPage(@RequestParam Optional<String> error, ModelAndView model) {
+        model.addObject("error", error);
+        System.out.println("1.2.3.");
+        model.setViewName("loginDesign");
+		return model;
+    }
+	
+	@RequestMapping(value = "/loginDesign", method = RequestMethod.POST)
+    public String handleLoginDesignPage() {
+		return "greeting";
+    }
 }
