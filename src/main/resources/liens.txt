@@ -41,3 +41,12 @@ Enum :
 http://blog.florentlim.com/listing-enum-on-select-element-using-thymeleaf/
 
 http://stackoverflow.com/questions/29515366/how-to-display-all-possible-enum-values-in-a-dropdown-list-using-spring-and-thym
+
+
+https://prezi.com/mbqtxenlpsio/spring-security-otp-plugin-for-grails/
+
+https://github.com/upcrob/spring-security-otp
+
+Convert Maven project to Gradle project :
+
+http://www.vogella.com/tutorials/Gradle/article.html
