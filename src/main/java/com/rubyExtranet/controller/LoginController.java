@@ -26,8 +26,9 @@ public class LoginController {
 //		return "redirect:/greeting";
 //    }
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String handleLoginPage() {
-		return "greeting";
+    public ModelAndView handleLoginPage(ModelAndView model) {
+		model.setViewName("redirect:/connect");
+		return model;
     }
 	
 	@RequestMapping(value = "/loginDesign", method = RequestMethod.GET)
