@@ -1,12 +1,20 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
-<head> 
-    <title>Home</title> 
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link rel="stylesheet" th:href="@{/webjars/bootstrap/3.3.4/css/bootstrap.min.css}" />
-    <script th:src="@{/webjars/jquery/2.1.4/jquery.min.js}"></script>
-</head>
-<body>
-    Welcome to Dev site via home.html
-</body>
+	<head> 
+	
+		<div th:include="/fragments/style"/>
+		<title>Home</title>
+		
+	</head>
+	<body>
+		<nav role="navigation">
+		    <ul>
+		        <li><a href="/">Home</a></li>
+		        <li><a href="/loginDesign">Sign In</a></li>
+		    </ul>
+		</nav>
+		<!-- <div th:include="/fragments/header">...</div> -->
+	
+	    Welcome to Dev site via home.html
+	</body>
 </html>

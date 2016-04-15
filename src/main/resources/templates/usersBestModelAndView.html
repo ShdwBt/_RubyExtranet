@@ -1,18 +1,19 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
-	<head> 
-	    <title>List of Users</title> 
-	    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	    <link rel="stylesheet" th:href="@{/webjars/bootstrap/3.3.4/css/bootstrap.min.css}" />
-	    <script th:src="@{/webjars/jquery/2.1.4/jquery.min.js}"></script>
+	<head>
+	
+		<div th:include="/fragments/style"/>
+		<title>Users List</title>
+		
 	</head>
+	
 	<body>
-	<nav role="navigation">
-	    <ul>
-	        <li><a href="/">Home</a></li>
-	        <li><a href="/user/createWithModel">Create a new user</a></li>
-	    </ul>
-	</nav>
+		<nav role="navigation">
+		    <ul>
+		        <li><a href="/">Home</a></li>
+		        <li><a href="/user/createWithForm">Create a new user</a></li>
+		    </ul>
+		</nav>
 	
 		<h3>List of Users</h3>
 	

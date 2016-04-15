@@ -47,6 +47,13 @@ https://prezi.com/mbqtxenlpsio/spring-security-otp-plugin-for-grails/
 
 https://github.com/upcrob/spring-security-otp
 
+http://blog.codeleak.pl/
+
 Convert Maven project to Gradle project :
 
 http://www.vogella.com/tutorials/Gradle/article.html
+
+Design : 
+
+http://codepen.io/designcouch/pen/Atyop
+https://www.grafikart.fr/tutoriels/html-css/menu-hamburger-responsive-512

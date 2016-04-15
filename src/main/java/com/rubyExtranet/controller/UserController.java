@@ -45,7 +45,7 @@ public class UserController {
 		return "userCreateSimple";
 	}
 	
-	@RequestMapping(value="/user/createWithForm", method = RequestMethod.GET)
+	@RequestMapping(value="/userCreateWithForm", method = RequestMethod.GET)
 	public ModelAndView getUserCreateWithFormPage(ModelAndView model){
 		UserCreateForm userCreateForm = new UserCreateForm();
 		model.addObject("form", userCreateForm);
@@ -55,7 +55,7 @@ public class UserController {
 		return model;
 	}
 	
-	@RequestMapping(value="/user/createWithForm", method = RequestMethod.POST)
+	@RequestMapping(value="/userCreateWithForm", method = RequestMethod.POST)
 	public String handleUserCreateForm(@Valid @ModelAttribute("form") UserCreateForm form, BindingResult bindingResult){
 		if (bindingResult.hasErrors()) {
             return "userCreateWithForm";
