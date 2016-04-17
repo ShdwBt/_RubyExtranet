@@ -14,11 +14,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
             .authorizeRequests()
-                .antMatchers("/", "/home", "/main/webapp/**").permitAll()
+                .antMatchers("/", "/home", "/src/main/webapp/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
             .formLogin()
-                .loginPage("/login")
+                .loginPage("/loginDesign")
                 .permitAll()
                 .and()
             .logout()
@@ -29,6 +29,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth
             .inMemoryAuthentication()
-                .withUser("ash@sh").password("sh").roles("ADMIN");
+                .withUser("ash@sh").password("ash").roles("ADMIN");
     }
 }

@@ -3,7 +3,7 @@
 
 	<head>
 	
-	    <div th:include="/fragments/style"/>
+	    <div th:include="@{/main/webapp/WEB-INF/fragments/otherStyle}"/>
 	    <title>Login</title>
 	    
 	</head>
@@ -28,6 +28,8 @@
 		                <span class="material-input"></span>
 		            </div>
 		            
+		            <div class="vide"></div>
+		            
 		            <div class="form-group label-floating is-empty">
 		                <label for="i5" class="control-label italic-grey">
 		                	Votre mot de passe 
@@ -37,10 +39,10 @@
 		                <span class="material-input"></span>
 		            </div>
 		            
-		            <div><label> Remember me <input type="checkbox" name="remember-me" id="remember-me"/></label></div>
+<!-- 		            <div><label> Remember me <input type="checkbox" name="remember-me" id="remember-me"/></label></div> -->
 		            
 		            <div class="call-to-submit col-xs-12 col-sm-6 col-md-6 col-lg-6">
-		                <input type="submit" value="Sign In"/>
+		                <input type="submit" class="btnflatwhiteoutlined" value="Sign In"/>
 		            </div>
 		            <div class="mdp-forgot col-xs-12 col-sm-6 col-md-6 col-lg-6">
 		                <a href="" class="italic-link">Mot de passe oublié?</a>
