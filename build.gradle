@@ -34,7 +34,16 @@ dependencies {
     
     compile('org.springframework.boot:spring-boot-starter-data-jpa')
     
-    compile("org.springframework.boot:spring-boot-starter-security")
+    //compile("org.springframework.boot:spring-boot-starter-security")
+    
+    //compile('org.springframework:spring-core')
+    compile('org.springframework:spring-web')
+    compile('org.springframework:spring-webmvc')
+    compile('org.springframework:spring-security-web')
+    compile('org.springframework:spring-jdbc')
+    compile('org.springframework:spring-security-config')
+    compile('org.springframework:spring-security-taglibs')
+    compile('jstl:jstl:1.2')
     
     runtime('mysql:mysql-connector-java')
     
