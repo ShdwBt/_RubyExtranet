@@ -1,4 +1,4 @@
-package com.rubyExtranet.config.springIO;
+//package com.rubyExtranet.config.springIO;
 //package com.rubyExtranet.config;
 //
 //import org.springframework.context.annotation.Configuration;

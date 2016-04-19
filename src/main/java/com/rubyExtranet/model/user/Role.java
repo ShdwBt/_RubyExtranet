@@ -1,4 +1,4 @@
-package com.rubyExtranet.model;
+package com.rubyExtranet.model.user;
 
 public enum Role {
 	USER("USER"),

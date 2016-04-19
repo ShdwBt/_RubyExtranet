@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.rubyExtranet.model.UserCreateForm;
-import com.rubyExtranet.model.UserCreateFormValidator;
+import com.rubyExtranet.model.user.UserCreateForm;
+import com.rubyExtranet.model.user.UserCreateFormValidator;
 import com.rubyExtranet.service.UserService;
 
 

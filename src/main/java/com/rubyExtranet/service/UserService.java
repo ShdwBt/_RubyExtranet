@@ -3,8 +3,8 @@ package com.rubyExtranet.service;
 import java.util.Collection;
 import java.util.Optional;
 
-import com.rubyExtranet.model.User;
-import com.rubyExtranet.model.UserCreateForm;
+import com.rubyExtranet.model.user.User;
+import com.rubyExtranet.model.user.UserCreateForm;
 
 public interface UserService {
 	//kielczewski class down here

@@ -1,4 +1,4 @@
-package com.rubyExtranet.model;
+package com.rubyExtranet.model.user;
 
 import javax.validation.constraints.NotNull;
 

@@ -2,19 +2,100 @@
 <html xmlns:th="http://www.thymeleaf.org">
 	<head> 
 	
-		<div th:include="/fragments/style"/>
+		<div th:include="/fragments/homeStyle"/>
 		<title>Home</title>
 		
 	</head>
 	<body>
-		<nav role="navigation">
-		    <ul>
-		        <li><a href="/">Home</a></li>
-		        <li><a href="/loginDesign">Sign In</a></li>
-		    </ul>
-		</nav>
-		<!-- <div th:include="/fragments/header">...</div> -->
+		<header>
+	        <nav class="container">
+	            <div class="logo-nav">
+					<img class="" src="../static/img" th:src="@{img/RubisLogoV2-FullColor.png}"/>
+	            </div>
+	            <div class="fat-nav">
 	
-	    Welcome to Dev site via home.html
+	                <div class="fat-nav__wrapper ">
+	                    <div class="logo-fatNav"><a href="index.html"></a>
+	                    	<img class="" src="../static/img" th:src="@{img/RubisLogoV2-WhiteV.png}"/>
+	
+	                    </div>
+	                    <div class="nav3col container-fixed">
+	                        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+	                            <ul>
+	                                <h2><a href="corporate.html" class="title-cat-menu">Corporate</a>
+	                               </h2>
+	                                <li><a href="brandbook.html" class="ss-cat-nav-link">Charte Graphique Print</a></li>
+	                                <li><a href="" class="ss-cat-nav-link">Charte Graphique Web</a></li>
+	                                <li><a href="/loginDesign" class="ss-cat-nav-link">Extranet</a></li>
+	                                <li><a href="" class="ss-cat-nav-link">Sous-cat</a></li>
+	                            </ul>
+	                        </div>
+	                        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+	                            <ul>
+	                                <h2><a href="#" class="title-cat-menu">Marketing</a>
+	                               </h2>
+	                                <li><a href="" class="ss-cat-nav-link">Sous-cat</a></li>
+	                                <li><a href="" class="ss-cat-nav-link">Sous-cat</a></li>
+	                                <li><a href="" class="ss-cat-nav-link">Sous-cat</a></li>
+	                                <li><a href="" class="ss-cat-nav-link">Sous-cat</a></li>
+	                            </ul>
+	
+	                        </div>
+	                        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+	                            <ul>
+	                                <h2><a href="#" class="title-cat-menu">Presse</a>
+	                               </h2>
+	                                <li><a href="" class="ss-cat-nav-link">Sous-cat</a></li>
+	                                <li><a href="" class="ss-cat-nav-link">Sous-cat</a></li>
+	                                <li><a href="" class="ss-cat-nav-link">Sous-cat</a></li>
+	                                <li><a href="" class="ss-cat-nav-link">Sous-cat</a></li>
+	                            </ul>
+	
+	                        </div>
+	
+	                    </div>
+	
+	                </div>
+	            </div>
+	
+	        </nav>
+	
+	    </header>
+	    <h1 class="hero-title">RUBIS BRAND <br><span class="lato-hairline">GUIDELINES</span></br></h1>
+	    <div id="homeslider">
+	        <h1 class="hero-title">RUBIS BRAND <br>GUIDELINES</br></h1>
+	        <div class="bx-wrapper">
+	
+	            <ul class="bxslider" style="">
+	                <li>
+	                    <a><img class="" src="../static/img" th:src="@{img/RubisCG_BgSkate_Red_1920x1280.jpg}"/></a>
+	                </li>
+	                <li>
+	                    <a><img class="" src="../static/img" th:src="@{img/RubisCG_BgSurf_Red_1920x1280.jpg}"/></a>
+	                </li>
+	            </ul>
+	
+	
+	        </div>
+	    </div>
+	
+	    <script src="js/jquery.bxslider.js" type="text/javascript">
+	    </script>
+	
+	    <script src="dist/jquery.fatNav.js"></script>
+	    <script>
+	        (function() {
+	
+	            $.fatNav();
+	
+	        }());
+	    </script>
+	    <script type="text/javascript">
+	        $(document).ready(function() {
+	            $('.bxslider').bxSlider({
+	                adaptiveHeight: true
+	            });
+	        });
+	    </script>
 	</body>
 </html>

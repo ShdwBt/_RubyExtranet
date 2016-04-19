@@ -2,15 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" 
 xmlns:th="http://www.thymeleaf.org" 
 xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
-	<head> 
-	
-		<div th:include="/fragments/generalStyle"/>
+
+	<head>
+		<div th:include="/fragments/style"/>
 		<title>Connected</title>
-		
 	</head>
+	
+
 	<body>
-		<header>
-	        <nav class="container">
+	    <header>
+			<nav class="container">
 	            <div class="logo-nav">
 					<img class="" src="../static/img" th:src="@{img/RubisLogoV2-FullColor.png}"/>
 	            </div>
@@ -29,7 +30,7 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 	                                <li><a href="brandbook.html" class="ss-cat-nav-link">Charte Graphique Print</a></li>
 	                                <li><a href="" class="ss-cat-nav-link">Charte Graphique Web</a></li>
 	                                <li><a href="/loginDesign" class="ss-cat-nav-link">Extranet</a></li>
-	                                <li><a href="/usersBestModelAndView" class="ss-cat-nav-link">Administration</a></li>
+	                                <li><a href="" class="ss-cat-nav-link">Sous-cat</a></li>
 	                            </ul>
 	                        </div>
 	                        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
@@ -52,19 +53,13 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 	                                <li><a href="" class="ss-cat-nav-link">Sous-cat</a></li>
 	                                <li><a href="" class="ss-cat-nav-link">Sous-cat</a></li>
 	                            </ul>
-	
 	                        </div>
-	
 	                    </div>
-	
 	                </div>
 	            </div>
-	
 	        </nav>
-	
-	    </header>
-	
-	    <script src="js/jquery.bxslider.js" type="text/javascript">
+		</header>
+		<script src="js/jquery.bxslider.js" type="text/javascript">
 	    </script>
 	
 	    <script src="dist/jquery.fatNav.js"></script>

@@ -1,4 +1,4 @@
-package com.rubyExtranet.model;
+package com.rubyExtranet.model.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.Errors;
