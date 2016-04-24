@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+	<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" 
 xmlns:th="http://www.thymeleaf.org" 
 xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
@@ -21,36 +21,38 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
   <div id="container">
 
     <h2>Subscribe to The Newsletter!</h2>
-    <th:if test="${not empty message}"><div class="message green">${message}</div></th:if>
-
-    <form modelAttribute="subscriber">
+<!--     <th:if test="${not empty message}"><div class="message green">${message}</div></th:if> -->
+	
+<!-- 	<label th:if = "${not #object.isEmpty(message)}"></label> -->
+	
+    <form role="form" name="form" action="" method="post">
       <label for="emailInput">Email: </label>
-      <input path="email" id="emailInput"/>
+      	<input type="email" name="email" id="email" 
+      			th:value="${form.email}" required="required" autofocus="autofocus"/>
       <br/>
 
       <label for="genderOptions">Gender: </label>
       <select path="gender" id="genderOptions">
         <option value="">Select Gender</option>
-        <option value="MALE">Male</option>
-        <option value="FEMALE">Female</option>
+        <option th:value="MALE">Male</option>
+        <option th:value="FEMALE">Female</option>
       </select>
       <br/>
 
-      <label for="newsletterCheckbox">Newsletter</label>
-      <form:checkbox path="receiveNewsletter" id="newsletterCheckbox" />
+     
       <br/>
-      <label for="frequencySelect">Freq:</label>
-      <select path="newsletterFrequency" id="frequencySelect">
-        <option value="">Select Newsletter Frequency: </option>
-        <c:forEach items="${frequencies}" var="frequency">
-          <option value="${frequency}">${frequency}</option>
-        </c:forEach>
-      </select>
+      <label for="frequencySelect">Frequency:</label>
+      <select name="roles">
+      	<option selected="selected"></option>
+      	<option th:each="frequency : ${T(com.rubyExtranet.model.subscriber.SubscriberFrequency).values()}" 
+      			th:value="${frequency}" 
+      			th:text="${frequency}" th:selected="null"/> 
+	  </select>
       <br/>
 
       <br/>
       <input type="submit" class="btnflatwhiteoutlined" value="Subscribe"/>
-    </form:form>
+    </form>
   </div>
 
   <script type="text/javascript">

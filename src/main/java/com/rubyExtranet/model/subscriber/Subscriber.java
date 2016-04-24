@@ -1,23 +1,31 @@
 package com.rubyExtranet.model.subscriber;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table (name = "subscriber")
 public class Subscriber {
 	
+	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column (name = "id", updatable = false)
+    private int id;
+	
+	@Column(name="EMAIL", nullable=false)
 	private String email;
+	
+	@Column(name="FREQUENCY", nullable=false)
+	@Enumerated(EnumType.STRING)
 	private Frequency newsletterFrequency;
-	private Gender gender;
-	private Boolean receiveNewsletter;
-
+	
 	public enum Frequency {
 		HOURLY, DAILY, WEEKLY, MONTHLY, ANNUALLY
-	}
-
-	public enum Gender {
-		MALE, FEMALE
 	}
 
 	public String getEmail() {
@@ -28,7 +36,7 @@ public class Subscriber {
 		this.email = email;
 	}
 
-	public Frequency getNewsletterFrequency() {
+	public Frequency getFrequency() {
 		return newsletterFrequency;
 	}
 
@@ -36,26 +44,6 @@ public class Subscriber {
 		this.newsletterFrequency = newsletterFrequency;
 	}
 
-	public Gender getGender() {
-		return gender;
-	}
 
-	public void setGender(Gender gender) {
-		this.gender = gender;
-	}
-
-	public Boolean getReceiveNewsletter() {
-		return receiveNewsletter;
-	}
-
-	public void setReceiveNewsletter(Boolean receiveNewsletter) {
-		this.receiveNewsletter = receiveNewsletter;
-	}
-
-	@Override
-	public String toString() {
-		return "Subscriber [email=" + email + ", newsletterFrequency=" + newsletterFrequency + ", gender=" + gender
-				+ ", receiveNewsletter=" + receiveNewsletter + "]";
-	}
 
 }
