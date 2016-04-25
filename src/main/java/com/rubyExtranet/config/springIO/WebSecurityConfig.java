@@ -34,6 +34,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .loginPage("/loginDesign")
                 .failureUrl("/loginDesign?error")
                 .usernameParameter("email")
+                .passwordParameter("password")
+                .loginProcessingUrl("/connect")
                 .permitAll()
                 .and()
             .logout()

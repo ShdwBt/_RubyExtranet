@@ -39,11 +39,18 @@ public class LoginController {
 		return model;
     }
 	
+//	@RequestMapping(value = "/loginDesign", method = RequestMethod.POST)
+//    public ModelAndView handleLoginDesignPage(ModelAndView model) {
+//		model.setViewName("connect");
+//		return model;
+//    }
+	
 	@RequestMapping(value = "/loginDesign", method = RequestMethod.POST)
-    public ModelAndView handleLoginDesignPage(ModelAndView model) {
+    public String handleLoginDesignPage(ModelAndView model) {
 		model.setViewName("connect");
-		return model;
+		return "redirect:/connect";
     }
+	
 	@RequestMapping(value = "/connect", method = RequestMethod.GET)
     public String handleConnect() {
 		return "connect";
