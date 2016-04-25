@@ -15,8 +15,8 @@ import org.springframework.web.servlet.ModelAndView;
 import com.rubyExtranet.model.subscriber.Subscriber;
 import com.rubyExtranet.model.subscriber.Subscriber.Frequency;
 import com.rubyExtranet.model.user.UserCreateForm;
-import com.rubyExtranet.service.SubscriberService;
-import com.rubyExtranet.service.UserService;
+import com.rubyExtranet.service.subscriber.SubscriberService;
+import com.rubyExtranet.service.user.UserService;
 import com.rubyExtranet.model.subscriber.SubscriberCreateForm;
 
 @Controller

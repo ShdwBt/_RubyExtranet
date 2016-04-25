@@ -1,4 +1,4 @@
-package com.rubyExtranet.service;
+package com.rubyExtranet.service.user;
 
 import java.util.Collection;
 import java.util.Optional;

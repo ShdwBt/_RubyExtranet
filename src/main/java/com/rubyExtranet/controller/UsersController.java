@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.ui.Model; // rajouté à la main !!! https://www.youtube.com/watch?v=kttfBthzIPI GURU tuto
 
-import com.rubyExtranet.service.UserService;
+import com.rubyExtranet.service.user.UserService;
 
 @Controller
 public class UsersController {

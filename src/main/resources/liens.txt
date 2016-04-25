@@ -57,3 +57,8 @@ Design :
 
 http://codepen.io/designcouch/pen/Atyop
 https://www.grafikart.fr/tutoriels/html-css/menu-hamburger-responsive-512
+
+
+NEWSLETTER :
+
+https://www.javacodegeeks.com/2013/04/spring-mvc-form-tutorial.html

@@ -8,7 +8,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.rubyExtranet.repository.SubscriberRepository;
-import com.rubyExtranet.service.SubscriberService;
+import com.rubyExtranet.service.subscriber.SubscriberService;
 
 @Service
 public class SubscriberServiceImpl implements SubscriberService{

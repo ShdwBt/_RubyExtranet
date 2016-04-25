@@ -1,21 +1,29 @@
 package com.rubyExtranet.config.springIO;
 
-import javax.sql.DataSource;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+
+
+//@Configuration
+//@EnableGlobalMethodSecurity(prePostEnabled = true)
+//@Order(SecurityProperties.ACCESS_OVERRIDE_ORDER)
 
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+
 	
 	@Autowired
-	DataSource dataSource;
-	
+    private UserDetailsService userDetailsService;
+
+
 	@Override
     protected void configure(HttpSecurity http) throws Exception {
         http
@@ -24,23 +32,28 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
             .formLogin()
                 .loginPage("/loginDesign")
+                .failureUrl("/loginDesign?error")
+                .usernameParameter("email")
                 .permitAll()
                 .and()
             .logout()
+            	.logoutUrl("/logout")
                 .permitAll();
     }
 
+	// Why Autowired ????????
 //    @Autowired
 //    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
 //        auth
 //            .inMemoryAuthentication()
-//                .withUser("ash@sh").password("ash").roles("ADMIN");
+//                .withUser("a@a").password("a").roles("USER");
+//        		
 //    }
-    @Autowired
-	public void configAuthentication(AuthenticationManagerBuilder auth) throws Exception {
-		
-		auth.jdbcAuthentication().dataSource(dataSource)
-			.usersByUsernameQuery("select email, password, state from user where email=?")
-			.authoritiesByUsernameQuery("select email, role from user where email=?");
+	
+
+    @Override
+	public void configure(AuthenticationManagerBuilder auth) throws Exception {
+    	//UserDetailsService userDetailsService = new UserDetailsService();
+		auth.userDetailsService(userDetailsService);
 	}	
 }

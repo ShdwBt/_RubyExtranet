@@ -15,7 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.rubyExtranet.model.user.UserCreateForm;
 import com.rubyExtranet.model.user.UserCreateFormValidator;
-import com.rubyExtranet.service.UserService;
+import com.rubyExtranet.service.user.UserService;
 
 
 @Controller

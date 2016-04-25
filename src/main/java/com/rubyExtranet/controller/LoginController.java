@@ -41,7 +41,7 @@ public class LoginController {
 	
 	@RequestMapping(value = "/loginDesign", method = RequestMethod.POST)
     public ModelAndView handleLoginDesignPage(ModelAndView model) {
-		model.setViewName("redirect:/connect");
+		model.setViewName("connect");
 		return model;
     }
 	@RequestMapping(value = "/connect", method = RequestMethod.GET)
