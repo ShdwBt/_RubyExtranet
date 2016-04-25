@@ -1,0 +1,82 @@
+	<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+xmlns:th="http://www.thymeleaf.org" 
+xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
+  <head>
+    <title>Sample Form</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <style>
+      body { background-color: #eee; font: helvetica; }
+      #container { width: 500px; background-color: #fff; margin: 30px auto; padding: 30px; border-radius: 5px; box-shadow: 5px; }
+      .green { font-weight: bold; color: green; }
+      .message { margin-bottom: 10px; }
+      label {width:70px; display:inline-block;}
+      form {line-height: 160%; }
+      .hide { display: none; }
+    </style>
+  </head>
+  <body>
+
+  <div id="container">
+
+    <h2>Subscribe to The Newsletter!</h2>
+<!--     <th:if test="${not empty message}"><div class="message green">${message}</div></th:if> -->
+	
+<!-- 	<label th:if = "${not #object.isEmpty(message)}"></label> -->
+	
+    <form role="form" name="form" action="" method="post">
+      <label for="emailInput">Email: </label>
+      	<input type="email" name="email" id="email" 
+      			th:value="${form.email}" required="required" autofocus="autofocus"/>
+      <br/>
+
+      <label for="genderOptions">Gender: </label>
+      <select path="gender" id="genderOptions">
+        <option value="">Select Gender</option>
+        <option th:value="MALE">Male</option>
+        <option th:value="FEMALE">Female</option>
+      </select>
+      <br/>
+
+     
+      <br/>
+      <label for="frequencySelect">Frequency:</label>
+      <select name="roles">
+      	<option selected="selected"></option>
+      	<option th:each="frequency : ${T(com.rubyExtranet.model.subscriber.SubscriberFrequency).values()}" 
+      			th:value="${frequency}" 
+      			th:text="${frequency}" th:selected="null"/> 
+	  </select>
+      <br/>
+
+      <br/>
+      <input type="submit" class="btnflatwhiteoutlined" value="Subscribe"/>
+    </form>
+  </div>
+
+  <script type="text/javascript">
+
+    $(document).ready(function() {
+
+      toggleFrequencySelectBox(); // show/hide box on page load
+
+      $('#newsletterCheckbox').change(function() {
+        toggleFrequencySelectBox();
+      })
+
+    });
+
+    function toggleFrequencySelectBox() {
+      if(!$('#newsletterCheckbox').is(':checked')) {
+        $('#frequencySelect').val('');
+        $('#frequencySelect').prop('disabled', true);
+      } else {
+        $('#frequencySelect').prop('disabled', false);
+      }
+    }
+
+  </script>
+
+  </body>
+</html>

@@ -62,3 +62,8 @@ https://www.grafikart.fr/tutoriels/html-css/menu-hamburger-responsive-512
 NEWSLETTER :
 
 https://www.javacodegeeks.com/2013/04/spring-mvc-form-tutorial.html
+
+
+CRUD :
+
+http://websystique.com/spring-security/spring-security-4-method-security-using-preauthorize-postauthorize-secured-el/

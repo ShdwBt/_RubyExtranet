@@ -14,6 +14,7 @@ public class CurrentUserDetailsService implements UserDetailsService {
 
     private final UserService userService;
 
+	// public CurrentUserDetailsService(UserService userService) {this.userService = userService;}
     @Autowired
     public CurrentUserDetailsService(UserService userService) {
         this.userService = userService;

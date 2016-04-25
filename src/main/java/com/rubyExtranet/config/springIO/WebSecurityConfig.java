@@ -10,15 +10,21 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
+import com.rubyExtranet.service.user.UserService;
 
-//@Configuration
-//@EnableGlobalMethodSecurity(prePostEnabled = true)
-//@Order(SecurityProperties.ACCESS_OVERRIDE_ORDER)
 
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
+	
+//	private final UserService userService;
+//	
+//    @Autowired
+//    public WebSecurityConfig(UserService userService) {
+//        this.userService = userService;
+//    }
+	
 	
 	@Autowired
     private UserDetailsService userDetailsService;
@@ -28,34 +34,28 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
             .authorizeRequests()
-                .antMatchers("/", "/home", "/src/main/webapp/**").permitAll()
-                .and()
+                .antMatchers("/", "/home", "/src/main/webapp/**")
+                	.permitAll()
+                .antMatchers("/","/resources/**")
+                	.permitAll()
+            .and()
             .formLogin()
                 .loginPage("/loginDesign")
                 .failureUrl("/loginDesign?error")
                 .usernameParameter("email")
                 .passwordParameter("password")
-                .loginProcessingUrl("/connect")
-                .permitAll()
+//                .loginProcessingUrl("/connect")
+//                .permitAll()
                 .and()
+                .csrf()
+                .disable()
             .logout()
             	.logoutUrl("/logout")
                 .permitAll();
     }
-
-	// Why Autowired ????????
-//    @Autowired
-//    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-//        auth
-//            .inMemoryAuthentication()
-//                .withUser("a@a").password("a").roles("USER");
-//        		
-//    }
 	
-
     @Override
 	public void configure(AuthenticationManagerBuilder auth) throws Exception {
-    	//UserDetailsService userDetailsService = new UserDetailsService();
 		auth.userDetailsService(userDetailsService);
 	}	
 }
