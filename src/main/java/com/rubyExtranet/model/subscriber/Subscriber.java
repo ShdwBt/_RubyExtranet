@@ -22,10 +22,18 @@ public class Subscriber {
 	
 	@Column(name="FREQUENCY", nullable=false)
 	@Enumerated(EnumType.STRING)
-	private Frequency newsletterFrequency;
+	private NewsletterFrequency newsletterFrequency;
 	
-	public enum Frequency {
-		HOURLY, DAILY, WEEKLY, MONTHLY, ANNUALLY
+//	public enum Frequency {
+//		HOURLY, DAILY, WEEKLY, MONTHLY, ANNUALLY
+//	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getEmail() {
@@ -36,12 +44,17 @@ public class Subscriber {
 		this.email = email;
 	}
 
-	public Frequency getFrequency() {
+	public NewsletterFrequency getNewsletterFrequency() {
 		return newsletterFrequency;
 	}
 
-	public void setNewsletterFrequency(Frequency newsletterFrequency) {
+	public void setNewsletterFrequency(NewsletterFrequency newsletterFrequency) {
 		this.newsletterFrequency = newsletterFrequency;
+	}
+
+	@Override
+	public String toString() {
+		return "Subscriber [id=" + id + ", email=" + email + ", newsletterFrequency=" + newsletterFrequency + "]";
 	}
 
 

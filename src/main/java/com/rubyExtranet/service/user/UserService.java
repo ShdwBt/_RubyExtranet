@@ -16,6 +16,10 @@ public interface UserService {
 
     User create(UserCreateForm form);
     
+	void updateUser(User user);
+	
+	void deleteUser(int id);
+    
     //Websystique class down here
     User findById(int id);
     

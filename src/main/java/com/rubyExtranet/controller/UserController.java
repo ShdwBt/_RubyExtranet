@@ -35,15 +35,6 @@ public class UserController {
 //        binder.addValidators(userCreateFormValidator);
 //    }
 	
-	@RequestMapping("/user")
-	public String User(){
-		return "user";
-	}
-	
-	@RequestMapping("/user/createSimple")
-	public String getUserCreatePage(){
-		return "userCreateSimple";
-	}
 	
 	@RequestMapping(value="/userCreateWithForm", method = RequestMethod.GET)
 	public ModelAndView getUserCreateWithFormPage(ModelAndView model){
@@ -56,7 +47,7 @@ public class UserController {
 	}
 	
 	@RequestMapping(value="/userCreateWithForm", method = RequestMethod.POST)
-	public String handleUserCreateForm(@Valid @ModelAttribute("form") UserCreateForm form, BindingResult bindingResult){
+	public String handleUserCreateForm(ModelAndView model,@Valid @ModelAttribute("form") UserCreateForm form, BindingResult bindingResult){
 		if (bindingResult.hasErrors()) {
             return "userCreateWithForm";
         }

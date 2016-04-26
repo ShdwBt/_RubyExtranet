@@ -7,11 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import com.rubyExtranet.model.user.Role;
 import com.rubyExtranet.model.user.User;
 import com.rubyExtranet.model.user.UserCreateForm;
 import com.rubyExtranet.repository.UserRepository;
 
 @Service
+//@Transactional ?? CRUD
 public class UserServiceImpl implements UserService {
 
 	 private final UserRepository userRepository;
@@ -39,16 +41,12 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public User create(UserCreateForm form) {
 		User user = new User();
-		// add of id for dupplicate id prob
-		
-		//user.setId(1); erase the record 
-		
 		user.setFirstName(form.getFirstName());
 		user.setLastName(form.getLastName());
         user.setEmail(form.getEmail());
         //user.setPasswordHash(new BCryptPasswordEncoder().encode(form.getPassword()));
         user.setPassword(form.getPassword());
-        user.setRole(form.getRole());
+        user.setRole((Role)form.getRole());
         // ssoId become an int, auto incremented user.setSsoId("1");
         return userRepository.save(user);
 	}
@@ -63,6 +61,28 @@ public class UserServiceImpl implements UserService {
 	public User findBySso(String sso) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public void updateUser(User user) {
+		System.out.println("Only an Admin can Update a User");
+		User u = findById(user.getId());
+		userRepository.delete(user);
+		u.setFirstName(user.getFirstName());
+		u.setLastName(user.getLastName());
+		userRepository.save(user);
+		
+	}
+
+	public void deleteUser(long id) {
+		Optional<User> u = getUserById(id);
+		userRepository.delete(id);
+	}
+
+	@Override
+	public void deleteUser(int id) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	

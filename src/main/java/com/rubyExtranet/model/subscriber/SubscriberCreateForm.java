@@ -1,8 +1,9 @@
 package com.rubyExtranet.model.subscriber;
 
+import javax.validation.constraints.NotNull;
+
 import org.hibernate.validator.constraints.NotEmpty;
 
-import com.rubyExtranet.model.subscriber.Subscriber.Frequency;
 
 public class SubscriberCreateForm {
 	@NotEmpty
@@ -11,8 +12,8 @@ public class SubscriberCreateForm {
 	@NotEmpty
     private String gender = "";
 	
-	@NotEmpty
-    private Frequency newsletterFrequency;
+	@NotNull
+    private NewsletterFrequency newsletterFrequency;
 
 	public String getEmail() {
 		return email;
@@ -30,11 +31,11 @@ public class SubscriberCreateForm {
 		this.gender = gender;
 	}
 
-	public Frequency getNewsletterFrequency() {
+	public NewsletterFrequency getNewsletterFrequency() {
 		return newsletterFrequency;
 	}
 
-	public void setNewsletterFrequency(Frequency newsletterFrequency) {
+	public void setNewsletterFrequency(NewsletterFrequency newsletterFrequency) {
 		this.newsletterFrequency = newsletterFrequency;
 	}
 }

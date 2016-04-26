@@ -19,7 +19,7 @@ public class UserCreateForm {
     private String lastName;
 
     @NotNull
-    private Role role = Role.USER;
+    private Role role;// = Role.USER;//getRole();
     //private Role role;
     
     @NotNull

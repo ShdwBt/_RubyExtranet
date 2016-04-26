@@ -1,4 +1,4 @@
-package com.rubyExtranet.model.subscriber;
+package com.rubyExtranet.service.subscriber;
 
 import java.util.Collection;
 import java.util.Optional;
@@ -7,8 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import com.rubyExtranet.model.subscriber.Subscriber;
+import com.rubyExtranet.model.subscriber.SubscriberCreateForm;
 import com.rubyExtranet.repository.SubscriberRepository;
-import com.rubyExtranet.service.subscriber.SubscriberService;
 
 @Service
 public class SubscriberServiceImpl implements SubscriberService{
