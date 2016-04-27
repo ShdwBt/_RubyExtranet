@@ -42,8 +42,9 @@
 			    	<th>Last Name</th>
 			        <th>E-mail</th>  
 			        <th>Role</th>
-			        <th>EDIT</th>
-			        <th>DELETE</th>
+			        <th>User Info</th>
+			        <th>Update User</th>
+			        <th>Delete User</th>
 			    </tr>
 			    </thead>
 			    <tbody>
@@ -66,10 +67,9 @@
 <!-- 				    	<td><a href="<c:url value='/edit-user-${user.id}' />">edit</a></td> -->
 <!-- 						<td><a href="<c:url value='/delete-user-${user.id}' />">delete</a></td> -->
 
-				    	<td><a href="/editUser">Edit0</a></td>
-				    	<td><a href="/editUser(id=${#conversions.convert(user.id,'String')})">Edit1</a></td>
-				    	<td><a href="/editUser(id=${user.id}})">Edit</a></td>
-						<td><a href="/deleteUser">Delete</a></td>
+				    	<td><a th:href="${'/user' + user.id}">User Info</a></td>
+				    	<td><a th:href="${'/userUpdate' + user.id}">Update</a></td>
+						<td><a th:href="${'/userDelete'+ user.id}">Delete</a></td>
 				    </tr>
 			    
 			    </tbody>

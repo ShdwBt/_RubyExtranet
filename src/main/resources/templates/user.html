@@ -1,10 +1,25 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
-<head> 
-    <title>Getting Started: Serving Web Content</title> 
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-</head>
-<body>
-    Hello user
-</body>
+	<head>
+	
+		<div th:include="/fragments/generalStyle"/>
+		<title>User</title>
+		
+	</head>
+	
+	<body>
+	<table>
+		<thead>
+		</thead>
+	</table>
+		User : <p th:text= "${user.firstName} +' '+ ${user.lastName}"> </p>
+		Id : <p class="form-control-static" th:text="${user.id}">User Id</p>
+		
+		First Name : <p class="form-control-static" th:text="${user.firstName}">User Id</p>
+		
+		Last Name : <p class="form-control-static" th:text="${user.lastName}">User Id</p>
+		
+		Email : <p class="form-control-static" th:text="${user.email}">User Id</p>
+	</body>
+	
 </html>

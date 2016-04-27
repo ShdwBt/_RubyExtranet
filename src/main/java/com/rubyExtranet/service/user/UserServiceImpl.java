@@ -16,7 +16,7 @@ import com.rubyExtranet.repository.UserRepository;
 //@Transactional ?? CRUD
 public class UserServiceImpl implements UserService {
 
-	 private final UserRepository userRepository;
+	private final UserRepository userRepository;
 	
 	@Autowired
     public UserServiceImpl(UserRepository userRepository) {
@@ -63,7 +63,7 @@ public class UserServiceImpl implements UserService {
 	public void updateUser(User user) {
 		System.out.println("Only an Admin can Update a User");
 		User u = findById(user.getId());
-		userRepository.delete(user);
+		userRepository.delete(u);
 		u.setFirstName(user.getFirstName());
 		u.setLastName(user.getLastName());
 		userRepository.save(user);
@@ -77,7 +77,7 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public void deleteUser(int id) {
-		// TODO Auto-generated method stub
+		userRepository.delete((long)id);
 		
 	}
 

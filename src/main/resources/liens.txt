@@ -69,3 +69,6 @@ CRUD :
 https://springframework.guru/spring-boot-web-application-part-4-spring-mvc/
 
 http://websystique.com/spring-security/spring-security-4-method-security-using-preauthorize-postauthorize-secured-el/
+
+Thymeleaf plugins :
+http://www.thymeleaf.org/ecosystem.html
