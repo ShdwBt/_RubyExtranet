@@ -15,7 +15,7 @@ import javax.persistence.Table;
 public class User {
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column (name = "id", updatable = false)
-    private int id;
+    private long id;
 	
     @Column(name="SSO_ID", unique=true, nullable=true)
     private String ssoId;
@@ -39,11 +39,11 @@ public class User {
     @Enumerated(EnumType.STRING)
     private Role role;
 
-	public int getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 

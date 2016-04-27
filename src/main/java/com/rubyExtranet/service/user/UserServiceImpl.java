@@ -51,11 +51,7 @@ public class UserServiceImpl implements UserService {
         return userRepository.save(user);
 	}
 
-	@Override
-	public User findById(int id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+
 
 	@Override
 	public User findBySso(String sso) {
@@ -83,6 +79,12 @@ public class UserServiceImpl implements UserService {
 	public void deleteUser(int id) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public User findById(long id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	

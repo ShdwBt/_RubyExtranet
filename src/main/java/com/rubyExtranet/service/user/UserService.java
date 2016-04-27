@@ -21,7 +21,7 @@ public interface UserService {
 	void deleteUser(int id);
     
     //Websystique class down here
-    User findById(int id);
+    User findById(long id);
     
     User findBySso(String sso);
 }

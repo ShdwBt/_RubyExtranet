@@ -66,4 +66,6 @@ https://www.javacodegeeks.com/2013/04/spring-mvc-form-tutorial.html
 
 CRUD :
 
+https://springframework.guru/spring-boot-web-application-part-4-spring-mvc/
+
 http://websystique.com/spring-security/spring-security-4-method-security-using-preauthorize-postauthorize-secured-el/
