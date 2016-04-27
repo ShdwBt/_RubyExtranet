@@ -62,11 +62,11 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public void updateUser(User user) {
 		System.out.println("Only an Admin can Update a User");
-		User u = findById(user.getId());
-		userRepository.delete(u);
-		u.setFirstName(user.getFirstName());
-		u.setLastName(user.getLastName());
-		userRepository.save(user);
+		User userUpdated = findById(user.getId());
+		//userRepository.delete(u);
+		userUpdated.setFirstName(user.getFirstName());
+		userUpdated.setLastName(user.getLastName());
+		userRepository.save(userUpdated);
 		
 	}
 
