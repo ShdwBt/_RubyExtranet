@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import com.rubyExtranet.model.user.Role;
 import com.rubyExtranet.model.user.User;
 import com.rubyExtranet.model.user.UserCreateForm;
+import com.rubyExtranet.model.user.UserUpdateForm;
 import com.rubyExtranet.repository.UserRepository;
 
 @Service
@@ -37,6 +38,8 @@ public class UserServiceImpl implements UserService {
 	public Collection<User> getAllUsers() {
 		return userRepository.findAll(new Sort("email"));
 	}
+	
+	
 
 	@Override
 	public User create(UserCreateForm form) {
@@ -51,23 +54,37 @@ public class UserServiceImpl implements UserService {
         return userRepository.save(user);
 	}
 
-
+	@Override
+	public User updateUser(UserUpdateForm form) {
+		System.out.println("Updating a User");
+		User userUpdated = new User();
+		userUpdated = findById(form.getId());
+		//userRepository.delete(u);
+		userUpdated.setFirstName(form.getFirstName());
+		userUpdated.setLastName(form.getLastName());
+		userUpdated.setEmail(form.getEmail());
+		userUpdated.setPassword(form.getPassword());
+		return userRepository.save(userUpdated);
+	}
+	
 
 	@Override
-	public User findBySso(String sso) {
-		// TODO Auto-generated method stub
-		return null;
+	public void updateUserv3(String firstname, String lastname, String email, long id, User user) {
+		firstname = user.getFirstName();
+		lastname = user.getLastName();
+		email = user.getEmail();
+		id = user.getId();
+//		User userUpdated = new User();
+//		userUpdated.setFirstName(user.getFirstName());
+//		userUpdated.setLastName(user.getLastName());
+//		userUpdated.setEmail(user.getEmail());
+//		userRepository.save(userUpdated);
 	}
 
 	@Override
-	public void updateUser(User user) {
-		System.out.println("Only an Admin can Update a User");
-		User userUpdated = findById(user.getId());
-		//userRepository.delete(u);
-		userUpdated.setFirstName(user.getFirstName());
-		userUpdated.setLastName(user.getLastName());
-		userRepository.save(userUpdated);
-		
+	public User updateUserv2(User user) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	public void deleteUser(long id) {
@@ -81,12 +98,18 @@ public class UserServiceImpl implements UserService {
 		
 	}
 
+	
+	
 	@Override
 	public User findById(long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 	
-	
+	@Override
+	public User findBySso(String sso) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }

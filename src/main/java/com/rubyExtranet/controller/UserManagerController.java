@@ -14,6 +14,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.rubyExtranet.model.user.User;
 import com.rubyExtranet.model.user.UserCreateForm;
+import com.rubyExtranet.model.user.UserUpdateForm;
+import com.rubyExtranet.repository.UserRepository;
 import com.rubyExtranet.service.user.UserService;
 
 @Controller
@@ -23,9 +25,13 @@ public class UserManagerController {
 	UserService userService;
 	
 	@Autowired
-	public UserManagerController(UserService userService) {
+	UserRepository userRepository;
+	
+	@Autowired
+	public UserManagerController(UserService userService, UserRepository userRepository) {
 		super();
 		this.userService = userService;
+		this.userRepository = userRepository;
 	}
 	
 
@@ -80,39 +86,47 @@ public class UserManagerController {
 		return model;
 	}
 	
+//	@RequestMapping(value="/userUpdate{id}", method = RequestMethod.POST)
+//	public ModelAndView handleUserUpdatePage(ModelAndView model,  @PathVariable Integer id, 
+//			@Valid @ModelAttribute("form") UserUpdateForm form, BindingResult bindingResult, User user){
+////		if (bindingResult.hasErrors()) {
+////            return "userUpdate{id}";
+////        }
+////        try {
+////            userService.updateUser(form);
+////        } catch (DataIntegrityViolationException e) {
+////            bindingResult.reject("email.exists", "Email already exists");
+////            return "userCreate";
+////        }
+////        return "redirect:/usersList";        
+//		
+//		userService.updateUser(form);
+//		
+//		//userService.updateUserv3(form.getFirstName(), form.getLastName(), form.getEmail(),user.getId(), user);
+//		
+//		model.setViewName("redirect:/usersList");
+//		return model;
+//	}
+
 	@RequestMapping(value="/userUpdate{id}", method = RequestMethod.POST)
 	public ModelAndView handleUserUpdatePage(ModelAndView model,  @PathVariable Integer id, 
-			@Valid @ModelAttribute("form") UserCreateForm form, BindingResult bindingResult, User user){
-//		if (bindingResult.hasErrors()) {
-//            return "userUpdate{id}";
-//        }
-//        try {
-//            userService.updateUser(form);
-//        } catch (DataIntegrityViolationException e) {
-//            bindingResult.reject("email.exists", "Email already exists");
-//            return "userCreate";
-//        }
-//        return "redirect:/usersList";        
-		userService.updateUser(user);
-		model.setViewName("userUpdate");
+			@Valid @ModelAttribute("form") UserUpdateForm form, BindingResult bindingResult, User user){
+		System.out.println(1);
+		System.out.println(userService.getUserById(id).get().getPassword());
+		user.setPassword(userService.getUserById(id).get().getPassword());
+		user.setRole(userService.getUserById(id).get().getRole());
+		userRepository.save(user);
+		model.setViewName("redirect:/usersList");
 		return model;
 	}
 	
-	//@RequestMapping(value= "/userDelete", method = RequestMethod.GET)
-	//public ModelAndView getUserDeletePage(ModelAndView model){
-	@RequestMapping(value= "userDelete{id}")
+	@RequestMapping(value= "/userDelete{id}")
 	public ModelAndView getUserDeletePage(ModelAndView model, @PathVariable Integer id){
 		System.out.println(id);
 		userService.deleteUser(id);
 		model.setViewName("redirect:/usersList");
 		return model;
 	}
-	
-//	@RequestMapping(value= "/userDelete{id}", method = RequestMethod.POST)
-//	public ModelAndView handleUserDeletePage(ModelAndView model, @PathVariable Integer id){
-//		userService.deleteUser(id);
-//		model.setViewName("redirect:/usersList");
-//		return model;
-//	}
+
 	
 }

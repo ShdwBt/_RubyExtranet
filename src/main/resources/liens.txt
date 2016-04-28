@@ -75,3 +75,8 @@ http://www.thymeleaf.org/ecosystem.html
 
 Update Spring Data CrudRepository :
 http://stackoverflow.com/questions/11881479/how-do-i-update-an-entity-using-spring-data-jpa
+http://docs.spring.io/spring-data/jpa/docs/1.4.3.RELEASE/reference/html/jpa.repositories.html
+
+Transactionnal : 
+
+https://resourcepool.io/fr/2014/11/16/java-quickies-what-you-wish-you-knew-about-spring-transactional-annotation/
