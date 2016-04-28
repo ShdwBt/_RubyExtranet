@@ -23,18 +23,22 @@
 		        <label for="firstName">First Name</label>
 		        <input type="firstName" name="firstName" id="firstName" th:value="${form.firstName}" required="required" autofocus="autofocus"/>
 		    </div>
+		    
 		    <div>
 		        <label for="lastName">Last Name</label>
 		        <input type="lastName" name="lastName" id="lastName" th:value="${form.lastName}" required="required" autofocus="autofocus"/>
 		    </div>
+		    
 		    <div>
 		        <label for="email">Email address</label>
 		        <input type="email" name="email" id="email" th:value="${form.email}" required="required" autofocus="autofocus"/>
 		    </div>
+		    
 		    <div>
 		        <label for="password">Password</label>
 		        <input type="password" name="password" id="password" required ="required"/>
 		    </div>
+		    
 		    <div>
 		        <label for="passwordRepeated">Repeat</label>
 		        <input type="password" name="passwordRepeated" id="passwordRepeated" required="required"/>
@@ -42,13 +46,23 @@
 			<!-- The T allows us to use propagate variables (Role is this case) defined in the server. -->
 			<!-- "role : " and "state : " are important for parsing, not working without -->
 		    <div>
-		        <label for="role">Role</label>
-		        <select name="roles">
-		        	<option selected="selected"></option>
-		        	<option th:each="role : ${T(com.rubyExtranet.model.user.Role).values()}" th:value="${role}" 
-		        			th:text="${role}" th:selected="null"/> 
-		        </select>
+		        <!-- <label for="role">Role</label> -->
+<!-- 		        <select name="roles"> -->
+<!-- 		        	<option selected="selected"></option> -->
+<!-- 		        	<option th:each="role : ${T(com.rubyExtranet.model.user.Role).values()}" th:value="${role}"  -->
+<!-- 		        			th:text="${role}" th:selected="null"/>  -->
+<!-- 		        </select> -->
 		    </div>
+		    
+		    <div>
+		        <label for="role">Role</label>
+			    	<select name="role">
+				        <option selected="selected"></option>
+				        <option th:each="role : ${roles}" th:value="${role}" 
+			        			th:text="${role}" th:selected="null"/>
+			      	</select>
+		    </div>
+		    
 		    <div>
 		        <label for="state">State</label>
 		        <select name="states"> 
@@ -57,7 +71,8 @@
 		        			th:text="${state}"/>
 		        </select>
 		    </div>
-		    <button type="submit">Submit</button>
+		    
+<!-- 		    <button type="submit">Submit</button> -->
 		    <input type="submit" class="btnflatwhiteoutlined" value="Submit"/>
 <!-- 				<button type="submit" class="btnflatwhiteoutlined">Submit</button> -->
 		</form>

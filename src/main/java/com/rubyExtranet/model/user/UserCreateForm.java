@@ -18,9 +18,12 @@ public class UserCreateForm {
     
     private String lastName;
 
-    @NotNull
-    private Role role = Role.USER;// = Role.USER;//getRole();
+//    @NotNull
+//    private Role[] rolesList;// = Role.USER;//getRole();
     //private Role role;
+    
+    private String stringRole = "";
+    private Role role;
     
     @NotNull
     private State state = State.ACTIVE;
@@ -65,14 +68,24 @@ public class UserCreateForm {
 		this.lastName = lastName;
 	}
 
-	public Role getRole() {
+//	public Role[] getRolesList() {
+//		return rolesList;
+//	}
+	
+	public String getStringRole() {
+		return stringRole;
+	}
+
+	public void setStringRole(String stringRole) {
+		this.stringRole = stringRole;
+	}
+
+	public Role getRole(){
 		return role;
 	}
-
-	public void setRole(Role role) {
+	public void setRole(Role role){
 		this.role = role;
 	}
-
 	public State getState() {
 		return state;
 	}

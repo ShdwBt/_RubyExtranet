@@ -12,11 +12,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.rubyExtranet.model.user.Role;
+import com.rubyExtranet.model.user.State;
 import com.rubyExtranet.model.user.User;
 import com.rubyExtranet.model.user.UserCreateForm;
 import com.rubyExtranet.model.user.UserUpdateForm;
 import com.rubyExtranet.repository.UserRepository;
 import com.rubyExtranet.service.user.UserService;
+
 
 @Controller
 public class UserManagerController {
@@ -52,29 +55,42 @@ public class UserManagerController {
 	}
 	
 	
+//	@ModelAttribute("frequencies")
+//	public Role[] roles() {
+//		return Role.values();
+//	}
 	
 	@RequestMapping(value="/userCreate", method = RequestMethod.GET)
 	public ModelAndView getUserCreatePage(ModelAndView model){
 		UserCreateForm userCreateForm = new UserCreateForm();
 		model.addObject("form", userCreateForm);
-		model.addObject("role",userCreateForm.getRole());
+//		model.addObject("role", userCreateForm.setRole(Role.USER));
+		model.addObject("roles", Role.values());
 		model.addObject("state", userCreateForm.getState());
 		model.setViewName("userCreate");
 		return model;
 	}
 	
 	@RequestMapping(value="/userCreate", method = RequestMethod.POST)
-	public String handleUserCreateForm(ModelAndView model,@Valid @ModelAttribute("form") UserCreateForm form, BindingResult bindingResult){
+	public ModelAndView handleUserCreateForm(ModelAndView model, @Valid @ModelAttribute("form") UserCreateForm form, BindingResult bindingResult){
 		if (bindingResult.hasErrors()) {
-            return "userCreate";
+			System.out.println("ERREUR");
+//			UserCreateForm userCreateForm = new UserCreateForm();
+//			model.addObject("form", userCreateForm);
+//			model.addObject("roles", Role.values());
+//			model.addObject("state", State.values());
+			getUserCreatePage(model);
+            return model;
         }
         try {
             userService.create(form);
         } catch (DataIntegrityViolationException e) {
             bindingResult.reject("email.exists", "Email already exists");
-            return "userCreate";
+            model.setViewName("home");
+            return model;
         }
-        return "redirect:/usersList";
+        model.setViewName("redirect:/usersList");
+        return model;
 	}
 	
 	@RequestMapping(value="/userUpdate{id}", method = RequestMethod.GET)
@@ -111,8 +127,6 @@ public class UserManagerController {
 	@RequestMapping(value="/userUpdate{id}", method = RequestMethod.POST)
 	public ModelAndView handleUserUpdatePage(ModelAndView model,  @PathVariable Integer id, 
 			@Valid @ModelAttribute("form") UserUpdateForm form, BindingResult bindingResult, User user){
-		System.out.println(1);
-		System.out.println(userService.getUserById(id).get().getPassword());
 		user.setPassword(userService.getUserById(id).get().getPassword());
 		user.setRole(userService.getUserById(id).get().getRole());
 		userRepository.save(user);

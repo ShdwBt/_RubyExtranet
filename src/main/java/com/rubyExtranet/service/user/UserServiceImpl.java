@@ -49,7 +49,7 @@ public class UserServiceImpl implements UserService {
         user.setEmail(form.getEmail());
         //user.setPasswordHash(new BCryptPasswordEncoder().encode(form.getPassword()));
         user.setPassword(form.getPassword());
-        user.setRole((Role)form.getRole());
+        user.setRole(form.getRole());
         // ssoId become an int, auto incremented user.setSsoId("1");
         return userRepository.save(user);
 	}
