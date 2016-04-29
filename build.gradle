@@ -12,6 +12,10 @@ apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply plugin: 'spring-boot'
 
+//apply plugin: 'war'
+//archivesBaseName = 'rybyExtranet'
+// version '1.0-SNAPSHOT' with src/main/webapp
+
 jar {
     baseName = 'gs-serving-web-content'
     version =  '0.1.0'

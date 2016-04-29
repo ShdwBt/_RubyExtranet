@@ -64,9 +64,8 @@ public class UserManagerController {
 	public ModelAndView getUserCreatePage(ModelAndView model){
 		UserCreateForm userCreateForm = new UserCreateForm();
 		model.addObject("form", userCreateForm);
-//		model.addObject("role", userCreateForm.setRole(Role.USER));
 		model.addObject("roles", Role.values());
-		model.addObject("state", userCreateForm.getState());
+		model.addObject("state", State.values());
 		model.setViewName("userCreate");
 		return model;
 	}
@@ -95,9 +94,11 @@ public class UserManagerController {
 	
 	@RequestMapping(value="/userUpdate{id}", method = RequestMethod.GET)
 	public ModelAndView getUserUpdatePage(ModelAndView model, @PathVariable Integer id){
-		UserCreateForm userCreateForm = new UserCreateForm();
-		model.addObject("form", userCreateForm);
+		UserUpdateForm userUpdateForm = new UserUpdateForm();
+		model.addObject("form", userUpdateForm);
 		model.addObject("user" , userService.getUserById(id).get());
+		model.addObject("roles", Role.values());
+		model.addObject("states", State.values());
 		model.setViewName("userUpdate");
 		return model;
 	}
@@ -128,7 +129,8 @@ public class UserManagerController {
 	public ModelAndView handleUserUpdatePage(ModelAndView model,  @PathVariable Integer id, 
 			@Valid @ModelAttribute("form") UserUpdateForm form, BindingResult bindingResult, User user){
 		user.setPassword(userService.getUserById(id).get().getPassword());
-		user.setRole(userService.getUserById(id).get().getRole());
+		//user.setRole(userService.getUserById(id).get().getRole()); // if we remove the admin updating roles power
+		user.setRole(form.getRole());
 		userRepository.save(user);
 		model.setViewName("redirect:/usersList");
 		return model;

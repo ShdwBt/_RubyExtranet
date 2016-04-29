@@ -80,3 +80,10 @@ http://docs.spring.io/spring-data/jpa/docs/1.4.3.RELEASE/reference/html/jpa.repo
 Transactionnal : 
 
 https://resourcepool.io/fr/2014/11/16/java-quickies-what-you-wish-you-knew-about-spring-transactional-annotation/
+
+Have to seek gradle war : 
+
+http://www.concretepage.com/build-tools/gradle/java-project-gradle-eclipse-integration-example
+
+Configuring Gradle to produce a pom that inherits dependency management :
+https://docs.spring.io/spring-boot/docs/current/reference/html/build-tool-plugins-gradle-plugin.html  // 64.9.1 chapter 

@@ -23,6 +23,8 @@ public class UserCreateForm {
     //private Role role;
     
     private String stringRole = "";
+    
+    //@NotNull
     private Role role;
     
     @NotNull
@@ -83,9 +85,11 @@ public class UserCreateForm {
 	public Role getRole(){
 		return role;
 	}
+	
 	public void setRole(Role role){
 		this.role = role;
 	}
+	
 	public State getState() {
 		return state;
 	}

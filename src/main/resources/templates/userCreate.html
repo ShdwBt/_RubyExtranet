@@ -43,21 +43,11 @@
 		        <label for="passwordRepeated">Repeat</label>
 		        <input type="password" name="passwordRepeated" id="passwordRepeated" required="required"/>
 		    </div>
-			<!-- The T allows us to use propagate variables (Role is this case) defined in the server. -->
-			<!-- "role : " and "state : " are important for parsing, not working without -->
-		    <div>
-		        <!-- <label for="role">Role</label> -->
-<!-- 		        <select name="roles"> -->
-<!-- 		        	<option selected="selected"></option> -->
-<!-- 		        	<option th:each="role : ${T(com.rubyExtranet.model.user.Role).values()}" th:value="${role}"  -->
-<!-- 		        			th:text="${role}" th:selected="null"/>  -->
-<!-- 		        </select> -->
-		    </div>
 		    
 		    <div>
 		        <label for="role">Role</label>
 			    	<select name="role">
-				        <option selected="selected"></option>
+<!-- 		        	<option selected="selected"></option> --> <!-- selecting null option -->
 				        <option th:each="role : ${roles}" th:value="${role}" 
 			        			th:text="${role}" th:selected="null"/>
 			      	</select>
@@ -65,16 +55,14 @@
 		    
 		    <div>
 		        <label for="state">State</label>
-		        <select name="states"> 
-		        	<option selected="selected"></option>
-		        	<option th:each="state : ${T(com.rubyExtranet.model.user.State).values()}" th:value="${state}" 
-		        			th:text="${state}"/>
+		        <select name="state"> 
+<!-- 		        	<option selected="selected"></option> --> <!-- selecting null option -->
+		        	<option th:each="state : ${states}" th:value="${state}" 
+		        			th:text="${state}" th:selected="null"/>
 		        </select>
 		    </div>
 		    
-<!-- 		    <button type="submit">Submit</button> -->
 		    <input type="submit" class="btnflatwhiteoutlined" value="Submit"/>
-<!-- 				<button type="submit" class="btnflatwhiteoutlined">Submit</button> -->
 		</form>
 	
 	</body>

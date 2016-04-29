@@ -15,11 +15,12 @@ public class UserUpdateForm {
     @NotEmpty
     private String password = "";
 
-    
     private String firstName;
     
     private String lastName;
-
+    
+    //@NotNull
+    private Role role;
 
 	public Integer getId() {
 		return id;
@@ -59,6 +60,14 @@ public class UserUpdateForm {
 
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
+	}
+
+	public Role getRole() {
+		return role;
+	}
+
+	public void setRole(Role role) {
+		this.role = role;
 	}
 
 }
