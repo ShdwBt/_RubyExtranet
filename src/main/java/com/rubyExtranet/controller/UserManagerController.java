@@ -4,6 +4,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -55,17 +56,18 @@ public class UserManagerController {
 	}
 	
 	
-//	@ModelAttribute("frequencies")
+//	@ModelAttribute("roles")
 //	public Role[] roles() {
 //		return Role.values();
 //	}
 	
+	@PreAuthorize("hasAnyAuthority('ADMIN')")
 	@RequestMapping(value="/userCreate", method = RequestMethod.GET)
 	public ModelAndView getUserCreatePage(ModelAndView model){
 		UserCreateForm userCreateForm = new UserCreateForm();
 		model.addObject("form", userCreateForm);
 		model.addObject("roles", Role.values());
-		model.addObject("state", State.values());
+		model.addObject("states", State.values());
 		model.setViewName("userCreate");
 		return model;
 	}

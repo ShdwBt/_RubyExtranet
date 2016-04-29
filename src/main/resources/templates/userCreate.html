@@ -47,7 +47,7 @@
 		    <div>
 		        <label for="role">Role</label>
 			    	<select name="role">
-<!-- 		        	<option selected="selected"></option> --> <!-- selecting null option -->
+		        	<option selected="selected"></option>
 				        <option th:each="role : ${roles}" th:value="${role}" 
 			        			th:text="${role}" th:selected="null"/>
 			      	</select>
@@ -56,7 +56,7 @@
 		    <div>
 		        <label for="state">State</label>
 		        <select name="state"> 
-<!-- 		        	<option selected="selected"></option> --> <!-- selecting null option -->
+		        	<option selected="selected"></option>
 		        	<option th:each="state : ${states}" th:value="${state}" 
 		        			th:text="${state}" th:selected="null"/>
 		        </select>

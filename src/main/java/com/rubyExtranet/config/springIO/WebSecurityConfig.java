@@ -9,6 +9,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.web.csrf.CsrfTokenRepository;
 
 import com.rubyExtranet.service.user.UserService;
 
@@ -32,26 +33,49 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
     protected void configure(HttpSecurity http) throws Exception {
-        http
-            .authorizeRequests()
-                .antMatchers("/", "/home", "/src/main/webapp/**")
-                	.permitAll()
-                .antMatchers("/","/resources/**")
-                	.permitAll()
-            .and()
-            .formLogin()
-                .loginPage("/loginDesign")
-                .failureUrl("/loginDesign?error")
-                .usernameParameter("email")
-                .passwordParameter("password")
+		http
+			.authorizeRequests()
+			.antMatchers("/").permitAll()
+			.antMatchers("/loginDesign").permitAll()
+			.antMatchers("/connect").authenticated() // WORKING FOR all Users //hasAuthority("ADMIN")// WORKING !!!! //.hasAnyRole("ADMIN")
+		.and()
+			.formLogin()
+			.loginPage("/loginDesign")
+			.usernameParameter("email")
+			.passwordParameter("password")
+			.defaultSuccessUrl("/connect")
+			
+			//.loginProcessingUrl("/home")
+		.and()
+			.csrf()
+			.disable();
+        
+//            .authorizeRequests()
+//            .antMatchers("/").hasAnyAuthority("ADMIN")
+//                .antMatchers("/home", "/src/main/webapp/**")
+//                	.permitAll()
+//                .antMatchers("/resources/**")
+//                	.permitAll()
+//                .antMatchers("/connect").hasAnyAuthority("ADMIN")
+//                //.antMatchers("/connect", "/**").access("ADMIN and DBA and USER")
+//                //.antMatchers("/connect", "/**").access("hasRole('ADMIN') and hasRole('DBA') and hasRole('USER')")
+//            .and()
+//            .formLogin()
+//                .loginPage("/loginDesign")
+//                .failureUrl("/loginDesign?error")
+//                .usernameParameter("email")
+//                .passwordParameter("password")
+////                .loginProcessingUrl("/connect")
+////                .permitAll()
 //                .loginProcessingUrl("/connect")
-//                .permitAll()
-                .and()
-                .csrf()
-                .disable()
-            .logout()
-            	.logoutUrl("/logout")
-                .permitAll();
+//                .and()
+//                
+//                .csrf()
+//                .disable()
+//            .logout()
+//            	.logoutUrl("/logout")
+//                .permitAll();
+//                //.and().exceptionHandling().accessDeniedPage("/home"); a chaque exception go to home
     }
 	
     @Override

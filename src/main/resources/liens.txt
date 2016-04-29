@@ -87,3 +87,18 @@ http://www.concretepage.com/build-tools/gradle/java-project-gradle-eclipse-integ
 
 Configuring Gradle to produce a pom that inherits dependency management :
 https://docs.spring.io/spring-boot/docs/current/reference/html/build-tool-plugins-gradle-plugin.html  // 64.9.1 chapter 
+
+doc jpa : 
+http://docs.spring.io/spring-data/jpa/docs/1.4.3.RELEASE/reference/html/jpa.repositories.html 2.3.7 Modifying queries (for update entity for example)
+
+
+MAILER /
+
+http://www.javaspecialists.eu/archive/Issue131.html 
+
+SPRING SECURITY TUTORIAL !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! :
+
+http://www.javabeat.net/spring-security-tutorial/
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+https://github.com/stevehanson/spring-mvc-form
