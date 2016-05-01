@@ -40,14 +40,14 @@ public class UserManagerController {
 	
 
 	
-	
+	@PreAuthorize("hasAuthority('ADMIN')")
 	@RequestMapping(value="/usersList", method = RequestMethod.GET)
 	public ModelAndView getUsersListPage(ModelAndView model){
 		model.addObject("users", userService.getAllUsers());
 		model.setViewName("usersList");
 		return model;
 	}
-	
+	@PreAuthorize("hasAuthority('ADMIN')")
 	@RequestMapping(value="/user{id}", method = RequestMethod.GET)
 	public ModelAndView getUserPage(ModelAndView model, @PathVariable Integer id){
 		model.addObject("user", userService.getUserById(id).get());
@@ -61,7 +61,7 @@ public class UserManagerController {
 //		return Role.values();
 //	}
 	
-	@PreAuthorize("hasAnyAuthority('ADMIN')")
+	@PreAuthorize("hasAuthority('ADMIN')")
 	@RequestMapping(value="/userCreate", method = RequestMethod.GET)
 	public ModelAndView getUserCreatePage(ModelAndView model){
 		UserCreateForm userCreateForm = new UserCreateForm();
@@ -72,6 +72,7 @@ public class UserManagerController {
 		return model;
 	}
 	
+	//@PreAuthorize("hasAuthority('ADMIN')")
 	@RequestMapping(value="/userCreate", method = RequestMethod.POST)
 	public ModelAndView handleUserCreateForm(ModelAndView model, @Valid @ModelAttribute("form") UserCreateForm form, BindingResult bindingResult){
 		if (bindingResult.hasErrors()) {
@@ -94,6 +95,7 @@ public class UserManagerController {
         return model;
 	}
 	
+	@PreAuthorize("hasAuthority('ADMIN')")
 	@RequestMapping(value="/userUpdate{id}", method = RequestMethod.GET)
 	public ModelAndView getUserUpdatePage(ModelAndView model, @PathVariable Integer id){
 		UserUpdateForm userUpdateForm = new UserUpdateForm();
@@ -126,7 +128,8 @@ public class UserManagerController {
 //		model.setViewName("redirect:/usersList");
 //		return model;
 //	}
-
+	
+	@PreAuthorize("hasAuthority('ADMIN')")
 	@RequestMapping(value="/userUpdate{id}", method = RequestMethod.POST)
 	public ModelAndView handleUserUpdatePage(ModelAndView model,  @PathVariable Integer id, 
 			@Valid @ModelAttribute("form") UserUpdateForm form, BindingResult bindingResult, User user){
@@ -138,6 +141,7 @@ public class UserManagerController {
 		return model;
 	}
 	
+	@PreAuthorize("hasAuthority('ADMIN')")
 	@RequestMapping(value= "/userDelete{id}")
 	public ModelAndView getUserDeletePage(ModelAndView model, @PathVariable Integer id){
 		System.out.println(id);
@@ -146,5 +150,4 @@ public class UserManagerController {
 		return model;
 	}
 
-	
 }
