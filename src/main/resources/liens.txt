@@ -102,3 +102,8 @@ http://www.javabeat.net/spring-security-tutorial/
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 https://github.com/stevehanson/spring-mvc-form
+
+
+Logout
+
+http://websystique.com/spring-security/spring-security-4-logout-example/

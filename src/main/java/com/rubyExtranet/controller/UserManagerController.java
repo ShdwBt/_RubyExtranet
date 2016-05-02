@@ -72,18 +72,18 @@ public class UserManagerController {
 		return model;
 	}
 	
-	//@PreAuthorize("hasAuthority('ADMIN')")
+	@PreAuthorize("hasAuthority('ADMIN')")
 	@RequestMapping(value="/userCreate", method = RequestMethod.POST)
 	public ModelAndView handleUserCreateForm(ModelAndView model, @Valid @ModelAttribute("form") UserCreateForm form, BindingResult bindingResult){
-		if (bindingResult.hasErrors()) {
-			System.out.println("ERREUR");
-//			UserCreateForm userCreateForm = new UserCreateForm();
-//			model.addObject("form", userCreateForm);
-//			model.addObject("roles", Role.values());
-//			model.addObject("state", State.values());
-			getUserCreatePage(model);
-            return model;
-        }
+//		if (bindingResult.hasErrors()) {
+//			System.out.println("ERREUR");
+////			UserCreateForm userCreateForm = new UserCreateForm();
+////			model.addObject("form", userCreateForm);
+////			model.addObject("roles", Role.values());
+////			model.addObject("state", State.values());
+//			getUserCreatePage(model);
+//            return model;
+//        }
         try {
             userService.create(form);
         } catch (DataIntegrityViolationException e) {
