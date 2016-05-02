@@ -9,10 +9,6 @@ public class SubscriberCreateForm {
 	@NotEmpty
     private String email = "";
 	
-	@NotEmpty
-    private String gender = "";
-	
-	@NotNull
     private NewsletterFrequency newsletterFrequency;
 
 	public String getEmail() {
@@ -23,19 +19,13 @@ public class SubscriberCreateForm {
 		this.email = email;
 	}
 
-	public String getGender() {
-		return gender;
-	}
-
-	public void setGender(String gender) {
-		this.gender = gender;
-	}
-
 	public NewsletterFrequency getNewsletterFrequency() {
+		System.out.println("get News");
 		return newsletterFrequency;
 	}
 
 	public void setNewsletterFrequency(NewsletterFrequency newsletterFrequency) {
+		System.out.println("set News");
 		this.newsletterFrequency = newsletterFrequency;
 	}
 }

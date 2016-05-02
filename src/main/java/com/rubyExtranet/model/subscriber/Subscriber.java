@@ -9,12 +9,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.rubyExtranet.model.user.Role;
+
 @Entity
 @Table (name = "subscriber")
 public class Subscriber {
 	
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column (name = "id", updatable = false)
+	@Column (name = "id_subscriber", updatable = false)
     private int id;
 	
 	@Column(name="EMAIL", nullable=false)
@@ -23,6 +25,8 @@ public class Subscriber {
 	@Column(name="FREQUENCY", nullable=false)
 	@Enumerated(EnumType.STRING)
 	private NewsletterFrequency newsletterFrequency;
+	
+	//private Role role;
 	
 //	public enum Frequency {
 //		HOURLY, DAILY, WEEKLY, MONTHLY, ANNUALLY
@@ -51,12 +55,6 @@ public class Subscriber {
 	public void setNewsletterFrequency(NewsletterFrequency newsletterFrequency) {
 		this.newsletterFrequency = newsletterFrequency;
 	}
-
-	@Override
-	public String toString() {
-		return "Subscriber [id=" + id + ", email=" + email + ", newsletterFrequency=" + newsletterFrequency + "]";
-	}
-
 
 
 }

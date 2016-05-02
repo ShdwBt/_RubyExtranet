@@ -53,17 +53,21 @@ public class SubscriberController {
 //	}
 	
 	@RequestMapping(value="/subscribe", method=RequestMethod.POST)
-	public String submitSubscribeForm(@Valid @ModelAttribute("form") SubscriberCreateForm form, BindingResult bindingResult) {
-		if (bindingResult.hasErrors()) {
-            return "subscribe";
-        }
+	public ModelAndView submitSubscribeForm(ModelAndView model, @Valid @ModelAttribute("form") SubscriberCreateForm form, BindingResult bindingResult) {
+//		if (bindingResult.hasErrors()) {
+//			model.setViewName("subscribe");
+//			System.out.println("Erreur");
+//            return model;
+//        }
         try {
         	subscriberService.create(form);
         } catch (DataIntegrityViolationException e) {
             bindingResult.reject("email.exists", "Email already exists");
-            return "subscribe";
+            model.setViewName("subscribe");
+            return model;
         }
-        return "redirect:/subscribe";
+        model.setViewName("redirect:/subscribe");
+        return model;
 	}
 	
 }
