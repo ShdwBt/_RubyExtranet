@@ -104,6 +104,39 @@ http://www.javabeat.net/spring-security-tutorial/
 https://github.com/stevehanson/spring-mvc-form
 
 
-Logout
+Application.properties :
+
+https://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
+
+Logout :
 
 http://websystique.com/spring-security/spring-security-4-logout-example/
+
+NAming strategy jpa :
+https://kamwo.me/java-spring-boot-spring-data-jpa-naming-strategy/
+
+
+JPA - ENUM : 
+http://blog.paumard.org/cours/jpa/chap03-entite-entite.html
+http://stackoverflow.com/questions/2751733/map-enum-in-jpa-with-fixed-values
+http://blog.paumard.org/cours/jpa/chap03-entite-relation.html
+http://tomee.apache.org/examples-trunk/jpa-enumerated/README.html
+https://www.javacodegeeks.com/2014/05/jpa-2-1-type-converter-the-better-way-to-persist-enums.html
+
+Relations DB:
+
+http://cerig.pagora.grenoble-inp.fr/tutoriel/bases-de-donnees/chap06.htm
+https://support.microsoft.com/fr-fr/kb/304466
+
+
+MAIL :
+
+http://www.mkyong.com/spring/spring-sending-e-mail-via-gmail-smtp-server-with-mailsender/ 
+>>>>>>>
+http://www.javaspecialists.eu/archive/Issue131.html
+http://crunchify.com/spring-mvc-4-1-x-simple-way-to-send-an-email-using-org-springframework-mail-javamail-javamailsenderimpl/
+
+
+SESSION :
+
+https://www.javacodegeeks.com/2013/04/spring-mvc-session-tutorial.html
