@@ -40,6 +40,9 @@ dependencies {
     
     compile("org.springframework.boot:spring-boot-starter-security")
     
+    //compile("javax.mail:mail:1.4.3")
+    compile("org.springframework.boot:spring-boot-starter-mail")
+    
     //compile('org.springframework:spring-core')
     //compile('org.springframework:spring-web')
     //compile('org.springframework:spring-webmvc')

@@ -132,6 +132,7 @@ https://support.microsoft.com/fr-fr/kb/304466
 MAIL :
 
 http://www.mkyong.com/spring/spring-sending-e-mail-via-gmail-smtp-server-with-mailsender/ 
+https://www.youtube.com/watch?v=9DLX8PMXaw0
 >>>>>>>
 http://www.javaspecialists.eu/archive/Issue131.html
 http://crunchify.com/spring-mvc-4-1-x-simple-way-to-send-an-email-using-org-springframework-mail-javamail-javamailsenderimpl/
@@ -140,3 +141,22 @@ http://crunchify.com/spring-mvc-4-1-x-simple-way-to-send-an-email-using-org-spri
 SESSION :
 
 https://www.javacodegeeks.com/2013/04/spring-mvc-session-tutorial.html
+
+MAIL :
+
+http://www.javaworld.com/article/2074449/java-app-dev/jabber-away-with-instant-messaging.html?page=2
+https://www.javacodegeeks.com/2010/08/instant-messaging-infrastructure.html
+https://www.javacodegeeks.com/2010/09/xmpp-im-with-smack-for-java.html
+http://docs.spring.io/spring-integration/reference/html/xmpp.html
+https://github.com/salmar/spring-websocket-chat/tree/master/src/main/java/com/sergialmar/wschat
+http://quickblox.com/developers/Web_XMPP_Chat_Sample
+
+
+https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-messaging.html#boot-features-jms-jndi
+https://gist.github.com/mindjiver/1605194
+http://www.javaprogrammingforums.com/java-networking-tutorials/551-how-write-simple-xmpp-jabber-client-using-smack-api.html
+https://www.igniterealtime.org/projects/smack/
+https://community.igniterealtime.org/thread/53709
+http://java.sys-con.com/node/232087
+http://code.tutsplus.com/tutorials/build-a-real-time-chat-application-with-modulus-and-spring-boot--cms-22513
+
