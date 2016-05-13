@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.rubyExtranet.model.user.Role;
+import com.rubyExtranet.model.user.EnumRole;
 import com.rubyExtranet.model.user.State;
 import com.rubyExtranet.model.user.User;
 import com.rubyExtranet.model.user.UserCreateForm;
@@ -66,7 +66,7 @@ public class UserManagerController {
 	public ModelAndView getUserCreatePage(ModelAndView model){
 		UserCreateForm userCreateForm = new UserCreateForm();
 		model.addObject("form", userCreateForm);
-		model.addObject("roles", Role.values());
+		model.addObject("roles", EnumRole.values());
 		model.addObject("states", State.values());
 		model.setViewName("userCreate");
 		return model;
@@ -101,7 +101,7 @@ public class UserManagerController {
 		UserUpdateForm userUpdateForm = new UserUpdateForm();
 		model.addObject("form", userUpdateForm);
 		model.addObject("user" , userService.getUserById(id).get());
-		model.addObject("roles", Role.values());
+		model.addObject("roles", EnumRole.values());
 		model.addObject("states", State.values());
 		model.setViewName("userUpdate");
 		return model;

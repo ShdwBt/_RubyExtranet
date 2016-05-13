@@ -1,12 +1,10 @@
 package com.rubyExtranet.model.user;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.Collection;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -43,32 +41,13 @@ public class User {
     @Column(name="STATE", nullable=false)
     private String state=State.ACTIVE.getState();
     
-    @Column(name="ROLE", nullable=false) 
-    @Enumerated(EnumType.STRING)
-    private Role role;
-    
     //variante Role
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "User_Role", 
-             joinColumns = { @JoinColumn(name = "fk_id_user") }, 
-             inverseJoinColumns = { @JoinColumn(name = "id_role_user") })
-    private Set<RoleUser> userProfiles = new HashSet<RoleUser>();
+             joinColumns = { @JoinColumn(name = "fk_user_id") }, 
+             inverseJoinColumns = { @JoinColumn(name = "fk_role_id") })
+    private Collection<Role> userRoles = new ArrayList<Role>();
     
-//    private Department department;
-    
-//    //@NotNull
-//    @OneToMany(fetch = FetchType.LAZY)
-//    @JoinTable(name = "Department" )
-//    @JoinColumn(name = "id_department")
-//    private Integer fk_id_department;
-    
-    
-//	  Pour séparer les profils users de cette table
-//    @ManyToMany(fetch = FetchType.EAGER)
-//    @JoinTable(name = "APP_USER_USER_PROFILE", 
-//             joinColumns = { @JoinColumn(name = "USER_ID") }, 
-//             inverseJoinColumns = { @JoinColumn(name = "USER_PROFILE_ID") })
-//    private Set<UserProfile> userProfiles = new HashSet<UserProfile>();
 
 	public long getId() {
 		return id;
@@ -118,28 +97,12 @@ public class User {
 		this.email = email;
 	}
 
-
-	public Role getRole() {
-		return role;
+	public Collection<Role> getUserRoles() {
+		return userRoles;
 	}
 
-	public void setRole(Role role) {
-		this.role = role;
+	public void setUserRoles(Collection<Role> userRoles) {
+		this.userRoles = userRoles;
 	}
 
-//	public Integer getFk_id_department() {
-//		return fk_id_department;
-//	}
-//
-//	public void setFk_id_department(Integer fk_id_department) {
-//		this.fk_id_department = fk_id_department;
-//	}
-
-//	public String getState() {
-//		return state;
-//	}
-//
-//	public void setState(String state) {
-//		this.state = state;
-//	}
 }

@@ -45,12 +45,16 @@
 		    </div>
 		    
 		    <div>
-		        <label for="role">Role</label>
-			    	<select name="role">
-		        	<option selected="selected"></option>
-				        <option th:each="role : ${roles}" th:value="${role}" 
-			        			th:text="${role}" th:selected="null"/>
-			      	</select>
+		        <ul>
+		        	<li th:each ="role : ${roles}">
+			        	<label for="role">Role</label>
+				    	<select name="role">
+			        		<option selected="selected"></option>
+					        <option th:each="role : ${roles}" th:value="${role}" 
+				        			th:text="${role}" th:selected="null"/>
+				      	</select>
+			      	</li>
+			    </ul>
 		    </div>
 		    
 		    <div>

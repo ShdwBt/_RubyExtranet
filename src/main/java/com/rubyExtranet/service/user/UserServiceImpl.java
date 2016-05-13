@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import com.rubyExtranet.model.user.Role;
+import com.rubyExtranet.model.user.EnumRole;
 import com.rubyExtranet.model.user.User;
 import com.rubyExtranet.model.user.UserCreateForm;
 import com.rubyExtranet.model.user.UserUpdateForm;
@@ -49,7 +49,13 @@ public class UserServiceImpl implements UserService {
         user.setEmail(form.getEmail());
         //user.setPasswordHash(new BCryptPasswordEncoder().encode(form.getPassword()));
         user.setPassword(form.getPassword());
-        user.setRole(form.getRole());
+        
+        
+        user.setUserRoles(
+        		
+        		form.getRole());
+        
+        
         // ssoId become an int, auto incremented user.setSsoId("1");
         return userRepository.save(user);
 	}

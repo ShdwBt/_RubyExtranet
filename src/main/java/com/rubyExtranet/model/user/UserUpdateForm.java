@@ -20,7 +20,7 @@ public class UserUpdateForm {
     private String lastName;
     
     //@NotNull
-    private Role role;
+    private EnumRole role;
 
 	public Integer getId() {
 		return id;
@@ -62,11 +62,11 @@ public class UserUpdateForm {
 		this.lastName = lastName;
 	}
 
-	public Role getRole() {
+	public EnumRole getRole() {
 		return role;
 	}
 
-	public void setRole(Role role) {
+	public void setRole(EnumRole role) {
 		this.role = role;
 	}
 
