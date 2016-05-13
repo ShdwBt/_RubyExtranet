@@ -84,7 +84,11 @@ public class UserManagerController {
 //			getUserCreatePage(model);
 //            return model;
 //        }
-        try {
+		
+//		model.getModel().containsKey("rolesList");
+		
+		try {
+        	
             userService.create(form);
         } catch (DataIntegrityViolationException e) {
             bindingResult.reject("email.exists", "Email already exists");

@@ -44,8 +44,8 @@
 		        <input type="password" name="passwordRepeated" id="passwordRepeated" required="required"/>
 		    </div>
 		    
-		    <div>
-		        <ul>
+		    <div >
+		        <ul name="rolesList">
 		        	<li th:each ="role : ${roles}">
 			        	<label for="role">Role</label>
 				    	<select name="role">
@@ -53,6 +53,15 @@
 					        <option th:each="role : ${roles}" th:value="${role}" 
 				        			th:text="${role}" th:selected="null"/>
 				      	</select>
+			      	</li>
+			    </ul>
+		    </div>
+		    
+		    <div>
+		    	<ul>
+		        	<li th:each ="role : ${roles}">
+			        	<label for="role">Role</label>
+				    	<input type="checkbox" name="${role}" value="${role}"/>
 			      	</li>
 			    </ul>
 		    </div>
