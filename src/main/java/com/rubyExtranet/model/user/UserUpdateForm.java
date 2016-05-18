@@ -1,5 +1,7 @@
 package com.rubyExtranet.model.user;
 
+import java.util.Collection;
+
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotEmpty;
@@ -20,7 +22,7 @@ public class UserUpdateForm {
     private String lastName;
     
     //@NotNull
-    private EnumRole role;
+    private Collection<Role> role;
 
 	public Integer getId() {
 		return id;
@@ -62,12 +64,14 @@ public class UserUpdateForm {
 		this.lastName = lastName;
 	}
 
-	public EnumRole getRole() {
+	public Collection<Role> getRole() {
 		return role;
 	}
 
-	public void setRole(EnumRole role) {
+	public void setRole(Collection<Role> role) {
 		this.role = role;
 	}
+
+
 
 }

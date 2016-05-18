@@ -160,3 +160,6 @@ https://community.igniterealtime.org/thread/53709
 http://java.sys-con.com/node/232087
 http://code.tutsplus.com/tutorials/build-a-real-time-chat-application-with-modulus-and-spring-boot--cms-22513
 
+
+tutoriel spring : (message anglais/francais ) II-D. Utilisation de Spring avec la JSP « bonjour.jsp »
+http://rpouiller.developpez.com/tutoriels/spring/application-web-spring-hibernate/

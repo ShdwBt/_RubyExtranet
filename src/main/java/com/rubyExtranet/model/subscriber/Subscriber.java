@@ -16,7 +16,7 @@ import com.rubyExtranet.model.user.EnumRole;
 public class Subscriber {
 	
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column (name = "id_subscriber", updatable = false)
+	@Column (name = "pk_subscriber_id", updatable = false)
     private int id;
 	
 	@Column(name="EMAIL", nullable=false)

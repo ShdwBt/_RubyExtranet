@@ -12,7 +12,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import org.hibernate.validator.constraints.NotEmpty;
 
 
 
@@ -20,13 +23,10 @@ import javax.persistence.Table;
 @Table (name = "User")
 public class User {
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column (name = "id_user", updatable = false)
+	@Column (name = "pk_user_id", updatable = false)
     private long id;
-	
-    @Column(name="SSO_ID", unique=true, nullable=true)
-    private String ssoId;
      
-    @Column(name="PASSWORD", nullable=false)
+    @Column(name="password", nullable=false)
     private String password;
          
     @Column(name="FIRST_NAME", nullable=false)
@@ -37,10 +37,7 @@ public class User {
  
     @Column(name="EMAIL", nullable=false)
     private String email;
-    
-    @Column(name="STATE", nullable=false)
-    private String state=State.ACTIVE.getState();
-    
+  
     //variante Role
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "User_Role", 
@@ -48,6 +45,14 @@ public class User {
              inverseJoinColumns = { @JoinColumn(name = "fk_role_id") })
     private Collection<Role> userRoles = new ArrayList<Role>();
     
+    //http://blog.paumard.org/cours/jpa/chap03-entite-relation.html
+    @NotEmpty
+    @ManyToOne
+    @JoinColumn (name = "fk_department_id")
+    private Department department;
+    
+    @Column(name="STATE", nullable=false)
+    private String state=EnumState.ACTIVE.getState();
 
 	public long getId() {
 		return id;
@@ -55,14 +60,6 @@ public class User {
 
 	public void setId(long id) {
 		this.id = id;
-	}
-
-	public String getSsoId() {
-		return ssoId;
-	}
-
-	public void setSsoId(String ssoId) {
-		this.ssoId = ssoId;
 	}
 
 	public String getPassword() {
@@ -103,6 +100,22 @@ public class User {
 
 	public void setUserRoles(Collection<Role> userRoles) {
 		this.userRoles = userRoles;
+	}
+
+	public Department getDepartment() {
+		return department;
+	}
+
+	public void setDepartment(Department department) {
+		this.department = department;
+	}
+
+	public String getState() {
+		return state;
+	}
+
+	public void setState(String state) {
+		this.state = state;
 	}
 
 }

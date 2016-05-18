@@ -57,11 +57,11 @@
 			    </ul>
 		    </div>
 		    
-		    <div>
+			<div>
 		    	<ul>
+			        <label for="role">Role</label>
 		        	<li th:each ="role : ${roles}">
-			        	<label for="role">Role</label>
-				    	<input type="checkbox" name="${role}" value="${role}"/>
+				    	<input type="checkbox" name="${role}" value="${role}"><label th:text="${role}"></label></input>
 			      	</li>
 			    </ul>
 		    </div>

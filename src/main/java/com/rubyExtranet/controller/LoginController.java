@@ -20,7 +20,7 @@ public class LoginController {
 	@RequestMapping(value = "/loginDesign", method = RequestMethod.GET)
     public ModelAndView getLoginDesignPage(@RequestParam Optional<String> error, ModelAndView model) {
         model.addObject("error", error);
-        System.out.println("1.2.3.");
+        System.out.println("Page de Login");
         model.setViewName("loginDesign");
 		return model;
     }

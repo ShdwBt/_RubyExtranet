@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.rubyExtranet.model.user.EnumRole;
-import com.rubyExtranet.model.user.State;
+import com.rubyExtranet.model.user.EnumState;
 import com.rubyExtranet.model.user.User;
 import com.rubyExtranet.model.user.UserCreateForm;
 import com.rubyExtranet.model.user.UserUpdateForm;
@@ -67,7 +67,7 @@ public class UserManagerController {
 		UserCreateForm userCreateForm = new UserCreateForm();
 		model.addObject("form", userCreateForm);
 		model.addObject("roles", EnumRole.values());
-		model.addObject("states", State.values());
+		model.addObject("states", EnumState.values());
 		model.setViewName("userCreate");
 		return model;
 	}
@@ -106,7 +106,7 @@ public class UserManagerController {
 		model.addObject("form", userUpdateForm);
 		model.addObject("user" , userService.getUserById(id).get());
 		model.addObject("roles", EnumRole.values());
-		model.addObject("states", State.values());
+		model.addObject("states", EnumState.values());
 		model.setViewName("userUpdate");
 		return model;
 	}
@@ -139,7 +139,7 @@ public class UserManagerController {
 			@Valid @ModelAttribute("form") UserUpdateForm form, BindingResult bindingResult, User user){
 		user.setPassword(userService.getUserById(id).get().getPassword());
 		//user.setRole(userService.getUserById(id).get().getRole()); // if we remove the admin updating roles power
-		user.setRole(form.getRole());
+		user.setUserRoles(form.getRole());
 		userRepository.save(user);
 		model.setViewName("redirect:/usersList");
 		return model;

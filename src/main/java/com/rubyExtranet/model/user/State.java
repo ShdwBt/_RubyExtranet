@@ -1,28 +1,47 @@
 package com.rubyExtranet.model.user;
 
-public enum State {
-	ACTIVE("Active"),
-	INACTIVE("Inactive"),
-	DELETED("Deleted"),
-	LOCKED("Locked");
-     
-    private String state;
-     
-    private State(final String state){
-        this.state = state;
-    }
-     
-    public String getState(){
-        return this.state;
-    }
+import java.util.Collection;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+
+@Entity
+@Table(name = "State")
+public class State {
+	
+    @Id @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @Column(name="pk_state_id", updatable = false, unique = true, nullable = false)
+    private Integer userStateId; 
  
-    @Override
-    public String toString(){
-        return this.state;
-    }
- 
-    public String getName(){
-        return this.name();
-    }
-	 
+    @Column(name="state_text", unique=true, nullable=false)
+    @Enumerated(EnumType.STRING)
+    private EnumState UserStateText;
+    
+    @OneToMany(mappedBy = "state")
+    private Collection<User> users;
+
+	public Integer getUserStateId() {
+		return userStateId;
+	}
+
+	public void setUserStateId(Integer userStateId) {
+		this.userStateId = userStateId;
+	}
+
+	public EnumState getUserStateText() {
+		return UserStateText;
+	}
+
+	public void setUserStateText(EnumState userStateText) {
+		UserStateText = userStateText;
+	}
+
 }

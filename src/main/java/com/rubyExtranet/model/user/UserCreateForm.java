@@ -1,5 +1,7 @@
 package com.rubyExtranet.model.user;
 
+import java.util.Collection;
+
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotEmpty;
@@ -20,10 +22,10 @@ public class UserCreateForm {
 
     
     //@NotNull
-    private EnumRole role;
+    private Collection<Role> role;
     
     @NotNull
-    private State state = State.ACTIVE;
+    private EnumState state = EnumState.ACTIVE;
 
 	public String getEmail() {
 		return email;
@@ -65,19 +67,19 @@ public class UserCreateForm {
 		this.lastName = lastName;
 	}
 
-	public EnumRole getRole(){
+	public Collection<Role> getRole(){
 		return role;
 	}
 	
-	public void setRole(EnumRole role){
+	public void setRole(Collection<Role> role){
 		this.role = role;
 	}
 	
-	public State getState() {
+	public EnumState getState() {
 		return state;
 	}
 
-	public void setState(State state) {
+	public void setState(EnumState state) {
 		this.state = state;
 	}
    
