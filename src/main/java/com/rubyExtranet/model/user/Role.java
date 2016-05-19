@@ -26,7 +26,9 @@ public class Role {
 	}
 
 	public String getRole() {
-		return role_text;
+		
+		String roleText = role_text.toString().replace("[", "").replace("]", "");
+		return roleText;
 	}
 
 	public void setRole(String role_text) {
@@ -35,6 +37,9 @@ public class Role {
 
 	@Override
 	public String toString() {
-		return "Role [role_id=" + role_id + ", role_text=" + role_text + "]";
+		//return "Role [role_id=" + role_id + ", role_text=" + role_text + "]";
+		// pour l'affichage in usersList
+		String roleText = role_text.toString().replace("[", "").replace("]", "");
+		return roleText;
 	}
 }

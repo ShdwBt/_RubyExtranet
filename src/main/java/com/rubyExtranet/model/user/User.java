@@ -118,4 +118,12 @@ public class User {
 		this.state = state;
 	}
 
+//	public String rolesToString(){
+//		String result = "";
+//		for(Role role : userRoles){
+//    		result += role;
+//    		result += " ,";
+//    	}
+//		return result;
+//    }
 }
