@@ -23,6 +23,8 @@ public class UserUpdateForm {
     
     //@NotNull
     private Collection<Role> role;
+    
+    private Department department;
 
 	public Integer getId() {
 		return id;
@@ -70,6 +72,14 @@ public class UserUpdateForm {
 
 	public void setRole(Collection<Role> role) {
 		this.role = role;
+	}
+
+	public Department getDepartment() {
+		return department;
+	}
+
+	public void setDepartment(Department department) {
+		this.department = department;
 	}
 
 

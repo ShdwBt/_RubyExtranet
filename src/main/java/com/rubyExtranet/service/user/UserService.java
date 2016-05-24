@@ -29,7 +29,7 @@ public interface UserService {
     
 	//void updateUser(User user);
     //that emethod is use
-    User updateUser(UserUpdateForm form);
+    User updateUser(UserUpdateForm form, User user);
     
 	void deleteUser(int id);
     

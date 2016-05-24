@@ -17,5 +17,26 @@ public class Department {
 	
     @Column(name="department_text", unique=true, nullable=true)
     private String department;
+
+	@Override
+	public String toString() {
+		return department;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getDepartment() {
+		return department;
+	}
+
+	public void setDepartment(String department) {
+		this.department = department;
+	}
     
 }

@@ -1,5 +1,7 @@
 package com.rubyExtranet.controller;
 
+import java.util.Optional;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -133,17 +135,40 @@ public class UserManagerController {
 //		return model;
 //	}
 	
+//	@PreAuthorize("hasAuthority('ADMIN')")
+//	@RequestMapping(value="/userUpdate{id}", method = RequestMethod.POST)
+//	public ModelAndView handleUserUpdatePage(ModelAndView model, @Valid User user, @PathVariable Integer id, 
+//			@Valid @ModelAttribute("form") UserUpdateForm form, BindingResult bindingResult){
+		
+//	@PreAuthorize("hasAuthority('ADMIN')")
+//	@RequestMapping(value="/userUpdate{id}", method = RequestMethod.POST)
+//	public ModelAndView handleUserUpdatePage(ModelAndView model, User user, @PathVariable Integer id, 
+//			UserUpdateForm form){
+//	
+//
+//			user.setPassword(userService.getUserById(id).get().getPassword());
+//			//user.setRole(userService.getUserById(id).get().getRole()); // if we remove the admin updating roles power
+//			user.setUserRoles(form.getRole());
+//			user.setDepartment(form.getDepartment());
+//			userRepository.save(user);
+//
+//
+//		model.setViewName("redirect:/usersList");
+//		return model;
+//	}
+	
+	
 	@PreAuthorize("hasAuthority('ADMIN')")
 	@RequestMapping(value="/userUpdate{id}", method = RequestMethod.POST)
-	public ModelAndView handleUserUpdatePage(ModelAndView model,  @PathVariable Integer id, 
-			@Valid @ModelAttribute("form") UserUpdateForm form, BindingResult bindingResult, User user){
-		user.setPassword(userService.getUserById(id).get().getPassword());
-		//user.setRole(userService.getUserById(id).get().getRole()); // if we remove the admin updating roles power
-		user.setUserRoles(form.getRole());
-		userRepository.save(user);
-		model.setViewName("redirect:/usersList");
-		return model;
+	public ModelAndView handleUserUpdatePage(ModelAndView model, @PathVariable Integer id, UserUpdateForm form){
+		
+		Optional<User> user = userService.getUserById(id);
+		userService.updateUser(form, user);
+		
+        model.setViewName("redirect:/usersList");
+        return model;
 	}
+	
 	
 	@PreAuthorize("hasAuthority('ADMIN')")
 	@RequestMapping(value= "/userDelete{id}")

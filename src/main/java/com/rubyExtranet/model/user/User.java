@@ -46,7 +46,7 @@ public class User {
     private Collection<Role> userRoles = new ArrayList<Role>();
     
     //http://blog.paumard.org/cours/jpa/chap03-entite-relation.html
-    @NotEmpty
+    //@NotEmpty
     @ManyToOne
     @JoinColumn (name = "fk_department_id")
     private Department department;

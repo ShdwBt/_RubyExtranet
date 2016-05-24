@@ -163,3 +163,7 @@ http://code.tutsplus.com/tutorials/build-a-real-time-chat-application-with-modul
 
 tutoriel spring : (message anglais/francais ) II-D. Utilisation de Spring avec la JSP « bonjour.jsp »
 http://rpouiller.developpez.com/tutoriels/spring/application-web-spring-hibernate/
+
+tuto spring mvc :
+
+http://www.javatpoint.com/spring-3-mvc-tutorial

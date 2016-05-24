@@ -51,7 +51,7 @@
 				    	<select name="role">
 			        		<option selected="selected"></option>
 					        <option th:each="role : ${roles}" th:value="${role}" 
-				        			th:text="${role}" th:selected="null"/>
+				        			th:text="${role}" th:selected="${role}"/>
 				      	</select>
 			      	</li>
 			    </ul>

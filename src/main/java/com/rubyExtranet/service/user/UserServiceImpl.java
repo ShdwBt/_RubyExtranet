@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import com.rubyExtranet.model.user.EnumRole;
 import com.rubyExtranet.model.user.User;
 import com.rubyExtranet.model.user.UserCreateForm;
 import com.rubyExtranet.model.user.UserUpdateForm;
@@ -59,17 +58,22 @@ public class UserServiceImpl implements UserService {
         // ssoId become an int, auto incremented user.setSsoId("1");
         return userRepository.save(user);
 	}
-
+	
 	@Override
-	public User updateUser(UserUpdateForm form) {
+	public User updateUser(UserUpdateForm form, User user) {
 		System.out.println("Updating a User");
-		User userUpdated = new User();
+		User userUpdated = user;
 		userUpdated = findById(form.getId());
 		//userRepository.delete(u);
 		userUpdated.setFirstName(form.getFirstName());
 		userUpdated.setLastName(form.getLastName());
 		userUpdated.setEmail(form.getEmail());
 		userUpdated.setPassword(form.getPassword());
+		
+//		user.setPassword(userService.getUserById(id).get().getPassword());
+//		//user.setRole(userService.getUserById(id).get().getRole()); // if we remove the admin updating roles power
+//		user.setUserRoles(form.getRole());
+//		user.setDepartment(form.getDepartment());
 		return userRepository.save(userUpdated);
 	}
 	
@@ -117,5 +121,7 @@ public class UserServiceImpl implements UserService {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+
 
 }
