@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.rubyExtranet.model.user.Department;
+import com.rubyExtranet.model.user.EnumDepartment;
 import com.rubyExtranet.model.user.EnumRole;
 import com.rubyExtranet.model.user.EnumState;
 import com.rubyExtranet.model.user.User;
@@ -67,9 +69,12 @@ public class UserManagerController {
 	@RequestMapping(value="/userCreate", method = RequestMethod.GET)
 	public ModelAndView getUserCreatePage(ModelAndView model){
 		UserCreateForm userCreateForm = new UserCreateForm();
+		Department department = new Department();
 		model.addObject("form", userCreateForm);
 		model.addObject("roles", EnumRole.values());
 		model.addObject("states", EnumState.values());
+		model.addObject("departments", EnumDepartment.values());
+		//model.addObject("departments", department.getDepartment());
 		model.setViewName("userCreate");
 		return model;
 	}
@@ -160,11 +165,10 @@ public class UserManagerController {
 	
 	@PreAuthorize("hasAuthority('ADMIN')")
 	@RequestMapping(value="/userUpdate{id}", method = RequestMethod.POST)
-	public ModelAndView handleUserUpdatePage(ModelAndView model, @PathVariable Integer id, UserUpdateForm form){
-		
-		Optional<User> user = userService.getUserById(id);
-		userService.updateUser(form, user);
-		
+	//	public ModelAndView handleUserUpdatePage(ModelAndView model, @PathVariable Integer id, UserUpdateForm form){
+	public ModelAndView handleUserUpdatePage(ModelAndView model,@PathVariable Integer id, @Valid @ModelAttribute("form") UserUpdateForm form, BindingResult bindingResult){
+	
+		userService.updateUser(form, id);
         model.setViewName("redirect:/usersList");
         return model;
 	}

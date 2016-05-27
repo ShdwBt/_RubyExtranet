@@ -16,12 +16,21 @@ import com.rubyExtranet.repository.UserRepository;
 //@Transactional ?? CRUD
 public class UserServiceImpl implements UserService {
 
+	// CA
+	
+//	@Autowired
+//	private UserRepository userRepository;
+	
+	//OU CA
+	
+	// -------------------------
 	private final UserRepository userRepository;
 	
 	@Autowired
     public UserServiceImpl(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
+	// -------------------------
 	
 	@Override
 	public Optional<User> getUserById(long id) {
@@ -54,26 +63,26 @@ public class UserServiceImpl implements UserService {
         		
         		form.getRole());
         
-        
+        user.setDepartment(form.getDepartment());
         // ssoId become an int, auto incremented user.setSsoId("1");
         return userRepository.save(user);
 	}
 	
+
 	@Override
-	public User updateUser(UserUpdateForm form, User user) {
+	public User updateUser(UserUpdateForm form, Integer id) {
 		System.out.println("Updating a User");
-		User userUpdated = user;
-		userUpdated = findById(form.getId());
-		//userRepository.delete(u);
+		User userUpdated = userRepository.findOne((long)id);
+		//userUpdated = findById(form.getId());
 		userUpdated.setFirstName(form.getFirstName());
 		userUpdated.setLastName(form.getLastName());
 		userUpdated.setEmail(form.getEmail());
-		userUpdated.setPassword(form.getPassword());
 		
+		// no role and departnement alteration
 //		user.setPassword(userService.getUserById(id).get().getPassword());
 //		//user.setRole(userService.getUserById(id).get().getRole()); // if we remove the admin updating roles power
 //		user.setUserRoles(form.getRole());
-//		user.setDepartment(form.getDepartment());
+
 		return userRepository.save(userUpdated);
 	}
 	
@@ -121,6 +130,8 @@ public class UserServiceImpl implements UserService {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+
 
 
 

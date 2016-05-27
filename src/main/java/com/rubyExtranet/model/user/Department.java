@@ -16,7 +16,7 @@ public class Department {
     private Integer id;
 	
     @Column(name="department_text", unique=true, nullable=true)
-    private String department;
+    private String department = EnumDepartment.IT.getEnumDepartment();
 
 	@Override
 	public String toString() {

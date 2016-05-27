@@ -14,9 +14,6 @@ public class UserUpdateForm {
 	@NotEmpty
     private String email = "";
 
-    @NotEmpty
-    private String password = "";
-
     private String firstName;
     
     private String lastName;
@@ -40,14 +37,6 @@ public class UserUpdateForm {
 
 	public void setEmail(String email) {
 		this.email = email;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
 	}
 	
 	public String getFirstName() {

@@ -26,7 +26,10 @@ public class UserCreateForm {
     
     @NotNull
     private EnumState state = EnumState.ACTIVE;
+    
+    private Department department;
 
+    
 	public String getEmail() {
 		return email;
 	}
@@ -81,6 +84,15 @@ public class UserCreateForm {
 
 	public void setState(EnumState state) {
 		this.state = state;
+	}
+
+	public Department getDepartment() {
+		return department;
+	}
+
+	public void setDepartment(Department department) {
+		this.department = department;
+		department.getDepartment();
 	}
    
 }

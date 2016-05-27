@@ -67,6 +67,15 @@
 		    </div>
 		    
 		    <div>
+		        <label for="department">Department</label>
+		        <select name="department"> 
+		        	<option selected="selected"></option>
+		        	<option th:each="department : ${departments}" th:value="${department}" 
+		        			th:text="${department}" th:selected="null"/>
+		        </select>
+		    </div>
+		    
+		    <div>
 		        <label for="state">State</label>
 		        <select name="state"> 
 		        	<option selected="selected"></option>
