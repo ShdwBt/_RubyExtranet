@@ -24,18 +24,18 @@ import org.hibernate.validator.constraints.NotEmpty;
 public class User {
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column (name = "pk_user_id", updatable = false)
-    private long id;
+    private Integer id;
      
     @Column(name="password", nullable=false)
     private String password;
          
-    @Column(name="FIRST_NAME", nullable=false)
+    @Column(name="first_name", nullable=false)
     private String firstName;
  
-    @Column(name="LAST_NAME", nullable=false)
+    @Column(name="last_name", nullable=false)
     private String lastName;
  
-    @Column(name="EMAIL", nullable=false)
+    @Column(name="email", nullable=false)
     private String email;
   
     //variante Role
@@ -49,16 +49,16 @@ public class User {
     //@NotEmpty
     @ManyToOne
     @JoinColumn (name = "fk_department_id")
-    private Department department;
+    private Department userDepartment;
     
-    @Column(name="STATE", nullable=false)
-    private String state=EnumState.ACTIVE.getState();
+    @Column(name="state", nullable=false)
+    private String userState = EnumState.ACTIVE.getState();
 
-	public long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -102,21 +102,23 @@ public class User {
 		this.userRoles = userRoles;
 	}
 
-	public Department getDepartment() {
-		return department;
+	public Department getUserdepartment() {
+		return userDepartment;
 	}
 
-	public void setDepartment(Department department) {
-		this.department = department;
+	public void setUserDepartment(Department userDepartment) {
+		this.userDepartment = userDepartment;
 	}
 
-	public String getState() {
-		return state;
+	public String getUserState() {
+		return userState;
 	}
 
-	public void setState(String state) {
-		this.state = state;
+	public void setUserState(String userState) {
+		this.userState = userState;
 	}
+
+
 
 //	public String rolesToString(){
 //		String result = "";

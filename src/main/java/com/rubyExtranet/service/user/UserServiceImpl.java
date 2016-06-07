@@ -7,9 +7,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import com.rubyExtranet.model.user.Department;
+import com.rubyExtranet.model.user.Role;
 import com.rubyExtranet.model.user.User;
 import com.rubyExtranet.model.user.UserCreateForm;
 import com.rubyExtranet.model.user.UserUpdateForm;
+import com.rubyExtranet.repository.DepartmentRepository;
+import com.rubyExtranet.repository.RoleRepository;
+import com.rubyExtranet.repository.StateRepository;
 import com.rubyExtranet.repository.UserRepository;
 
 @Service
@@ -32,8 +37,17 @@ public class UserServiceImpl implements UserService {
     }
 	// -------------------------
 	
+	@Autowired
+	private DepartmentRepository departmentRepository;
+	
+	@Autowired
+	private RoleRepository roleRepository;
+	
+//	@Autowired
+//	private StateRepository stateRepository;
+	
 	@Override
-	public Optional<User> getUserById(long id) {
+	public Optional<User> getUserById(Integer id) {
 		return Optional.ofNullable(userRepository.findOne(id));
 	}
 
@@ -63,7 +77,7 @@ public class UserServiceImpl implements UserService {
         		
         		form.getRole());
         
-        user.setDepartment(form.getDepartment());
+        user.setUserDepartment(form.getDepartment());
         // ssoId become an int, auto incremented user.setSsoId("1");
         return userRepository.save(user);
 	}
@@ -72,7 +86,7 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public User updateUser(UserUpdateForm form, Integer id) {
 		System.out.println("Updating a User");
-		User userUpdated = userRepository.findOne((long)id);
+		User userUpdated = userRepository.findOne((Integer)id);
 		//userUpdated = findById(form.getId());
 		userUpdated.setFirstName(form.getFirstName());
 		userUpdated.setLastName(form.getLastName());
@@ -85,54 +99,27 @@ public class UserServiceImpl implements UserService {
 
 		return userRepository.save(userUpdated);
 	}
-	
+
+//	public void deleteUser(long id) {
+//		Optional<User> u = getUserById(id);
+//		userRepository.delete(id);
+//	}
 
 	@Override
-	public void updateUserv3(String firstname, String lastname, String email, long id, User user) {
-		firstname = user.getFirstName();
-		lastname = user.getLastName();
-		email = user.getEmail();
-		id = user.getId();
-//		User userUpdated = new User();
-//		userUpdated.setFirstName(user.getFirstName());
-//		userUpdated.setLastName(user.getLastName());
-//		userUpdated.setEmail(user.getEmail());
-//		userRepository.save(userUpdated);
-	}
-
-	@Override
-	public User updateUserv2(User user) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public void deleteUser(long id) {
-		Optional<User> u = getUserById(id);
-		userRepository.delete(id);
-	}
-
-	@Override
-	public void deleteUser(int id) {
-		userRepository.delete((long)id);
+	public void deleteUser(Integer id) {
+		userRepository.delete((Integer)id);
 		
 	}
 
-	
-	
 	@Override
-	public User findById(long id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
-	@Override
-	public User findBySso(String sso) {
-		// TODO Auto-generated method stub
-		return null;
+	public Collection<Department> getAllDepartments() {
+		return departmentRepository.findAll(new Sort("id"));
 	}
 
+	@Override
+	public Collection<Role> getAllRole() {
+		return roleRepository.findAll();
 
-
-
+	}
 
 }

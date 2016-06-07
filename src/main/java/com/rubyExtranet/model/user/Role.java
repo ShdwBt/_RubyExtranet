@@ -12,34 +12,32 @@ import javax.persistence.Table;
 public class Role {
     @Id @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="pk_role_id", updatable = false, unique = true, nullable = false)
-    private int role_id; 
+    private Integer id; 
  
     @Column(name="role_text", unique=true, nullable=false)
-    private String role_text = EnumRole.USER.getEnumRole();
+    private String roleText;
 
-	public int getId() {
-		return role_id;
+	public int getRoleId() {
+		return id;
 	}
 
-	public void setId(int role_id) {
-		this.role_id = role_id;
+	public void setRoleId(Integer id) {
+		this.id = id;
 	}
 
-	public String getRole() {
-		
-		String roleText = role_text.toString().replace("[", "").replace("]", "");
+	public String getRole(){
 		return roleText;
 	}
 
-	public void setRole(String role_text) {
-		this.role_text = role_text;
+	public void setRole(String roleText) {
+		this.roleText = roleText;
 	}
 
 	@Override
 	public String toString() {
 		//return "Role [role_id=" + role_id + ", role_text=" + role_text + "]";
 		// pour l'affichage in usersList
-		String roleText = role_text.toString().replace("[", "").replace("]", "");
-		return roleText;
+		String roleTexte = roleText.toString().replace("[", "").replace("]", "");
+		return roleTexte;
 	}
 }

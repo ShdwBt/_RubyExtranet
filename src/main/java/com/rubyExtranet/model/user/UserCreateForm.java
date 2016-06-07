@@ -92,7 +92,7 @@ public class UserCreateForm {
 
 	public void setDepartment(Department department) {
 		this.department = department;
-		department.getDepartment();
+		department.getDepartmentText();
 	}
    
 }

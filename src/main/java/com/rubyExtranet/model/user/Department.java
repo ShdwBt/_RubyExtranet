@@ -16,27 +16,22 @@ public class Department {
     private Integer id;
 	
     @Column(name="department_text", unique=true, nullable=true)
-    private String department = EnumDepartment.IT.getEnumDepartment();
+    private String departmentText;
 
-	@Override
-	public String toString() {
-		return department;
-	}
-
-	public Integer getId() {
+	public Integer getDepartmentId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setDepartmentId(Integer id) {
 		this.id = id;
 	}
 
-	public String getDepartment() {
-		return department;
+	public String getDepartmentText() {
+		return departmentText;
 	}
 
-	public void setDepartment(String department) {
-		this.department = department;
+	public void setDepartmentText(String departmentText) {
+		this.departmentText = departmentText;
 	}
     
 }

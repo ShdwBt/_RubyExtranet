@@ -22,6 +22,8 @@ import com.rubyExtranet.model.user.EnumState;
 import com.rubyExtranet.model.user.User;
 import com.rubyExtranet.model.user.UserCreateForm;
 import com.rubyExtranet.model.user.UserUpdateForm;
+import com.rubyExtranet.repository.DepartmentRepository;
+import com.rubyExtranet.repository.RoleRepository;
 import com.rubyExtranet.repository.UserRepository;
 import com.rubyExtranet.service.user.UserService;
 
@@ -34,6 +36,12 @@ public class UserManagerController {
 	
 	@Autowired
 	UserRepository userRepository;
+	
+	@Autowired
+	DepartmentRepository departmentRepository;
+	
+	@Autowired
+	RoleRepository roleRepository;
 	
 	@Autowired
 	public UserManagerController(UserService userService, UserRepository userRepository) {
@@ -71,9 +79,9 @@ public class UserManagerController {
 		UserCreateForm userCreateForm = new UserCreateForm();
 		Department department = new Department();
 		model.addObject("form", userCreateForm);
-		model.addObject("roles", EnumRole.values());
+		model.addObject("roles", userService.getAllRole());
 		model.addObject("states", EnumState.values());
-		model.addObject("departments", EnumDepartment.values());
+		model.addObject("departments", userService.getAllDepartments());
 		//model.addObject("departments", department.getDepartment());
 		model.setViewName("userCreate");
 		return model;
@@ -114,6 +122,7 @@ public class UserManagerController {
 		model.addObject("user" , userService.getUserById(id).get());
 		model.addObject("roles", EnumRole.values());
 		model.addObject("states", EnumState.values());
+		model.addObject("departments", userService.getAllDepartments()); 
 		model.setViewName("userUpdate");
 		return model;
 	}

@@ -50,28 +50,37 @@
 			        	<label for="role">Role</label>
 				    	<select name="role">
 			        		<option selected="selected"></option>
-					        <option th:each="role : ${roles}" th:value="${role}" 
-				        			th:text="${role}" th:selected="${role}"/>
+					        <option th:each="role : ${roles}" th:value="${role.getRole()}" 
+				        			th:text="${role.getRole()}" th:selected="${role.getRole()}"/>
 				      	</select>
 			      	</li>
 			    </ul>
 		    </div>
 		    
-			<div>
-		    	<ul>
-			        <label for="role">Role</label>
-		        	<li th:each ="role : ${roles}">
-				    	<input type="checkbox" name="${role}" value="${role}"><label th:text="${role}"></label></input>
-			      	</li>
-			    </ul>
-		    </div>
+<!-- 			<div> -->
+<!-- 		    	<ul> -->
+<!-- 			        <label for="role">Role</label> -->
+<!-- 		        	<li th:each ="role : ${roles}"> -->
+<!-- 				    	<input type="checkbox" name="${role}" value="${role}"><label th:text="${role}"></label></input> -->
+<!-- 			      	</li> -->
+<!-- 			    </ul> -->
+<!-- 		    </div> -->
+		    
+<!-- 		    <div> -->
+<!-- 		        <label for="department">Department</label> -->
+<!-- 		        <select name="department">  -->
+<!-- 		        	<option selected="selected"></option> -->
+<!-- 		        	<option th:each="department : ${departments}" th:value="${department}"  -->
+<!-- 		        			th:text="${department}" th:selected="null"/> -->
+<!-- 		        </select> -->
+<!-- 		    </div> -->
 		    
 		    <div>
 		        <label for="department">Department</label>
 		        <select name="department"> 
 		        	<option selected="selected"></option>
-		        	<option th:each="department : ${departments}" th:value="${department}" 
-		        			th:text="${department}" th:selected="null"/>
+		        	<option th:each="department : ${departments}" th:value="${department.getDepartmentId()}" 
+		        			th:text="${department.getDepartmentText()}" th:selected="null"/>
 		        </select>
 		    </div>
 		    

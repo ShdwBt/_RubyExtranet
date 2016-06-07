@@ -19,29 +19,29 @@ public class State {
 	
     @Id @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="pk_state_id", updatable = false, unique = true, nullable = false)
-    private Integer userStateId; 
+    private Integer stateId; 
  
     @Column(name="state_text", unique=true, nullable=false)
     @Enumerated(EnumType.STRING)
-    private EnumState UserStateText;
+    private EnumState stateText;
     
-    @OneToMany(mappedBy = "state")
-    private Collection<User> users;
+//    @OneToMany(mappedBy = "state")
+//    private Collection<User> users;
 
-	public Integer getUserStateId() {
-		return userStateId;
+	public Integer getStateId() {
+		return stateId;
 	}
 
-	public void setUserStateId(Integer userStateId) {
-		this.userStateId = userStateId;
+	public void setStateId(Integer stateId) {
+		this.stateId = stateId;
 	}
 
-	public EnumState getUserStateText() {
-		return UserStateText;
+	public EnumState getStateText() {
+		return stateText;
 	}
 
-	public void setUserStateText(EnumState userStateText) {
-		UserStateText = userStateText;
+	public void setStateText(EnumState stateText) {
+		this.stateText = stateText;
 	}
 
 }
