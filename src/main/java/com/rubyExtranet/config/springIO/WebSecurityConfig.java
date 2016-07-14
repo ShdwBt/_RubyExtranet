@@ -1,14 +1,22 @@
 package com.rubyExtranet.config.springIO;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.security.SecurityProperties;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
+import org.springframework.mail.javamail.JavaMailSender;
+//import org.springframework.scheduling.annotation.EnableScheduling;
+//import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
+
+import com.rubyExtranet.mail.NewsletterMailSender;
 
 
 //@Configuration
@@ -16,6 +24,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 @Configuration
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 @Order(SecurityProperties.ACCESS_OVERRIDE_ORDER)
+//@EnableScheduling
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	
@@ -84,5 +93,16 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
 	public void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.userDetailsService(userDetailsService);
-	}	
+	}
+    
+//    JavaMailSender javaMailSender;
+//    
+//    
+//    @Scheduled(fixedRate=5000)
+//    public NewsletterMailSender task() {
+//
+//        System.out.println("blabla + " + new Date());
+//        return new NewsletterMailSender(javaMailSender);
+//    }
+
 }

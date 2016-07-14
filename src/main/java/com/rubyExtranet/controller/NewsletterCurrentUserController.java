@@ -6,17 +6,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.rubyExtranet.mail.SmtpMailSender;
+import com.rubyExtranet.mail.NewsletterCurrentUser;
+import com.rubyExtranet.repository.UserRepository;
 
 @Controller
-public class MailController {
+public class NewsletterCurrentUserController {
+	@Autowired
+	NewsletterCurrentUser newsletter;
 	
 	@Autowired
-	SmtpMailSender mailSender;
+	UserRepository userRepository;
 	
-	@RequestMapping("/sendMail")
+	@RequestMapping("/sendNewsletter")
+	
 	public void sendMail() throws MessagingException{
 		
-		mailSender.send("lite.team.asset@gmail.com", "Test mail Spring", "AssetBot");
+		newsletter.sendNewsletterMail();
 	}
 }
