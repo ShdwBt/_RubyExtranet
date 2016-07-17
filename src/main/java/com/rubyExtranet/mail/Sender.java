@@ -1,6 +1,5 @@
 package com.rubyExtranet.mail;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.activation.DataSource;
@@ -15,48 +14,43 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import com.rubyExtranet.model.user.User;
+import com.rubyExtranet.repository.UserRepository;
 
 @Service
-public class NewsletterMailSender {
+public class Sender {
 	
-	private JavaMailSender javaMailSender;
-
+	JavaMailSender mailSender;
+	
+	UserRepository userRepository;
+	
 	@Autowired
-	public NewsletterMailSender(JavaMailSender javaMailSender) {
-		this.javaMailSender = javaMailSender;
+	public Sender(JavaMailSender mailSender, UserRepository userRepository){
+		this.mailSender = mailSender;
+		this.userRepository = userRepository;
+	}
+	@Scheduled(fixedRate = 5000)
+	public void sendBordel() throws MessagingException{
+		List<User> usersList = userRepository.findAll();
+		sendMailBordel(usersList);
 	}
 	
-	@Scheduled(fixedRate = 10000)
-	public void send() throws MessagingException{
-		List<User> usersList = new ArrayList<User>();
-		// NewsletterMailSender.this.sendNewsletterMail(usersList);
-		sendNewsletterMail(usersList);
-	}
-	public void sendNewsletterMail(List<User> usersList) throws MessagingException{
+	public void sendMailBordel(List<User> usersList) throws MessagingException{
 		
-		for (User user : usersList){
-			MimeMessage message = javaMailSender.createMimeMessage();
+		for (User user : usersList) {
+			MimeMessage message = mailSender.createMimeMessage();
 			MimeMessageHelper helper;
 			
 			helper = new MimeMessageHelper(message, true); // true indicates multipart message
 			helper.setSubject("Test Spring Newsletter");
+			//helper.setTo("lite.team.asset@gmail.com");
 			helper.setTo(user.getEmail());
 			helper.setText("Voici la nouvelle newsletter pour vous.", true); // true indicates html
-			
-			// continue using helper object for more functionalities like adding attachments, etc. 
-//			if(user.getDepartment() == "IT"){
-//				
-//			}
-			// switch for differents cases of departmentTxt;
-			// switch(user.getUserdepartment().getDepartmentText())
-				
-			//parcours d'une arraylsit d'objet departmeent ou de string == departmentText
+	
 			String filePath = "C:/newsletter/newsletter2.jpg";
 	        DataSource sourceFile = new FileDataSource(filePath);
 			helper.addAttachment("Newsletter", sourceFile);
 			
-			javaMailSender.send(message);
+			mailSender.send(message);
 		}
-		
 	}
 }
