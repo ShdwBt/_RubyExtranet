@@ -34,6 +34,12 @@ public class Sender {
 		sendMailBordel(usersList);
 	}
 	
+	public void setAttachment(String attachmentPath){
+
+		String filePath = attachmentPath;
+		
+	}
+	
 	public void sendMailBordel(List<User> usersList) throws MessagingException{
 		
 		for (User user : usersList) {
@@ -45,10 +51,63 @@ public class Sender {
 			//helper.setTo("lite.team.asset@gmail.com");
 			helper.setTo(user.getEmail());
 			helper.setText("Voici la nouvelle newsletter pour vous.", true); // true indicates html
+			
+			String department = user.getUserdepartment().getDepartmentText();
+			String attachmentPath;
+			DataSource sourceAttachment;
+			
+			switch (department){
+				case "DIRECTORATE_GENERAL" :
+					attachmentPath = "C:/newsletter/director";
+					sourceAttachment = new FileDataSource(attachmentPath);
+					helper.addAttachment("Newsletter", sourceAttachment);
+					break;
 	
-			String filePath = "C:/newsletter/newsletter2.jpg";
-	        DataSource sourceFile = new FileDataSource(filePath);
-			helper.addAttachment("Newsletter", sourceFile);
+				case "ADMINISTRATION" :
+					attachmentPath = "C:/newsletter/admin";
+					sourceAttachment = new FileDataSource(attachmentPath);
+					helper.addAttachment("Newsletter", sourceAttachment);
+					break;
+	
+				case "HR" :
+					attachmentPath = "C:/newsletter/hr";
+					sourceAttachment = new FileDataSource(attachmentPath);
+					helper.addAttachment("Newsletter", sourceAttachment);
+					break;
+	
+				case "COMMERCIAL" :
+					attachmentPath = "C:/newsletter/commercial";
+					sourceAttachment = new FileDataSource(attachmentPath);
+					helper.addAttachment("Newsletter", sourceAttachment);
+					break;
+	
+				case "DELIVERY" :
+					attachmentPath = "C:/newsletter/delivery";
+					sourceAttachment = new FileDataSource(attachmentPath);
+					helper.addAttachment("Newsletter", sourceAttachment);
+					break;
+	
+				case "MARKETING" :
+					attachmentPath = "C:/newsletter/marketing";
+					sourceAttachment = new FileDataSource(attachmentPath);
+					helper.addAttachment("Newsletter", sourceAttachment);
+					break;
+	
+				case "MANUFACTURING" :
+					attachmentPath = "C:/newsletter/manufacturing";
+					sourceAttachment = new FileDataSource(attachmentPath);
+					helper.addAttachment("Newsletter", sourceAttachment);
+					break;
+	
+				case "IT" :
+					attachmentPath = "C:/newsletter/it";
+			        sourceAttachment = new FileDataSource(attachmentPath);
+					helper.addAttachment("Newsletter", sourceAttachment);
+					break;			
+			}
+			
+
+			//helper.addAttachment("Newsletter", sourceAttachment);
 			
 			mailSender.send(message);
 		}
