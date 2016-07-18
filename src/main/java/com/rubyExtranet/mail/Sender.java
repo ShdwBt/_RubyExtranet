@@ -100,7 +100,7 @@ public class Sender {
 					break;
 	
 				case "IT" :
-					attachmentPath = "C:/newsletter/it";
+					attachmentPath = "C:/newsletter/it.jpg";
 			        sourceAttachment = new FileDataSource(attachmentPath);
 					helper.addAttachment("Newsletter", sourceAttachment);
 					break;			
