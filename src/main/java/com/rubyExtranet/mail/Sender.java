@@ -29,9 +29,9 @@ public class Sender {
 		this.userRepository = userRepository;
 	}
 	@Scheduled(fixedRate = 5000)
-	public void sendBordel() throws MessagingException{
+	public void send() throws MessagingException {
 		List<User> usersList = userRepository.findAll();
-		sendMailBordel(usersList);
+		sendMail(usersList);
 	}
 	
 	public void setAttachment(String attachmentPath){
@@ -40,7 +40,7 @@ public class Sender {
 		
 	}
 	
-	public void sendMailBordel(List<User> usersList) throws MessagingException{
+	public void sendMail(List<User> usersList) throws MessagingException{
 		
 		for (User user : usersList) {
 			MimeMessage message = mailSender.createMimeMessage();
@@ -48,7 +48,6 @@ public class Sender {
 			
 			helper = new MimeMessageHelper(message, true); // true indicates multipart message
 			helper.setSubject("Test Spring Newsletter");
-			//helper.setTo("lite.team.asset@gmail.com");
 			helper.setTo(user.getEmail());
 			helper.setText("Voici la nouvelle newsletter pour vous.", true); // true indicates html
 			
@@ -100,16 +99,14 @@ public class Sender {
 					break;
 	
 				case "IT" :
-					attachmentPath = "C:/newsletter/it.jpg";
+					attachmentPath = "C:/newsletter/it.png";
 			        sourceAttachment = new FileDataSource(attachmentPath);
 					helper.addAttachment("Newsletter", sourceAttachment);
 					break;			
 			}
-			
 
-			//helper.addAttachment("Newsletter", sourceAttachment);
-			
 			mailSender.send(message);
+			
 		}
 	}
 }
