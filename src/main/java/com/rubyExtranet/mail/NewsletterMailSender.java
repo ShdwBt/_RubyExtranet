@@ -44,7 +44,7 @@ public class NewsletterMailSender {
 			helper.setText("Voici la nouvelle newsletter pour vous.", true); // true indicates html
 			
 			// continue using helper object for more functionalities like adding attachments, etc. 
-//			if(user.getDepartment() == "IT"){ abcd
+//			if(user.getDepartment() == "IT"){ abcdefgh
 //				
 //			}
 			// switch for differents cases of departmentTxt;
