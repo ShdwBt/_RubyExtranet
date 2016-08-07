@@ -43,6 +43,15 @@ dependencies {
     //compile("javax.mail:mail:1.4.3")
     compile("org.springframework.boot:spring-boot-starter-mail")
     
+    //glassfish + json
+    //compile ('org.glassfish.jersey.core:jersey-server:2.23.1')
+	//compile('org.glassfish:javax.json:1.0.2')
+	//
+	//compile group: 'org.springframework.boot', name: 'spring-boot-starter-jersey', version: '1.2.0.RELEASE'
+	
+	
+	//providedRuntime('org.springframework.boot:spring-boot-starter-tomcat')
+    
     //compile('org.springframework:spring-core')
     //compile('org.springframework:spring-web')
     //compile('org.springframework:spring-webmvc')
