@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+xmlns:th="http://www.thymeleaf.org" 
+xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+	<head>
+    <title>Hello WebSocket</title>
+
+    <script type="text/javascript" src="../static/js" th:src="@{js/sockjs-0.3.4.js}"> </script>
+    <script type="text/javascript" src="../static/js" th:src="@{js/stomp.js}"></script>
+   	<script type="text/javascript" src="../static/js" th:src="@{js/chat.js}"></script>
+	</head>
+	
+	<body onload="disconnect()">
+		<noscript><h2 style="color: #ff0000">Seems your browser doesn't support Javascript! Websocket relies on Javascript being enabled. Please enable
+		    Javascript and reload this page!</h2></noscript>
+		<div>
+		    <div>
+		        <button id="connect" onclick="connect();">Connect</button>
+		        <button id="disconnect" disabled="disabled" onclick="disconnect();">Disconnect</button>
+		    </div>
+		    
+		    <div id="conversationDiv">
+		    	<input type="text" id="messageText"/>
+		        <button id="sendMessage" onclick="sendMessage();">Send</button><br/>
+		        <textarea id="messagesTextArea" readonly="readonly" rows="10" cols="30" data-role="none"></textarea><br/>
+		    </div>
+		</div>
+	</body>
+</html>

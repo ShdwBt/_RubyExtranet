@@ -26,7 +26,7 @@ public class NewsletterMailSender {
 		this.javaMailSender = javaMailSender;
 	}
 	
-	@Scheduled(fixedRate = 10000)
+	@Scheduled(fixedRate = 999999999)
 	public void send() throws MessagingException{
 		List<User> usersList = new ArrayList<User>();
 		// NewsletterMailSender.this.sendNewsletterMail(usersList);

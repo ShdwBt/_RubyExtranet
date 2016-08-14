@@ -645,3 +645,9 @@ h2 {
  margin-top: 20px;
  background-color: red;
 }
+
+#chat{
+	position:fixed;
+	bottom:140px;
+	right:0;
+}

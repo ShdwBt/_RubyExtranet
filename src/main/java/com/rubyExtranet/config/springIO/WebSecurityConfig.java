@@ -60,7 +60,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 			//.loginProcessingUrl("/home")
 		.and()
 			.csrf()
-			.disable();
+			.disable()
+			
+			.headers()
+			.frameOptions().disable();
         
 //            .authorizeRequests()
 //            .antMatchers("/").hasAnyAuthority("ADMIN")
