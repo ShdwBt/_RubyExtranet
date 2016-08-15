@@ -14,6 +14,9 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.core.session.SessionRegistry;
+import org.springframework.security.core.session.SessionRegistryImpl;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
 import com.rubyExtranet.mail.NewsletterMailSender;
@@ -27,19 +30,17 @@ import com.rubyExtranet.mail.NewsletterMailSender;
 //@EnableScheduling
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-	
-//	private final UserService userService;
-//	
-//    @Autowired
-//    public WebSecurityConfig(UserService userService) {
-//        this.userService = userService;
-//    }
-	
-	
 	@Autowired
     private UserDetailsService userDetailsService;
-
-
+	
+	@Bean(name = "sessionRegistry")
+	public SessionRegistry sessionRegistry() {
+	  return new SessionRegistryImpl();
+	}
+	
+//	@Autowired
+//	private SessionRegistry sessionRegistry;
+//	
 	@Override
     protected void configure(HttpSecurity http) throws Exception {
 		http
@@ -51,46 +52,27 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		.and()
 			.formLogin()
 			.loginPage("/loginDesign")
-			.usernameParameter("email")
+			.usernameParameter("email") 
 			.passwordParameter("password")
 			.defaultSuccessUrl("/connect")
 		.and()
 			.logout().permitAll()
-			
+		.and()
+			.rememberMe().userDetailsService(userDetailsService)
 			//.loginProcessingUrl("/home")
 		.and()
 			.csrf()
 			.disable()
 			
 			.headers()
-			.frameOptions().disable();
+			.frameOptions().disable()
+		.and()
+			.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.ALWAYS)
+			.maximumSessions(1).maxSessionsPreventsLogin(true)
+			.expiredUrl("/loginDesign?expired")
+			.sessionRegistry(sessionRegistry());
         
-//            .authorizeRequests()
-//            .antMatchers("/").hasAnyAuthority("ADMIN")
-//                .antMatchers("/home", "/src/main/webapp/**")
-//                	.permitAll()
-//                .antMatchers("/resources/**")
-//                	.permitAll()
-//                .antMatchers("/connect").hasAnyAuthority("ADMIN")
-//                //.antMatchers("/connect", "/**").access("ADMIN and DBA and USER")
-//                //.antMatchers("/connect", "/**").access("hasRole('ADMIN') and hasRole('DBA') and hasRole('USER')")
-//            .and()
-//            .formLogin()
-//                .loginPage("/loginDesign")
-//                .failureUrl("/loginDesign?error")
-//                .usernameParameter("email")
-//                .passwordParameter("password")
-////                .loginProcessingUrl("/connect")
-////                .permitAll()
-//                .loginProcessingUrl("/connect")
-//                .and()
-//                
-//                .csrf()
-//                .disable()
-//            .logout()
-//            	.logoutUrl("/logout")
-//                .permitAll();
-//                //.and().exceptionHandling().accessDeniedPage("/home"); a chaque exception go to home
+          //.and().exceptionHandling().accessDeniedPage("/home"); a chaque exception go to home
     }
 	
     @Override
@@ -98,14 +80,5 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		auth.userDetailsService(userDetailsService);
 	}
     
-//    JavaMailSender javaMailSender;
-//    
-//    
-//    @Scheduled(fixedRate=5000)
-//    public NewsletterMailSender task() {
-//
-//        System.out.println("blabla + " + new Date());
-//        return new NewsletterMailSender(javaMailSender);
-//    }
 
 }
