@@ -167,3 +167,7 @@ http://rpouiller.developpez.com/tutoriels/spring/application-web-spring-hibernat
 tuto spring mvc :
 
 http://www.javatpoint.com/spring-3-mvc-tutorial
+
+websocket :
+
+https://spring.io/blog/2013/05/23/spring-framework-4-0-m1-websocket-support
