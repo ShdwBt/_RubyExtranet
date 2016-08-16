@@ -1,4 +1,4 @@
-package com.rubyExtranet.chat;
+package com.rubyExtranet.model.chat;
 
 public class Chat {
     

@@ -17,22 +17,20 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class LoginController {
-	@RequestMapping(value = "/loginDesign", method = RequestMethod.GET)
-    public ModelAndView getLoginDesignPage(@RequestParam Optional<String> error, ModelAndView model) {
-        model.addObject("error", error);
+	@RequestMapping(value = "/extranetLogin", method = RequestMethod.GET)
+    public ModelAndView getLextranetLoginPage(@RequestParam Optional<String> error, ModelAndView model) {
         System.out.println("Page de Login");
-        model.setViewName("loginDesign");
+        model.setViewName("extranetLogin");
 		return model;
     }
 	
 	
-	@RequestMapping(value = "/loginDesign", method = RequestMethod.POST)
-    public ModelAndView handleLoginDesignPage(ModelAndView model) {
+	@RequestMapping(value = "/extranetLogin", method = RequestMethod.POST)
+    public ModelAndView handleextranetLoginPage(ModelAndView model) {
 		model.setViewName("redirect:/connect");
 		return model;
     }
 	
-	//@PreAuthorize("hasAnyAuthority('ADMIN', 'USER', 'DBA')")
 	@PreAuthorize("isAuthenticated()")
 	@RequestMapping(value = "/connect", method = RequestMethod.GET)
     public String handleConnect() {
@@ -45,7 +43,7 @@ public class LoginController {
 	    if (auth != null){    
 	        new SecurityContextLogoutHandler().logout(request, response, auth);
 	    }
-	    model.setViewName("loginDesign");
+	    model.setViewName("extranetLogin");
 	    return model;
 	}
 }

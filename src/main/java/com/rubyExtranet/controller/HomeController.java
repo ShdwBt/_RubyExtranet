@@ -6,10 +6,11 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class HomeController {
+	
 	@RequestMapping(value = {"/", "/home" })
     public ModelAndView getHomePage(ModelAndView model) {
-		//model.setViewName("redirect:/home");
 		model.setViewName("/home");
         return model;
     }
+	
 }

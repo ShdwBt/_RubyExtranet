@@ -7,13 +7,13 @@ function setConnected(connected) {
 }
 
 function connect() {
-    var socket = new SockJS('/hello');
+    var socket = new SockJS('/chatPage');
     
     stompClient = Stomp.over(socket);            
     stompClient.connect({}, function(frame) {
         setConnected(true);
         console.log('Connected: ' + frame);
-        stompClient.subscribe('/topic/greetings', function(broadcast){
+        stompClient.subscribe('/chat/broadcast', function(broadcast){
         	processMessage(JSON.parse(broadcast.body).content);
             
         });
@@ -30,7 +30,7 @@ function disconnect() {
 
 function sendMessage() {
     var message = document.getElementById('messageText').value;
-    stompClient.send("/app/hello", {}, JSON.stringify({ 'message': message }));
+    stompClient.send("/app/chatPage", {}, JSON.stringify({ 'message': message }));
     messageText.value = "";
 }
 

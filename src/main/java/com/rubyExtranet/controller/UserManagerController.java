@@ -1,7 +1,5 @@
 package com.rubyExtranet.controller;
 
-import java.util.Optional;
-
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,10 +14,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.rubyExtranet.model.user.Department;
-import com.rubyExtranet.model.user.EnumDepartment;
 import com.rubyExtranet.model.user.EnumRole;
 import com.rubyExtranet.model.user.EnumState;
-import com.rubyExtranet.model.user.User;
 import com.rubyExtranet.model.user.UserCreateForm;
 import com.rubyExtranet.model.user.UserUpdateForm;
 import com.rubyExtranet.repository.DepartmentRepository;
@@ -50,8 +46,6 @@ public class UserManagerController {
 		this.userRepository = userRepository;
 	}
 	
-
-	
 	@PreAuthorize("hasAuthority('ADMIN')")
 	@RequestMapping(value="/usersList", method = RequestMethod.GET)
 	public ModelAndView getUsersListPage(ModelAndView model){
@@ -59,6 +53,7 @@ public class UserManagerController {
 		model.setViewName("usersList");
 		return model;
 	}
+	
 	@PreAuthorize("hasAuthority('ADMIN')")
 	@RequestMapping(value="/user{id}", method = RequestMethod.GET)
 	public ModelAndView getUserPage(ModelAndView model, @PathVariable Integer id){
@@ -66,12 +61,6 @@ public class UserManagerController {
 		model.setViewName("user");
 		return model;
 	}
-	
-	
-//	@ModelAttribute("roles")
-//	public Role[] roles() {
-//		return Role.values();
-//	}
 	
 	@PreAuthorize("hasAuthority('ADMIN')")
 	@RequestMapping(value="/userCreate", method = RequestMethod.GET)
@@ -89,23 +78,13 @@ public class UserManagerController {
 	
 	@PreAuthorize("hasAuthority('ADMIN')")
 	@RequestMapping(value="/userCreate", method = RequestMethod.POST)
-	public ModelAndView handleUserCreateForm(ModelAndView model, @Valid @ModelAttribute("form") UserCreateForm form, BindingResult bindingResult){
-//		if (bindingResult.hasErrors()) {
-//			System.out.println("ERREUR");
-////			UserCreateForm userCreateForm = new UserCreateForm();
-////			model.addObject("form", userCreateForm);
-////			model.addObject("roles", Role.values());
-////			model.addObject("state", State.values());
-//			getUserCreatePage(model);
-//            return model;
-//        }
-		
-//		model.getModel().containsKey("rolesList");
-		
+	public ModelAndView handleUserCreateForm(ModelAndView model, 
+			@Valid @ModelAttribute("form") UserCreateForm form, 
+			BindingResult bindingResult){	
 		try {
-        	
             userService.create(form);
-        } catch (DataIntegrityViolationException e) {
+        } 
+		catch (DataIntegrityViolationException e) {
             bindingResult.reject("email.exists", "Email already exists");
             model.setViewName("home");
             return model;
@@ -127,61 +106,16 @@ public class UserManagerController {
 		return model;
 	}
 	
-//	@RequestMapping(value="/userUpdate{id}", method = RequestMethod.POST)
-//	public ModelAndView handleUserUpdatePage(ModelAndView model,  @PathVariable Integer id, 
-//			@Valid @ModelAttribute("form") UserUpdateForm form, BindingResult bindingResult, User user){
-////		if (bindingResult.hasErrors()) {
-////            return "userUpdate{id}";
-////        }
-////        try {
-////            userService.updateUser(form);
-////        } catch (DataIntegrityViolationException e) {
-////            bindingResult.reject("email.exists", "Email already exists");
-////            return "userCreate";
-////        }
-////        return "redirect:/usersList";        
-//		
-//		userService.updateUser(form);
-//		
-//		//userService.updateUserv3(form.getFirstName(), form.getLastName(), form.getEmail(),user.getId(), user);
-//		
-//		model.setViewName("redirect:/usersList");
-//		return model;
-//	}
-	
-//	@PreAuthorize("hasAuthority('ADMIN')")
-//	@RequestMapping(value="/userUpdate{id}", method = RequestMethod.POST)
-//	public ModelAndView handleUserUpdatePage(ModelAndView model, @Valid User user, @PathVariable Integer id, 
-//			@Valid @ModelAttribute("form") UserUpdateForm form, BindingResult bindingResult){
-		
-//	@PreAuthorize("hasAuthority('ADMIN')")
-//	@RequestMapping(value="/userUpdate{id}", method = RequestMethod.POST)
-//	public ModelAndView handleUserUpdatePage(ModelAndView model, User user, @PathVariable Integer id, 
-//			UserUpdateForm form){
-//	
-//
-//			user.setPassword(userService.getUserById(id).get().getPassword());
-//			//user.setRole(userService.getUserById(id).get().getRole()); // if we remove the admin updating roles power
-//			user.setUserRoles(form.getRole());
-//			user.setDepartment(form.getDepartment());
-//			userRepository.save(user);
-//
-//
-//		model.setViewName("redirect:/usersList");
-//		return model;
-//	}
-	
-	
 	@PreAuthorize("hasAuthority('ADMIN')")
 	@RequestMapping(value="/userUpdate{id}", method = RequestMethod.POST)
-	//	public ModelAndView handleUserUpdatePage(ModelAndView model, @PathVariable Integer id, UserUpdateForm form){
-	public ModelAndView handleUserUpdatePage(ModelAndView model,@PathVariable Integer id, @Valid @ModelAttribute("form") UserUpdateForm form, BindingResult bindingResult){
-	
+	public ModelAndView handleUserUpdatePage(ModelAndView model,
+			@PathVariable Integer id, 
+			@Valid @ModelAttribute("form") UserUpdateForm form, 
+			BindingResult bindingResult){
 		userService.updateUser(form, id);
         model.setViewName("redirect:/usersList");
         return model;
 	}
-	
 	
 	@PreAuthorize("hasAuthority('ADMIN')")
 	@RequestMapping(value= "/userDelete{id}")

@@ -19,4 +19,5 @@ public class Application {
 	public SessionRegistry sessionRegistry() {
 	  return new SessionRegistryImpl();
 	}
+	
 }

@@ -1,11 +1,4 @@
-package com.rubyExtranet.chat;
-
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Set;
-
-import javax.websocket.OnOpen;
-import javax.websocket.Session;
+package com.rubyExtranet.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.messaging.simp.config.MessageBrokerRegistry;
@@ -19,20 +12,13 @@ public class WebSocketConfig extends AbstractWebSocketMessageBrokerConfigurer {
 
 	@Override
 	public void configureMessageBroker(MessageBrokerRegistry config) {
-		config.enableSimpleBroker("/topic");
+		config.enableSimpleBroker("/chat");
 		config.setApplicationDestinationPrefixes("/app");
 	}
 
 	@Override
 	public void registerStompEndpoints(StompEndpointRegistry registry) {
-		registry.addEndpoint("/hello").withSockJS();
+		registry.addEndpoint("/chatPage").withSockJS();
 	}
-	
-//	static Set<Session> chatroomUsers = Collections.synchronizedSet(new HashSet<Session>());
-//	
-//	@OnOpen
-//	public void handleOpen(Session userSession){
-//		chatroomUsers.add(userSession);
-//	}
 
 }
