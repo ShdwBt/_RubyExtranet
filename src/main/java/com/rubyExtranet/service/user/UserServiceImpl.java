@@ -65,6 +65,8 @@ public class UserServiceImpl implements UserService {
         
         Collection<Role> roles = new ArrayList<>();
         
+        //si rolerepo == null sinon add role in array list 
+        
         State st = stateRepository.findOneByStateText(form.getState());
         user.setUserState(st);
         
