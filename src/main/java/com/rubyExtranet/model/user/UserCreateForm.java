@@ -5,8 +5,8 @@ import java.util.Collection;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotEmpty;
-
 public class UserCreateForm {
+
 	
 	@NotEmpty
     private String email = "";
@@ -24,10 +24,11 @@ public class UserCreateForm {
     private Collection<Role> role;
     
     @NotNull
-    private EnumState state = EnumState.ACTIVE;
-    
-    private Department department;
+    private String state; 
 
+    private String department;
+
+//    private Department dpt = departmentRepository.findOneByDepartmentText(departmentText);
     
 	public String getEmail() {
 		return email;
@@ -77,21 +78,28 @@ public class UserCreateForm {
 		this.role = role;
 	}
 	
-	public EnumState getState() {
+	public String getState() {
 		return state;
 	}
 
-	public void setState(EnumState state) {
+	public void setState(String state) {
 		this.state = state;
 	}
 
-	public Department getDepartment() {
+	public String getDepartment() {
 		return department;
 	}
 
-	public void setDepartment(Department department) {
+	public void setDepartment(String department) {
 		this.department = department;
-		department.getDepartmentText();
 	}
+
+//	public Department getDpt() {
+//		return dpt;
+//	}
+//
+//	public void setDpt(Department dpt) {
+//		this.dpt = dpt;
+//	}
    
 }

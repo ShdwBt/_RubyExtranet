@@ -48,8 +48,9 @@ public class User {
     @JoinColumn (name = "fk_department_id")
     private Department userDepartment;
     
-    @Column(name="state", nullable=false)
-    private String userState = EnumState.ACTIVE.getState();
+    @ManyToOne
+    @JoinColumn (name = "fk_state_id")
+    private State userState;
 
 	public Integer getId() {
 		return id;
@@ -107,11 +108,11 @@ public class User {
 		this.userDepartment = userDepartment;
 	}
 
-	public String getUserState() {
+	public State getUserState() {
 		return userState;
 	}
 
-	public void setUserState(String userState) {
+	public void setUserState(State userState) {
 		this.userState = userState;
 	}
 

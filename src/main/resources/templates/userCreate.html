@@ -75,12 +75,21 @@
 <!-- 		        </select> -->
 <!-- 		    </div> -->
 		    
-		    <div>
+<!-- 		    <div> -->
+<!-- 		        <label for="department">Department</label> -->
+<!-- 		        <select name="departmentText">  -->
+<!-- 		        	<option selected="selected"></option> -->
+<!-- 		        	<option th:each="department : ${departments}" th:value="${department.getDepartmentId()}"  -->
+<!-- 		        			th:text="${department.getDepartmentText()}" th:selected="null"/> -->
+<!-- 		        </select> -->
+<!-- 		    </div> -->
+
+			<div>
 		        <label for="department">Department</label>
 		        <select name="department"> 
 		        	<option selected="selected"></option>
-		        	<option th:each="department : ${departments}" th:value="${department.getDepartmentId()}" 
-		        			th:text="${department.getDepartmentText()}" th:selected="null"/>
+		        	<option th:each="department : ${departments}" th:value="${department}" 
+		        			th:text="${department}" th:selected="null"/>
 		        </select>
 		    </div>
 		    

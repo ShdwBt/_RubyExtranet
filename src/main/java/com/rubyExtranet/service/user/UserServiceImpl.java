@@ -1,5 +1,6 @@
 package com.rubyExtranet.service.user;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Optional;
 
@@ -9,11 +10,13 @@ import org.springframework.stereotype.Service;
 
 import com.rubyExtranet.model.user.Department;
 import com.rubyExtranet.model.user.Role;
+import com.rubyExtranet.model.user.State;
 import com.rubyExtranet.model.user.User;
 import com.rubyExtranet.model.user.UserCreateForm;
 import com.rubyExtranet.model.user.UserUpdateForm;
 import com.rubyExtranet.repository.DepartmentRepository;
 import com.rubyExtranet.repository.RoleRepository;
+import com.rubyExtranet.repository.StateRepository;
 import com.rubyExtranet.repository.UserRepository;
 
 @Service
@@ -31,6 +34,9 @@ public class UserServiceImpl implements UserService {
 	
 	@Autowired
 	private RoleRepository roleRepository;
+	
+	@Autowired
+	private StateRepository stateRepository;
 	
 	@Override
 	public Optional<User> getUserById(Integer id) {
@@ -56,8 +62,14 @@ public class UserServiceImpl implements UserService {
 		user.setLastName(form.getLastName());
         user.setEmail(form.getEmail());
         user.setPassword(form.getPassword());
-        user.setUserRoles(form.getRole());
-        user.setUserDepartment(form.getDepartment());
+        
+        Collection<Role> roles = new ArrayList<>();
+        
+        State st = stateRepository.findOneByStateText(form.getState());
+        user.setUserState(st);
+        
+        Department dpt = departmentRepository.findOneByDepartmentText(form.getDepartment());
+        user.setUserDepartment(dpt);
         
         return userRepository.save(user);
 	}
@@ -90,5 +102,5 @@ public class UserServiceImpl implements UserService {
 		return roleRepository.findAll();
 
 	}
-
+	
 }

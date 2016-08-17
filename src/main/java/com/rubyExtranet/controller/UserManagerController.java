@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.rubyExtranet.model.user.Department;
+import com.rubyExtranet.model.user.EnumDepartment;
 import com.rubyExtranet.model.user.EnumRole;
 import com.rubyExtranet.model.user.EnumState;
 import com.rubyExtranet.model.user.UserCreateForm;
@@ -66,11 +66,12 @@ public class UserManagerController {
 	@RequestMapping(value="/userCreate", method = RequestMethod.GET)
 	public ModelAndView getUserCreatePage(ModelAndView model){
 		UserCreateForm userCreateForm = new UserCreateForm();
-		Department department = new Department();
 		model.addObject("form", userCreateForm);
 		model.addObject("roles", userService.getAllRole());
 		model.addObject("states", EnumState.values());
-		model.addObject("departments", userService.getAllDepartments());
+		
+//		model.addObject("departments", userService.getAllDepartments());
+		model.addObject("departments", EnumDepartment.values());
 		//model.addObject("departments", department.getDepartment());
 		model.setViewName("userCreate");
 		return model;
