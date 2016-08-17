@@ -15,13 +15,12 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import org.hibernate.validator.constraints.NotEmpty;
-
 
 
 @Entity
 @Table (name = "User")
 public class User {
+	
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column (name = "pk_user_id", updatable = false)
     private Integer id;
@@ -45,8 +44,6 @@ public class User {
              inverseJoinColumns = { @JoinColumn(name = "fk_role_id") })
     private Collection<Role> userRoles = new ArrayList<Role>();
     
-    //http://blog.paumard.org/cours/jpa/chap03-entite-relation.html
-    //@NotEmpty
     @ManyToOne
     @JoinColumn (name = "fk_department_id")
     private Department userDepartment;
@@ -118,14 +115,4 @@ public class User {
 		this.userState = userState;
 	}
 
-
-
-//	public String rolesToString(){
-//		String result = "";
-//		for(Role role : userRoles){
-//    		result += role;
-//    		result += " ,";
-//    	}
-//		return result;
-//    }
 }

@@ -10,6 +10,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "role")
 public class Role {
+	
     @Id @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="pk_role_id", updatable = false, unique = true, nullable = false)
     private Integer id; 
@@ -35,9 +36,8 @@ public class Role {
 
 	@Override
 	public String toString() {
-		//return "Role [role_id=" + role_id + ", role_text=" + role_text + "]";
-		// pour l'affichage in usersList
 		String roleTexte = roleText.toString().replace("[", "").replace("]", "");
 		return roleTexte;
 	}
+	
 }

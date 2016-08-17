@@ -1,6 +1,7 @@
 package com.rubyExtranet.model.user;
 
 public enum EnumState {
+	
 	ACTIVE("Active"),
 	INACTIVE("Inactive"),
 	DELETED("Deleted"),

@@ -7,6 +7,7 @@ import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.NotEmpty;
 
 public class UserCreateForm {
+	
 	@NotEmpty
     private String email = "";
 
@@ -20,8 +21,6 @@ public class UserCreateForm {
     
     private String lastName;
 
-    
-    //@NotNull
     private Collection<Role> role;
     
     @NotNull

@@ -1,7 +1,5 @@
 package com.rubyExtranet.model.user;
 
-import java.util.Collection;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -9,7 +7,6 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
@@ -25,9 +22,6 @@ public class State {
     @Enumerated(EnumType.STRING)
     private EnumState stateText;
     
-//    @OneToMany(mappedBy = "state")
-//    private Collection<User> users;
-
 	public Integer getStateId() {
 		return stateId;
 	}

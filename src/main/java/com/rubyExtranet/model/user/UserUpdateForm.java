@@ -18,7 +18,6 @@ public class UserUpdateForm {
     
     private String lastName;
     
-    //@NotNull
     private Collection<Role> role;
     
     private Department department;
@@ -70,7 +69,5 @@ public class UserUpdateForm {
 	public void setDepartment(Department department) {
 		this.department = department;
 	}
-
-
 
 }

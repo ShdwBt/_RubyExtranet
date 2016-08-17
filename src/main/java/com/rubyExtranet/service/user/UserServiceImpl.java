@@ -14,37 +14,23 @@ import com.rubyExtranet.model.user.UserCreateForm;
 import com.rubyExtranet.model.user.UserUpdateForm;
 import com.rubyExtranet.repository.DepartmentRepository;
 import com.rubyExtranet.repository.RoleRepository;
-import com.rubyExtranet.repository.StateRepository;
 import com.rubyExtranet.repository.UserRepository;
 
 @Service
-//@Transactional ?? CRUD
 public class UserServiceImpl implements UserService {
 
-	// CA
-	
-//	@Autowired
-//	private UserRepository userRepository;
-	
-	//OU CA
-	
-	// -------------------------
 	private final UserRepository userRepository;
 	
 	@Autowired
     public UserServiceImpl(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
-	// -------------------------
 	
 	@Autowired
 	private DepartmentRepository departmentRepository;
 	
 	@Autowired
 	private RoleRepository roleRepository;
-	
-//	@Autowired
-//	private StateRepository stateRepository;
 	
 	@Override
 	public Optional<User> getUserById(Integer id) {
@@ -60,7 +46,7 @@ public class UserServiceImpl implements UserService {
 	public Collection<User> getAllUsers() {
 		return userRepository.findAll(new Sort("email"));
 	}
-	
+
 	
 
 	@Override
@@ -69,16 +55,10 @@ public class UserServiceImpl implements UserService {
 		user.setFirstName(form.getFirstName());
 		user.setLastName(form.getLastName());
         user.setEmail(form.getEmail());
-        //user.setPasswordHash(new BCryptPasswordEncoder().encode(form.getPassword()));
         user.setPassword(form.getPassword());
-        
-        
-        user.setUserRoles(
-        		
-        		form.getRole());
-        
+        user.setUserRoles(form.getRole());
         user.setUserDepartment(form.getDepartment());
-        // ssoId become an int, auto incremented user.setSsoId("1");
+        
         return userRepository.save(user);
 	}
 	
@@ -87,23 +67,12 @@ public class UserServiceImpl implements UserService {
 	public User updateUser(UserUpdateForm form, Integer id) {
 		System.out.println("Updating a User");
 		User userUpdated = userRepository.findOne((Integer)id);
-		//userUpdated = findById(form.getId());
 		userUpdated.setFirstName(form.getFirstName());
 		userUpdated.setLastName(form.getLastName());
 		userUpdated.setEmail(form.getEmail());
 		
-		// no role and departnement alteration
-//		user.setPassword(userService.getUserById(id).get().getPassword());
-//		//user.setRole(userService.getUserById(id).get().getRole()); // if we remove the admin updating roles power
-//		user.setUserRoles(form.getRole());
-
 		return userRepository.save(userUpdated);
 	}
-
-//	public void deleteUser(long id) {
-//		Optional<User> u = getUserById(id);
-//		userRepository.delete(id);
-//	}
 
 	@Override
 	public void deleteUser(Integer id) {

@@ -1,6 +1,6 @@
 -- look in application.properties 
 
--- CREATE DATABASE ruby_extranet_dm3;
+-- CREATE DATABASE ruby_extranet_release;
 
 INSERT INTO role(role_text)
 VALUES ('ADMIN');
@@ -23,8 +23,11 @@ INSERT INTO state(state_text) VALUE('INACTIVE');
 INSERT INTO state(state_text) VALUE('DELETED');
 INSERT INTO state(state_text) VALUE('LOCKED');
 
-insert into user values(1,'admin@admin', 'admin', 'admin', 'admin', 8,1);
-insert into user values(2,'user@user', 'user', 'user', 'user',8,1);
+insert into user(email, first_name, last_name, password, state, fk_department_id) 
+values('admin@admin', 'admin', 'admin', 'admin', 1, 8);
+
+insert into user(email, first_name, last_name, password, state, fk_department_id) 
+values('user@user', 'user', 'user', 'user', 1, 8);
 
 INSERT INTO user_role (fk_user_id, fk_role_id)
   SELECT pk_user_id, pk_role_id FROM user, role  
