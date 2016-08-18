@@ -12,6 +12,11 @@ apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply plugin: 'spring-boot'
 
+apply plugin: 'application'
+run {
+    args 'sample.txt'
+}
+
 //apply plugin: 'war'
 //archivesBaseName = 'rybyExtranet'
 // version '1.0-SNAPSHOT' with src/main/webapp
@@ -68,6 +73,9 @@ dependencies {
     //compile('org.springframework:spring-security-config')
     //compile('org.springframework:spring-security-taglibs')
     ///compile('jstl:jstl:1.2')
+    
+    //file server
+    compile("org.springframework.boot:spring-boot-starter-hateoas")
     
     runtime('mysql:mysql-connector-java')
     
