@@ -1,5 +1,8 @@
 package com.rubyExtranet.controller;
 
+import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
+import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -30,19 +33,17 @@ public class FileUploadController {
 		this.resourceLoader = resourceLoader;
 	}
 
-	@RequestMapping(method = RequestMethod.GET, value = "/")
+	@RequestMapping(method = RequestMethod.GET, value = "/uploadFile")
 	public String provideUploadInfo(Model model) throws IOException {
-
 		model.addAttribute("files", Files.walk(Paths.get(ROOT))
 				.filter(path -> !path.equals(Paths.get(ROOT)))
-				.map(path -> Paths.get(ROOT).relativize(path))
 				.map(path -> linkTo(methodOn(FileUploadController.class).getFile(path.toString())).withRel(path.toString()))
-				.collect(Collectors.toList()));
-
+				.collect(Collectors.toList())
+		);
 		return "uploadForm";
 	}
 
-	@RequestMapping(method = RequestMethod.GET, value = "/{filename:.+}")
+	@RequestMapping(method = RequestMethod.GET, value = "/UpFile + {filename:.+}")
 	@ResponseBody
 	public ResponseEntity<?> getFile(@PathVariable String filename) {
 
@@ -53,7 +54,7 @@ public class FileUploadController {
 		}
 	}
 
-	@RequestMapping(method = RequestMethod.POST, value = "/")
+	@RequestMapping(method = RequestMethod.POST, value = "/UpFile")
 	public String handleFileUpload(@RequestParam("file") MultipartFile file,
 								   RedirectAttributes redirectAttributes) {
 
@@ -69,7 +70,7 @@ public class FileUploadController {
 			redirectAttributes.addFlashAttribute("message", "Failed to upload " + file.getOriginalFilename() + " because it was empty");
 		}
 
-		return "redirect:/";
+		return "redirect:/uploadForm";
 	}
 	
 //	ByteArrayOutputStream output = serviceExcel.write(pathConverterInterface, getConnection(), l_utilisateur, listCaution);
@@ -90,4 +91,5 @@ public class FileUploadController {
 //	state.setObject(1, data);
 //	state.executeUpdate();
 	
+	//http://crunchify.com/spring-mvc-tutorial-how-to-upload-multiple-files-to-specific-location/
 }
