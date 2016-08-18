@@ -23,20 +23,23 @@ import com.rubyExtranet.repository.UserRepository;
 public class UserServiceImpl implements UserService {
 
 	private final UserRepository userRepository;
+
+	private DepartmentRepository departmentRepository;
+
+	private RoleRepository roleRepository;
+
+	private StateRepository stateRepository;
 	
 	@Autowired
-    public UserServiceImpl(UserRepository userRepository) {
+    public UserServiceImpl(UserRepository userRepository, DepartmentRepository departmentRepository, RoleRepository roleRepository,
+    		StateRepository stateRepository) {
         this.userRepository = userRepository;
+        this.departmentRepository = departmentRepository;
+        this.roleRepository = roleRepository;
+        this.stateRepository = stateRepository;
     }
 	
-	@Autowired
-	private DepartmentRepository departmentRepository;
-	
-	@Autowired
-	private RoleRepository roleRepository;
-	
-	@Autowired
-	private StateRepository stateRepository;
+
 	
 	@Override
 	public Optional<User> getUserById(Integer id) {
@@ -65,6 +68,17 @@ public class UserServiceImpl implements UserService {
         
         Collection<Role> roles = new ArrayList<>();
         
+        if (!form.getPrincipalRole().equals(null)){
+        	Role principalRole = roleRepository.findOneByRoleText(form.getPrincipalRole());
+        	roles.add(principalRole);
+        }
+        
+        if (!form.getAdditionalRole().equals(null)){
+        	Role additionallRole = roleRepository.findOneByRoleText(form.getAdditionalRole());
+        	roles.add(additionallRole);
+        }
+        
+        user.setUserRoles(roles);
         //si rolerepo == null sinon add role in array list 
         
         State st = stateRepository.findOneByStateText(form.getState());
@@ -96,7 +110,7 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public Collection<Department> getAllDepartments() {
-		return departmentRepository.findAll(new Sort("id"));
+		return departmentRepository.findAll(new Sort("departementId"));
 	}
 
 	@Override

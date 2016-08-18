@@ -2,10 +2,10 @@ package com.rubyExtranet.model.user;
 
 public enum EnumState {
 	
-	ACTIVE("Active"),
-	INACTIVE("Inactive"),
-	DELETED("Deleted"),
-	LOCKED("Locked");
+	ACTIVE("ACTIVE"),
+	INACTIVE("INACTIVE"),
+	DELETED("DELETED"),
+	LOCKED("LOCKED");
      
     private String state;
      
@@ -17,13 +17,9 @@ public enum EnumState {
         return this.state;
     }
  
-    @Override
-    public String toString(){
-        return this.state;
-    }
- 
-    public String getName(){
-        return this.name();
-    }
+//    @Override
+//    public String toString(){
+//        return this.state;
+//    }
 	 
 }

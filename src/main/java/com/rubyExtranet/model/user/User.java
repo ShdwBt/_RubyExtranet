@@ -23,7 +23,7 @@ public class User {
 	
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column (name = "pk_user_id", updatable = false)
-    private Integer id;
+    private Integer userId;
      
     @Column(name="password", nullable=false)
     private String password;
@@ -52,12 +52,12 @@ public class User {
     @JoinColumn (name = "fk_state_id")
     private State userState;
 
-	public Integer getId() {
-		return id;
+	public Integer getUserId() {
+		return userId;
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
+	public void setUserId(Integer userId) {
+		this.userId = userId;
 	}
 
 	public String getPassword() {

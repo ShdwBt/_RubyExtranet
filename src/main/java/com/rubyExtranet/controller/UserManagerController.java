@@ -67,7 +67,11 @@ public class UserManagerController {
 	public ModelAndView getUserCreatePage(ModelAndView model){
 		UserCreateForm userCreateForm = new UserCreateForm();
 		model.addObject("form", userCreateForm);
-		model.addObject("roles", userService.getAllRole());
+		//model.addObject("roles", userService.getAllRole());
+		
+		model.addObject("principalRole", EnumRole.values());
+		model.addObject("additionalRole", EnumRole.values());
+		
 		model.addObject("states", EnumState.values());
 		
 //		model.addObject("departments", userService.getAllDepartments());
@@ -102,7 +106,7 @@ public class UserManagerController {
 		model.addObject("user" , userService.getUserById(id).get());
 		model.addObject("roles", EnumRole.values());
 		model.addObject("states", EnumState.values());
-		model.addObject("departments", userService.getAllDepartments()); 
+		model.addObject("departments", userService.getUserById(id).get().getUserdepartment()); 
 		model.setViewName("userUpdate");
 		return model;
 	}

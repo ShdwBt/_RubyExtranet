@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.rubyExtranet.model.user.Department;
 
 public interface DepartmentRepository extends JpaRepository<Department, Long>{
-	Optional<Department> findOneById(Integer id);
+	Optional<Department> findOneByDepartmentId(Integer departmentId);
 	
 	Department findOneByDepartmentText(String departmentText);
 }

@@ -13,17 +13,17 @@ public class Role {
 	
     @Id @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="pk_role_id", updatable = false, unique = true, nullable = false)
-    private Integer id; 
+    private Integer roleId; 
  
     @Column(name="role_text", unique=true, nullable=false)
     private String roleText;
 
 	public int getRoleId() {
-		return id;
+		return roleId;
 	}
 
 	public void setRoleId(Integer id) {
-		this.id = id;
+		this.roleId = id;
 	}
 
 	public String getRole(){
@@ -36,7 +36,7 @@ public class Role {
 
 	@Override
 	public String toString() {
-		String roleTexte = roleText.toString().replace("[", "").replace("]", "");
+		String roleTexte = roleText.toString().replace("[", " ").replace("]", " ");
 		return roleTexte;
 	}
 	

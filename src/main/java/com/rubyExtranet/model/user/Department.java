@@ -13,17 +13,17 @@ public class Department {
 
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column (name = "pk_department_id", updatable = false)
-    private Integer id;
+    private Integer departmentId;
 	
     @Column(name="department_text", unique=true, nullable=true)
     private String departmentText;
 
 	public Integer getDepartmentId() {
-		return id;
+		return departmentId;
 	}
 
 	public void setDepartmentId(Integer id) {
-		this.id = id;
+		this.departmentId = id;
 	}
 
 	public String getDepartmentText() {

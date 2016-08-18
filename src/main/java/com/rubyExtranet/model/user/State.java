@@ -2,8 +2,6 @@ package com.rubyExtranet.model.user;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -19,8 +17,7 @@ public class State {
     private Integer stateId; 
  
     @Column(name="state_text", unique=true, nullable=false)
-    @Enumerated(EnumType.STRING)
-    private EnumState stateText;
+    private String stateText;
     
 	public Integer getStateId() {
 		return stateId;
@@ -30,11 +27,11 @@ public class State {
 		this.stateId = stateId;
 	}
 
-	public EnumState getStateText() {
+	public String getStateText() {
 		return stateText;
 	}
 
-	public void setStateText(EnumState stateText) {
+	public void setStateText(String stateText) {
 		this.stateText = stateText;
 	}
 
