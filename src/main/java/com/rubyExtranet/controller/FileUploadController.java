@@ -72,4 +72,22 @@ public class FileUploadController {
 		return "redirect:/";
 	}
 	
+//	ByteArrayOutputStream output = serviceExcel.write(pathConverterInterface, getConnection(), l_utilisateur, listCaution);
+//
+//	response.setContentType("application/vnd.ms-excel");
+//	response.setHeader("Content-Disposition", "attachment; filename=\"" + "reporting.xls" + "\"");
+//
+//	OutputStream servletOutputStream = response.getOutputStream();
+//	output.writeTo(servletOutputStream);
+//	servletOutputStream.flush();
+//	
+//	String sQLINSERT = "INSERT INTO finance_active(fichiers) values(?)";
+//	
+//	byte[] data = output.toByteArray();
+//	
+//	Connection connect = new FinanceActiveExtractionCautionsAction().getConnection();
+//	PreparedStatement state = connect.prepareStatement(sQLINSERT);
+//	state.setObject(1, data);
+//	state.executeUpdate();
+	
 }
