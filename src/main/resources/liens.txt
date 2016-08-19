@@ -142,6 +142,8 @@ SESSION :
 
 https://www.javacodegeeks.com/2013/04/spring-mvc-session-tutorial.html
 
+http://www.baeldung.com/spring-security-session
+
 MAIL :
 
 http://www.javaworld.com/article/2074449/java-app-dev/jabber-away-with-instant-messaging.html?page=2
@@ -171,3 +173,41 @@ http://www.javatpoint.com/spring-3-mvc-tutorial
 websocket :
 
 https://spring.io/blog/2013/05/23/spring-framework-4-0-m1-websocket-support
+
+
+???? :
+
+http://stackoverflow.com/questions/4109077/accessing-the-attributes-of-a-model-contained-in-a-modelandview-object-from-the
+http://www.ekiras.com/2015/08/spring-boot-mvc-gradle-sample-crud-project-setup.html
+
+
+
+Upload/Download Files :
+
+http://stackoverflow.com/questions/8939520/downloading-a-file-from-database-tablemysql-spring
+http://stackoverflow.com/questions/5673260/downloading-a-file-from-spring-controllers
+https://www.youtube.com/watch?v=2VevNLZzbGw
+
+http://viralpatel.net/blogs/tutorial-save-get-blob-object-spring-3-mvc-hibernate/
+
+http://blog.netgloo.com/2015/02/08/spring-boot-file-upload-with-ajax/
+
+
+
+autre : 
+
+http://blog.paumard.org/tutoriaux/eclipse-bitbucket/
+
+http://www.git-attitude.fr/2013/04/03/configuration-git/
+
+https://www.petrikainulainen.net/spring-data-jpa-tutorial/
+http://blog.xebia.fr/2010/01/07/transactions-les-concepts-et-modeles/
+
+http://www.jaxio.com/
+
+http://blog.zenika.com/2009/11/02/cas-reel-d-utilisation-de-celerio-le-generateur-de-code-java-de-jaxio/
+
+https://docs.jboss.org/hibernate/orm/5.0/topical/html/metamodelgen/MetamodelGenerator.html
+
+https://www.atlassian.com/git/tutorials/setting-up-a-repository/
+

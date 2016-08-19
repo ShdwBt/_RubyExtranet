@@ -14,7 +14,7 @@ apply plugin: 'spring-boot'
 
 apply plugin: 'application'
 run {
-    args 'sample.txt'
+    args 'sample'
 }
 
 //apply plugin: 'war'

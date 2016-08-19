@@ -38,8 +38,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 			.defaultSuccessUrl("/connect")
 		.and()
 			.logout().permitAll()
-		.and()
-			.exceptionHandling().accessDeniedPage("/home") //a changer
+//		.and()
+//			.exceptionHandling().accessDeniedPage("/home") //a changer
 		.and()
 			.csrf()
 			.disable()			
