@@ -99,6 +99,21 @@ public class UserServiceImpl implements UserService {
 		userUpdated.setLastName(form.getLastName());
 		userUpdated.setEmail(form.getEmail());
 		
+		Department dpt = departmentRepository.findOneByDepartmentText(form.getDepartment());
+		userUpdated.setUserDepartment(dpt);
+		
+//		Collection<Role> roles = new ArrayList<>();
+//        
+//        if (!form.getPrincipalRole().equals(null)){
+//        	Role principalRole = roleRepository.findOneByRoleText(form.getPrincipalRole());
+//        	roles.add(principalRole);
+//        }
+//        
+//        if (!form.getAdditionalRole().equals(null)){
+//        	Role additionallRole = roleRepository.findOneByRoleText(form.getAdditionalRole());
+//        	roles.add(additionallRole);
+//        }
+//		userUpdated.setUserRoles(roles);
 		return userRepository.save(userUpdated);
 	}
 

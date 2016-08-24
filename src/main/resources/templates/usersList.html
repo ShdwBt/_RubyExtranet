@@ -2,8 +2,8 @@
 <html xmlns:th="http://www.thymeleaf.org">
 	<head>
 	
-		<div th:include="/fragments/generalStyle"/>
-		<title>Users List</title>
+		<div th:include="/fragments/extranetStyle"/>
+		<title>Liste des Utilisateurs</title>
 		
 	</head>
 	
@@ -11,8 +11,8 @@
 		<header>
 			<nav role="navigation">
 			 <div class="logo-nav">
-						<img class="" src="../static/img" th:src="@{img/RubisLogoV2-FullColor.png}"/>
-		            </div>
+				<img class="" src="../static/img" th:src="@{img/RubisLogoV2-FullColor.png}"/>
+		     </div>
 		            <div class="fat-nav">
 		
 		                <div class="fat-nav__wrapper ">
@@ -20,20 +20,18 @@
 		                    	<img class="" src="../static/img" th:src="@{img/RubisLogoV2-WhiteV.png}"/>
 		
 		                    </div>
-		                    <div th:include="/fragments/burgerMenu"/>
+		                    <div th:include="/fragments/extranetBurgerMenu"/>
 		
 		                </div>
 		            </div>
-		
-			    
 			</nav>
 		</header>
 		
 		
-		<h3>List of Users</h3>
+		<h3 style="color:white;">Listes des Utilisateurs</h3>
 	
 		<div th:if = "${not #lists.isEmpty(users)}">
-			<table style="margin-top: 50px">
+			<table class="usersTab" style="margin-top: 50px">
 			    <thead>
 			    <tr>
 			    	<th>First Name</th>
@@ -46,24 +44,13 @@
 			    </tr>
 			    </thead>
 			    <tbody>
-			    <!--  
-				    <#list users as user>
-				    <tr>
-				        <td><a href="/user/${user.id}">${user.email}</a></td>
-				        <td>${user.role}</td>
-				       
-				    </tr>
-				    </#list>
-			    -->
+
 			
 				    <tr th:each = "user : ${users}">
 				    	<td th:text = "${user.firstName}"></td>
 				    	<td th:text = "${user.lastName}"></td>
 				    	<td th:text = "${user.email}"></td>
 				    	<td th:text = "${user.userRoles}"></td>
-				    	
-<!-- 				    	<td><a href="<c:url value='/edit-user-${user.id}' />">edit</a></td> -->
-<!-- 						<td><a href="<c:url value='/delete-user-${user.id}' />">delete</a></td> -->
 
 				    	<td><a th:href="${'/user' + user.userId}">User Info</a></td>
 				    	<td><a th:href="${'/userUpdate' + user.userId}">Update</a></td>

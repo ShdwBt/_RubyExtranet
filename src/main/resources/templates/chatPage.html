@@ -3,11 +3,12 @@
 xmlns:th="http://www.thymeleaf.org" 
 xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 	<head>
-    <title>Chat Page</title>
-
-    <script type="text/javascript" src="../static/js" th:src="@{js/sockjs-0.3.4.js}"> </script>
-    <script type="text/javascript" src="../static/js" th:src="@{js/stomp.js}"></script>
-   	<script type="text/javascript" src="../static/js" th:src="@{js/chat.js}"></script>
+	    <title>Chat</title>
+	    <link href="../static/css" th:href="@{css/chat.css}" rel="stylesheet" media="screen" type="text/css"/>
+	
+	    <script type="text/javascript" src="../static/js" th:src="@{js/sockjs-0.3.4.js}"> </script>
+	    <script type="text/javascript" src="../static/js" th:src="@{js/stomp.js}"></script>
+	   	<script type="text/javascript" src="../static/js" th:src="@{js/chat.js}"></script>
 	</head>
 	
 	<body onload="disconnect()">
@@ -17,14 +18,14 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 		    Javascript and reload this page!</h2></noscript>
 		<div>
 		    <div>
-		        <button id="connect" onclick="connect();">Connect</button>
-		        <button id="disconnect" disabled="disabled" onclick="disconnect();">Disconnect</button>
+		        <button id="connect" class="btnflatwhiteoutlined" onclick="connect();">Open</button>
+		        <button id="disconnect" class="btnflatwhiteoutlined" disabled="disabled" onclick="disconnect();">Hide</button>
 		    </div>
 		    
 		    <div id="conversationDiv">
 		    	<input type="text" id="messageText"/>
-		        <button id="sendMessage" onclick="sendMessage();">Send</button><br/>
-		        <textarea id="messagesTextArea" readonly="readonly" rows="10" cols="30" data-role="none"></textarea><br/>
+		        <button id="sendMessage" class="btnflatwhiteoutlined" onclick="sendMessage();">Send</button><br/>
+		        <textarea id="messagesTextArea" readonly="readonly" rows="13" cols="37" data-role="none"></textarea><br/>
 		    </div>
 		</div>
 	</body>

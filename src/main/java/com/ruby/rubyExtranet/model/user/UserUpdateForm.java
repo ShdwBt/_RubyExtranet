@@ -18,9 +18,11 @@ public class UserUpdateForm {
     
     private String lastName;
     
-    private Collection<Role> role;
+    private String principalRole;
     
-    private Department department;
+    private String additionalRole;
+    
+    private String department;
 
 	public Integer getId() {
 		return id;
@@ -54,19 +56,27 @@ public class UserUpdateForm {
 		this.lastName = lastName;
 	}
 
-	public Collection<Role> getRole() {
-		return role;
+	public String getPrincipalRole() {
+		return principalRole;
 	}
 
-	public void setRole(Collection<Role> role) {
-		this.role = role;
+	public void setPrincipalRole(String principalRole) {
+		this.principalRole = principalRole;
 	}
 
-	public Department getDepartment() {
+	public String getAdditionalRole() {
+		return additionalRole;
+	}
+
+	public void setAdditionalRole(String additionalRole) {
+		this.additionalRole = additionalRole;
+	}
+
+	public String getDepartment() {
 		return department;
 	}
 
-	public void setDepartment(Department department) {
+	public void setDepartment(String department) {
 		this.department = department;
 	}
 

@@ -16,7 +16,7 @@ body {
 }
 a{cursor:pointer;}
 body {
- background-image: url(../img/Logotype.png);
+ background-image: url(../img/louvres.jpg);
  background-size: cover;
  overflow-x: hidden;
  font-family: 'Lato';
@@ -350,7 +350,7 @@ span.lato-hairline-menu{
 }
 
 .fat-nav ul li ul li a:hover {
- color: black;
+ color: white;
  transition: all 0.25s linear 0s;
 }
 
@@ -650,4 +650,7 @@ h2 {
 	position:fixed;
 	bottom:140px;
 	right:0;
+}
+.usersTab{
+	color:#dcdcdc;
 }
