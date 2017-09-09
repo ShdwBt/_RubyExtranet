@@ -49,3 +49,9 @@ Temporary Items
 /bin/
 /build/
 /.project
+*.iml
+/out
+.settings
+.idea
+.gradle
+gradle
