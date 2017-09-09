@@ -85,3 +85,9 @@ dependencies {
 task wrapper(type: Wrapper) {
     gradleVersion = '2.3'
 }
+
+//project(':impl'){
+//    dependencies{
+//        compile project(':domain')
+//    }
+//}
