@@ -1,5 +1,7 @@
 package com.ruby.form;
 
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.validation.constraints.NotNull;
@@ -7,6 +9,7 @@ import javax.validation.constraints.NotNull;
 /**
  * Created by ShdwBt on 11/09/2017.
  */
+@Getter @Setter
 public class UserCreationForm {
     @NotEmpty
     private String email = "";

@@ -1,5 +1,8 @@
 package com.ruby.domain;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -9,6 +12,7 @@ import java.util.Collection;
  */
 @Entity
 @Table (name = "user")
+@Getter @Setter
 public class User {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column (name = "pk_user_id", updatable = false)
