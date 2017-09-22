@@ -10,7 +10,7 @@ import java.util.Optional;
  * Created by ShdwBt on 11/09/2017.
  */
 public interface UploadedFileService {
-    UploadedFile create(Blob file, String filename);
+    public void create(Blob file, String filename);
 
     Optional<UploadedFile> getByFilename(String filename);
 
