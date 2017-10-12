@@ -18,12 +18,7 @@ public class UserUpdateForm {
     private String email = "";
 
     private String firstname;
-
     private String lastname;
-
-    private String principalRole;
-
-    private String additionalRole;
-
     private String department;
+    private String state;
 }

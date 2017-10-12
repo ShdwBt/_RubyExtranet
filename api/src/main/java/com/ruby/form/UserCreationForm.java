@@ -21,11 +21,8 @@ public class UserCreationForm {
     private String passwordRepeated = "";
 
     private String firstname;
-
     private String lastname;
-
     private String principalRole;
-
     private String additionalRole;
 
     @NotNull
