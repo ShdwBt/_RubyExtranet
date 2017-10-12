@@ -19,4 +19,10 @@ public class Role {
 
     @Column(name="role_text", unique=true, nullable=false)
     private String text;
+
+//    @Override
+//    public String toString() {
+//        String StringText = text.toString().replace("[", " ").replace("]", " ");
+//        return StringText;
+//    }
 }
