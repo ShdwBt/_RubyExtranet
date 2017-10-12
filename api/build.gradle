@@ -21,5 +21,6 @@ dependencies {
     compile 'org.springframework.boot:spring-boot-starter'
     compile 'org.springframework.boot:spring-boot-starter-data-jpa' // form issues
     compile 'org.springframework.boot:spring-boot-starter-thymeleaf' // form issues
+    compile 'org.springframework.boot:spring-boot-starter-mail'
     compile 'org.projectlombok:lombok:1.16.18' //must add version to global properties
 }
