@@ -2,6 +2,7 @@ package com.ruby.service;
 
 import com.ruby.domain.Department;
 import com.ruby.domain.Role;
+import com.ruby.domain.State;
 import com.ruby.domain.User;
 import com.ruby.form.UserCreationForm;
 import com.ruby.form.UserUpdateForm;
@@ -28,4 +29,6 @@ public interface UserService {
     Collection<Department> getDepartments();
 
     Collection<Role> getRoles();
+
+    Collection<State> getStates();
 }
