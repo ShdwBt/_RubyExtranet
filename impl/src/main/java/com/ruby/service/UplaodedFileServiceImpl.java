@@ -3,6 +3,7 @@ package com.ruby.service;
 import com.ruby.domain.UploadedFile;
 import com.ruby.repository.UploadedFileRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.sql.Blob;
 import java.util.Collection;
@@ -11,6 +12,7 @@ import java.util.Optional;
 /**
  * Created by ShdwBt on 23/09/2017.
  */
+@Service
 public class UplaodedFileServiceImpl implements UploadedFileService {
 
     private UploadedFileRepository uploadedFileRepository;

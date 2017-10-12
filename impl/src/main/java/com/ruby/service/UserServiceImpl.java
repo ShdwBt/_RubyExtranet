@@ -12,6 +12,7 @@ import com.ruby.repository.StateRepository;
 import com.ruby.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -20,14 +21,15 @@ import java.util.Optional;
 /**
  * Created by ShdwBt on 21/09/2017.
  */
+@Service
 public class UserServiceImpl implements UserService {
-
+    @Autowired
     private UserRepository userRepository;
-
+    @Autowired
     private DepartmentRepository departmentRepository;
-
+    @Autowired
     private RoleRepository roleRepository;
-
+    @Autowired
     private StateRepository stateRepository;
 
     @Autowired
@@ -57,30 +59,26 @@ public class UserServiceImpl implements UserService {
     @Override
     public User create(UserCreationForm form) {
         User user = new User();
-        user.setFirstname(form.getFirstname());
-        user.setLastname(form.getLastname());
-        user.setEmail(form.getEmail());
-        user.setPassword(form.getPassword());
+
+        Department department = departmentRepository.findOneByText(form.getDepartment());
+        State st = stateRepository.findOneByText(form.getState());
 
         Collection<Role> roles = new ArrayList<>();
-
         if (!form.getPrincipalRole().equals(null)){
             Role principalRole = roleRepository.findOneByText(form.getPrincipalRole());
             roles.add(principalRole);
         }
-
         if (!form.getAdditionalRole().equals(null)){
             Role additionallRole = roleRepository.findOneByText(form.getAdditionalRole());
             roles.add(additionallRole);
         }
-
+        user.setFirstname(form.getFirstname());
+        user.setLastname(form.getLastname());
+        user.setEmail(form.getEmail());
+        user.setPassword(form.getPassword());
         user.setRoles(roles);
-
-        State st = stateRepository.findOneByText(form.getState());
         user.setState(st);
-
-        Department dpt = departmentRepository.findOneByText(form.getDepartment());
-        user.setDepartment(dpt);
+        user.setDepartment(department);
 
         return userRepository.save(user);
     }
@@ -88,13 +86,15 @@ public class UserServiceImpl implements UserService {
     @Override
     public User update(UserUpdateForm form, Integer id){
         System.out.println("Updating a User");
-        User userUpdated = userRepository.findOne((Integer)id);
+        User userUpdated = userRepository.findOne(id);
+        Department department = departmentRepository.findOneByText(form.getDepartment());
+        State state = stateRepository.findOneByText(form.getState());
+
         userUpdated.setFirstname(form.getFirstname());
         userUpdated.setLastname(form.getLastname());
         userUpdated.setEmail(form.getEmail());
-
-        Department dpt = departmentRepository.findOneByText(form.getDepartment());
-        userUpdated.setDepartment(dpt);
+        userUpdated.setDepartment(department);
+        userUpdated.setState(state);
 
         //roles update to add
         return userRepository.save(userUpdated);
@@ -114,4 +114,7 @@ public class UserServiceImpl implements UserService {
     public Collection<Role> getRoles() {
         return roleRepository.findAll();
     }
+
+    @Override
+    public Collection<State> getStates(){ return stateRepository.findAll();}
 }
