@@ -1,0 +1,647 @@
+@font-face {
+ font-family: 'geometosregular';
+ src: url('../fonts/geometos/geometos-webfont.eot');
+ src: url('../fonts/geometos/geometos-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/geometos/geometos-webfont.woff2') format('woff2'), url('../fonts/geometos/geometos-webfont.woff') format('woff'), url('../fonts/geometos/geometos-webfont.ttf') format('truetype'), url('../fonts/geometos/geometos-webfont.svg#geometosregular') format('svg');
+ font-weight: normal;
+ font-style: normal;
+}
+
+@import url(https://fonts.googleapis.com/css?family=Lato:400,300,100,100italic,300italic,400italic,700,700italic,900,900italic);
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+html,
+body {
+ margin: 0;
+ padding: 0;
+ height: 100%;
+}
+a{cursor:pointer;}
+body {
+ background-image: url(../img/RedEiffelV3.jpg);
+ background-size: cover;
+ overflow-x: hidden;
+ font-family: 'Lato';
+ width: 100%;
+ height: 100%;
+ background-repeat: no-repeat;
+}
+
+.logo-home {
+ margin-left: auto;
+ margin-right: auto;
+}
+
+.logo-home img {
+ margin-top: 30%;
+ width: 100%;
+ height: auto;
+}
+
+.login-form {
+ /*border:1px solid rgba(255,255,255,0.5);*/
+}
+
+.italic-grey {
+ font-style: italic;
+ color: #dcdcdc;
+ font-family: "lato";
+ font-weight: 300;
+}
+
+.login-form h1 {
+ letter-spacing: 2px;
+ margin-bottom: 60px;
+ text-align: center;
+ color: white;
+ font-size: 18px;
+ font-family: 'lato';
+ font-weight: 700;
+ text-transform: uppercase;
+}
+
+.login-form h1:after {
+ content: "";
+ left: 45%;
+ top: 60px;
+ margin-right: auto;
+ margin-left: auto;
+ border-bottom: 1px solid white;
+ background-color: white;
+ height: 2px;
+ position: absolute;
+ width: 40px;
+}
+
+
+/* Stylisation des boutons*/
+
+.call-to-submit {
+ text-align: center;
+ margin-top: 40px;
+}
+
+.call-to-submit a {
+ text-align: center;
+}
+
+
+/* BTN STYLES */
+
+.btnflatwhiteoutlined {
+ letter-spacing: 0.02em;
+ background-color: rgba(0, 0, 0, 0.1);
+ text-decoration: none;
+ font-size: 16px;
+ font-family: "lato";
+ font-weight: 300;
+ color: white;
+ padding-left: 22px;
+ padding-right: 22px;
+ padding-top: 10px;
+ padding-bottom: 12px;
+ transition: all 0.25s linear 0s;
+ border: 1px solid rgba(255, 255, 255, 1);
+}
+
+.btnflatwhiteoutlined:hover {
+ text-decoration: none;
+ transition: all 0.15s linear 0s;
+ color: black;
+ background-color: white;
+}
+
+.btnflatwhite {
+ letter-spacing: 0.02em;
+ background-color: white;
+ text-decoration: none;
+ font-size: 16px;
+ font-family: "lato";
+ font-weight: 300;
+ color: black;
+ padding-left: 22px;
+ padding-right: 22px;
+ padding-top: 12px;
+ padding-bottom: 14px;
+ transition: all 0.25s linear 0s;
+ border: 1px solid rgba(255, 255, 255, 1);
+}
+
+.btnflatwhite:hover {
+ border: 1px solid black;
+ text-decoration: none;
+ transition: all 0.15s linear 0s;
+ color: white;
+ background-color: black;
+}
+
+.btnflatred-geometos {}
+
+video {
+ transition: all 0.25s linear 0s;
+ opacity: 0.15;
+ background-color: #96181D;
+ position: fixed;
+ top: 50%;
+ left: 50%;
+ min-width: 100%;
+ min-height: 100%;
+ width: auto;
+ height: auto;
+ z-index: -100;
+ transform: translateX(-50%) translateY(-50%);
+ /*background: url('video/velo.mp4') no-repeat;*/
+ background-size: cover;
+ transition: 1s opacity;
+}
+
+.grayscale {
+ -webkit-filter: grayscale(100%);
+ -moz-filter: grayscale(100%);
+ -ms-filter: grayscale(100%);
+ -o-filter: grayscale(100%);
+ filter: grayscale(100%);
+ filter: url(grayscale.svg);
+ /* Firefox 4+ */
+ filter: gray;
+ /* IE 6-9 */
+}
+
+.mdp-forgot {
+ text-align: center;
+ margin-top: 40px;
+}
+
+.mdp-forgot a {
+ text-decoration: underline;
+}
+
+.italic-link {
+ letter-spacing: 0.02em;
+ color: #b4b4b4;
+ transition: all 0.2s;
+}
+
+.italic-link:hover {
+ transition: all 0.2s;
+ color: white;
+}
+
+@media screen and (max-width:640px) {
+ .logo-home img {}
+ .login-form {
+  margin-top: 40px;
+ }
+ body {
+  max-width: 640px;
+  min-height: 1136px;
+  background-size: cover;
+ }
+ .form-group #i5 {
+  margin-bottom: 0px;
+  margin-top: 0px;
+ }
+ .call-to-submit {
+  text-align: center;
+  margin-top: 60px;
+ }
+ .mdp-forgot {
+  text-align: center;
+  margin-top: 80px;
+ }
+ .fillWidth {
+  display: none;
+ }
+ .vide {
+  height: 100px;
+ }
+}
+
+
+/* HOMEPAGE */
+
+header {
+ z-index: 777;
+ width: 100%;
+ height: 100px;
+ position: fixed;
+ color: white;
+}
+
+.logo-nav {
+ z-index: 7;
+ position: absolute;
+ max-height: 100px;
+ height: auto;
+}
+
+.logo-nav img {
+ max-height: 100px;
+ float: left;
+}
+
+.logo-fatNav {
+ z-index: 77;
+ position: absolute;
+ max-height: 100px;
+ height: auto;
+}
+.logo-fatNav img {
+ max-height: 100px;
+ float: left;
+}
+
+.nav-block {}
+
+ul.menunav {}
+
+.hero-title {
+ font-size: 72px;
+ font-family: 'geometosregular', 'Montserrat', sans-serif;
+ top: 40%;
+ position: absolute;
+ color: white;
+ width: 100%;
+ height: auto;
+ z-index: 77;
+ font-weight: 400;
+ line-height: 72px;
+ text-align: center;
+}
+
+span.lato-hairline {
+ font-family: 'lato', arial, sans-serif;
+ font-weight: 100;
+ color: white;
+ font-size: 90px;
+}
+span.lato-hairline-menu{
+ font-family: 'lato', arial, sans-serif;
+ font-weight: 100;
+ color: white;
+ font-size:24px;
+}
+
+/* Slider */
+
+#brandbookslider {
+ background-color: grey;
+ max-height: 700px;
+ top: 0;
+ position: relative;
+ height: auto;
+ width: 100%;
+}
+
+#homeslider {
+ display: none;
+ top: 0;
+ position: relative;
+ height: auto;
+ width: 100%;
+}
+
+#homeslider img {
+ width: 100%;
+ height: auto;
+}
+
+
+/* Navigation Styles */
+
+.fat-nav {}
+
+.fat-nav .faat-nav__wrapper ul {}
+
+.fat-nav .faat-nav__wrapper ul li {
+ font-weight: bold;
+}
+
+.fat-nav li a.ss-cat-nav-link {
+ color:rgba(245,245,245,1);
+ font-family: 'lato', arial, sans-serif;
+ text-transform: uppercase;
+ font-size: 18px;
+ letter-spacing: 0.05em;
+ font-weight: 200;
+ border-bottom: 1px solid rgba(255, 255, 255, 0);
+ transition: all 0.3s linear 0s;
+}
+
+.fat-nav li a.ss-cat-nav-link:hover {
+ color:white;
+  transition: all 0.1s linear 0s;
+ font-family: 'lato', arial, sans-serif;
+ text-transform: uppercase;
+
+ padding-bottom: 5px;
+ border-bottom: 1px solid white;
+
+}
+
+.fat-nav .faat-nav__wrapper ul li a ul {}
+
+.fat-nav ul li ul li a {
+ margin-left: 20px;
+ text-align: center;
+ font-family: 'Lato', arial, sans-serif;
+ color: white;
+ font-weight: 100;
+ font-size: 18px;
+ transition: all 0.25s linear 0s;
+}
+
+.fat-nav ul li ul li a:hover {
+ color: black;
+ transition: all 0.25s linear 0s;
+}
+
+
+/* SOus titre menu styles */
+
+.fw-container .col25p p.ss-cat-title {
+ transition: all 0.3s linear 0s;
+ text-align: center;
+ width: 100%;
+ position: absolute;
+ top: 40%;
+ z-index: 777;
+ font-size: 18px;
+ font-family: 'geometosregular', 'Montserrat', 'lato', arial, sans-serif;
+ color: white;
+ vertical-align: middle;
+}
+
+.nav3col {
+ margin-top: 10%;
+}
+
+
+/* TItre categorie menu styles */
+
+.nav3col h2 {
+ margin-bottom: 20px;
+ text-align: center;
+}
+
+h2 a.title-cat-menu {
+ letter-spacing: 0.05em;
+ text-decoration: none;
+ font-size: 30px;
+ font-family: 'geometosregular', 'Montserrat', 'lato', arial, sans-serif;
+ border-bottom: 1px solid rgba(255, 255, 255, 0);
+ transition: all 0.3s linear 0s;
+}
+
+a.title-cat-menu:hover {
+ padding-bottom: 10px;
+ border-bottom: 2px solid white;
+ transition: all 0.2s linear 0s;
+}
+
+
+/* container FUll width */
+
+.fw-container {
+ width: 100%;
+ height: 100%;
+ overflow: hidden;
+ background-color: white;
+}
+
+.colleft67 {
+ width: 67%;
+ height: 700px;
+ float: left;
+ background-color: #dcdcdc;
+ overflow: hidden;
+ position: relative;
+}
+
+.colleft33 {
+ width: 33%;
+ height: 700px;
+ float: left;
+ background-color: white;
+ overflow: hidden;
+ position: relative;
+}
+
+.colleft33-content {
+ max-width: 328px;
+ margin: 24% auto 0;
+ display: block;
+}
+
+.colright67 {
+ width: 67%;
+ max-height: 700px;
+ height: auto;
+ float: left;
+ background-color: #dcdcdc;
+ overflow: hidden;
+ position: relative;
+}
+
+.colright33 {
+ width: 33%;
+ height: 700px;
+ float: left;
+ background-color: white;
+ overflow: hidden;
+ position: relative;
+}
+
+.colleft67 img {
+ width: 100%;
+ height: auto;
+}
+
+.colleft33 img {
+ width: 100%;
+ height: auto;
+}
+
+.colright33 img {
+ width: 100%;
+ height: auto;
+}
+
+.colright67 img {
+ width: 100%;
+ height: auto;
+}
+
+.colright33-content {
+ max-width: 328px;
+ margin: 24% auto 0;
+ display: block;
+}
+
+
+/* container FUll width */
+
+.colright33-content h2 {
+ font-family: 'geometosregular', 'Montserrat', 'Lato', arial, sans-serif;
+ font-size: 48px;
+ text-transform: uppercase;
+ font-weight: bold;
+}
+
+.colleft33-content h2 {
+ font-family: 'geometosregular', 'Montserrat', 'Lato', arial, sans-serif;
+ font-size: 48px;
+ text-transform: uppercase;
+ font-weight: bold;
+}
+
+.colleft33-content p {
+ text-align: justify;
+ font-size: 12px;
+ line-height: 18px;
+ font-family: 'Helvetica', arial, sans-serif;
+ font-weight: lighter;
+}
+
+.colright33-content p {
+ text-align: justify;
+ font-size: 12px;
+ line-height: 18px;
+ font-family: 'Helvetica', arial, sans-serif;
+ font-weight: lighter;
+}
+
+.hr {
+ width: 70px;
+ height: 5px;
+ background-color: #000;
+ border: 0;
+ margin: 30px 0 60px;
+}
+
+.img-responsive {
+ display: block;
+ max-width: 100%;
+ height: auto;
+}
+
+
+/* Titles styles */
+
+h1 {
+ font-size: 72px;
+ font-family: 'geometosregular', 'Montserrat', 'Lato', arial, sans-serif;
+}
+
+h2 {
+ font-family: 'geometosregular', 'Montserrat', 'Lato', arial, sans-serif;
+ font-size: 48px;
+}
+
+
+/* PAGE CATEGORIE > Marketing */
+
+.col25p {
+ overflow: hidden;
+ height: 100%;
+ width: 25%;
+ float: left;
+ display: inline-block;
+ position: relative;
+ transition: all 0.3s linear 0s;
+}
+
+.col25p img {
+ position: relative;
+ height: auto;
+ width: 100%;
+ transition: all 0.7s linear 0s;
+}
+
+.col25p:hover {
+ overflow: hidden;
+ transition: all 0.3s linear 0s;
+}
+
+.col25p:hover img {
+ top: 0;
+ left: 0;
+ transition: all 0.3s linear 0s;
+ -webkit-filter: blur(1px);
+ /* Chrome, Safari, Opera */
+ filter: blur(1px);
+ overflow-x: hidden;
+ width: 110%;
+ height: auto;
+ margin: 0 auto;
+}
+
+.fw-container .col25p h2.ss-cat-title {
+ transition: all 0.3s linear 0s;
+ text-align: center;
+ width: 100%;
+ position: absolute;
+ top: 40%;
+ z-index: 7;
+ font-size: 30px;
+ font-family: 'geometosregular', 'Montserrat', 'lato', arial, sans-serif;
+ color: white;
+ vertical-align: middle;
+}
+
+.col25p:hover h2.ss-cat-title {
+ transition: all 0.3s linear 0s;
+ z-index: 7;
+
+}
+
+.col25p a.btnflatwhiteoutlined {
+ margin-left: 50%;
+ z-index: 777;
+ top: 50%;
+ width: 100px;
+ margin: 0 auto;
+ text-align: center;
+}
+
+.page-cat-container header:hover {
+ background-color: rgba(0, 0, 0, 0);
+}
+
+
+/* change la couleur du menu burger en noir (page categorie) pour une page sur fond blanc */
+
+.page-cat-container .hamburger__icon {
+ background-color: black;
+}
+
+.page-cat-container .hamburger__icon::before {
+ background-color: black;
+}
+
+.page-cat-container .hamburger__icon::after {
+ background-color: black;
+}
+
+
+/* change la couleur du menu burger en blanc (page sous categorie) pour une page sur fond blanc */
+
+.page-sous-cat-container .hamburger__icon {
+ background-color: white;
+}
+
+.page-sous-cat-container .hamburger__icon::before {
+ background-color: white;
+}
+
+.page-sous-cat-container .hamburger__icon::after {
+ background-color: white;
+}
+
+.cta-center {
+ position: absolute;
+ z-index: 7;
+ top: 50%;
+ width: 100%;
+ margin: 0 auto;
+ margin-top: 20px;
+ background-color: red;
+}

@@ -24,7 +24,7 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 		
 		<label style="color:white;"><h3>Créer un nouvel utilisateur</h3></label>
 		
-		<form role="form" name="form" action="" method="post" style= "margin: 0 auto;">
+			<form role="form" name="form" action="" method="post" style= "margin: 0 auto;">
 		     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 		
 		    <div>
@@ -56,7 +56,7 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 		        <label for="principalRole">Rôle :</label><br></br>
 		        <select name="principalRole"> 
 		        	<option selected="selected"></option>
-		        	<option th:each="role : ${principalRole}" th:value="${role}" 
+		        	<option th:each="role : ${principalRole}" th:value="${role.text}"
 		        			th:text="${role.text}" th:selected="null"/>
 		        </select>
 		    </div>
@@ -65,7 +65,7 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 		        <label for="additionalRole">Rôle Additionnel :</label><br></br>
 		        <select name="additionalRole"> 
 		        	<option selected="selected"></option>
-		        	<option th:each="role : ${additionalRole}" th:value="${role}" 
+		        	<option th:each="role : ${additionalRole}" th:value="${role.text}"
 		        			th:text="${role.text}" th:selected="null"/>
 		        </select>
 		    </div>
@@ -74,7 +74,7 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 		        <label for="department">Départment :</label><br></br>
 		        <select name="department"> 
 		        	<option selected="selected"></option>
-		        	<option th:each="department : ${departments}" th:value="${department}" 
+		        	<option th:each="department : ${departments}" th:value="${department.text}"
 		        			th:text="${department.text}" th:selected="null"/>
 		        </select>
 		    </div>
@@ -83,7 +83,7 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 		        <label for="state">Etat :</label><br></br>
 		        <select name="state"> 
 		        	<option selected="selected"></option>
-		        	<option th:each="state : ${states}" th:value="${state}" 
+		        	<option th:each="state : ${states}" th:value="${state.text}"
 		        			th:text="${state.text}" th:selected="null"/>
 		        </select>
 		    </div>

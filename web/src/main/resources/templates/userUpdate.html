@@ -44,7 +44,7 @@
 		    <div>
 				<label for="state">Etat (actuel : <label th:text="${oldState}"></label>) : </label><br></br>
 		        <select name="state"> 
-		        	<option th:each="state : ${states}" th:value="${state}" 
+		        	<option th:each="state : ${states}" th:value="${state.text}"
 		        			th:text="${state.text}" th:selected="null"/>
 		        </select>
 		    </div>
@@ -52,7 +52,7 @@
 		    <div>
 		        <label for="department">Départment (actuel : <label th:text="${oldDepartment}"></label>) : </label><br></br>
 			        <select name="department"> 
-		        	<option th:each="department : ${departments}" th:value="${department}" 
+		        	<option th:each="department : ${departments}" th:value="${department.text}"
 		        			th:text="${department.text}" th:selected="null"/>
 		        </select>
 		    </div>
