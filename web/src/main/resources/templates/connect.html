@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+xmlns:th="http://www.thymeleaf.org" 
+xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+	<head> 
+	
+		<div th:include="/fragments/extranetStyle"/>
+		<title>Connected</title>
+		
+	</head>
+	<body>
+		<header>
+	        <nav class="container">
+	            <div class="logo-nav">
+					<img class="" src="../static/img" th:src="@{img/RubisLogoV2-FullColor.png}"/>
+	            </div>
+	            <div class="fat-nav">
+	
+	                <div class="fat-nav__wrapper ">
+	                    <div class="logo-fatNav"><a href="index.html"></a>
+	                    	<img class="" src="../static/img" th:src="@{img/RubisLogoV2-WhiteV.png}"/>
+	
+	                    </div>
+	                    <div th:include="/fragments/extranetBurgerMenu"/>
+	                </div>
+	            </div>
+	
+	        </nav>
+	
+	    </header>
+	
+	    <script src="js/jquery.bxslider.js" type="text/javascript">
+	    </script>
+	
+	    <script src="dist/jquery.fatNav.js"></script>
+	    <script>
+	        (function() {
+	
+	            $.fatNav();
+	
+	        }());
+	    </script>
+	    <script type="text/javascript">
+	        $(document).ready(function() {
+	            $('.bxslider').bxSlider({
+	                adaptiveHeight: true
+	            });
+	        });
+	    </script>
+	</body>
+	
+	<!-- footer -->
+	<div th:include="/fragments/footer"/>
+</html>
