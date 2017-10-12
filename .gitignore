@@ -116,10 +116,12 @@ modules.xml
 
 # My Adds
 
-/build/
-/.project
-/out
+build/
+gradle/
+out/
+upload-dir/
+
+.project
 .settings
 .idea
 .gradle
-gradle
