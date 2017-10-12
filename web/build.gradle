@@ -1,0 +1,62 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.3.3.RELEASE")
+    }
+}
+
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'spring-boot'
+apply plugin: 'java'
+apply plugin: 'application'
+
+run {
+    args 'sample'
+}
+
+jar {
+    baseName = 'com.ruby.web'
+    version =  '1.0.0-SNAPSHOT'
+}
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+dependencies{
+    compile project(':api')
+    compile project(':domain')
+    compile project(':impl')
+
+    compile 'org.springframework.boot:spring-boot-devtools'
+
+    compile 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    compile 'org.springframework.boot:spring-boot-devtools'
+    compile 'org.springframework.boot:spring-boot-starter-data-jpa'
+    compile 'org.springframework.boot:spring-boot-starter-security'
+    compile 'org.springframework.boot:spring-boot-starter-mail'
+    compile 'org.springframework.boot:spring-boot-starter-websocket'
+    //file server
+    compile 'org.springframework.boot:spring-boot-starter-hateoas'
+    compile 'org.springframework.boot:spring-boot-starter-jersey'
+
+    compile 'org.thymeleaf.extras:thymeleaf-extras-tiles2-spring4:2.1.1.RELEASE'
+    compile 'org.springframework:spring-messaging'
+    compile 'org.webjars:bootstrap:3.3.4'
+    compile 'org.webjars:jquery:2.1.4'
+    compile 'org.glassfish:javax.json:1.0.2'
+
+    runtime 'mysql:mysql-connector-java'
+
+    testCompile 'junit:junit'
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.3'
+}
